@@ -28,11 +28,12 @@ maintained by Maidware Project.
 
 ## know your patch
 
-- understand every line you submit - including AI-written parts. if you
-  can't explain what a line does, don't send it. "the AI wrote it" is
-  never an explanation.
-- it's plain html, css and vanilla js with no build step - if a change
-  needs a toolchain, that's a reason to say no, not a reason to add one.
+understand every line you send, assistant-written parts included. if you
+can't say what a line does, drop it. "the assistant wrote it" doesn't
+answer the question.
+
+it's plain html, css and vanilla js, no build step. if a change needs a
+toolchain, that's a reason to skip the change, not to add one.
 
 ## issues
 

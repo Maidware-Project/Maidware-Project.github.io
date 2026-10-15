@@ -1,12 +1,14 @@
-# Review checklist - pass all five before any change ships
+# review checklist
 
-1. **Plain words.** Could a non-technical friend follow the page diff
-   with no help? Nothing reads like marketing.
-2. **Every link works.** `python3 tests/check.py` green - tags balance,
-   local assets exist, every `#anchor` lands somewhere.
-3. **Readable in every theme.** Check the changed page in a light and a
-   dark theme; body and secondary text keep their contrast.
-4. **Pages agree.** A nav, footer or theme change touched index, guides
-   and help together - no page left behind.
-5. **Still no build step.** Plain files, nothing fetched at load beyond
-   the GitHub star count, which fails away quietly.
+run through these before a change ships.
+
+1. could a non-technical friend follow the page diff? nothing should read
+   like marketing.
+2. `python3 tests/check.py` is green: tags balance, local assets exist,
+   and every `#anchor` lands somewhere.
+3. look at the changed page in a light and a dark theme. body and
+   secondary text keep their contrast.
+4. pages agree. a nav, footer or theme change touched index, guides and
+   help together.
+5. still no build step. the only thing fetched at load is the GitHub star
+   count, and it's fine for that to fail.
