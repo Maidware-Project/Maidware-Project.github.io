@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="maidware">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="doc.title.conduct">Code of conduct — Maidware Project</title>
+<meta name="description" content="how this project is run: technical problems get technical answers. no politics, stay on topic, treat people neutrally." data-i18n-attr="content:doc.description.conduct">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem('maidware-theme');if(t)document.documentElement.setAttribute('data-theme',t);var l=localStorage.getItem('maidware-lang');if(l){document.documentElement.lang=l;document.documentElement.dir=(l==='he')?'rtl':'ltr';}}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">maidware<span class="sub">project</span></a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="index.html" data-i18n="nav.home">home</a>
+      <a href="index.html#suite" data-i18n="nav.tools">tools</a>
+      <a href="index.html#idea" data-i18n="nav.why">why</a>
+      <a href="guides.html" data-i18n="nav.guides">guides</a>
+      <a href="help.html" data-i18n="nav.help">help</a>
+      <a href="https://github.com/Maidware-Project">github</a>
+    </nav>
+
+    <div class="header-tools">
+      <div class="menu-wrap" hidden>
+        <button class="tool-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+          <span id="lang-label">english</span>
+        </button>
+        <div class="theme-menu" id="lang-menu" role="menu" aria-label="Language" hidden></div>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="tool-btn" id="theme-btn" type="button" aria-expanded="false" aria-controls="theme-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <span data-i18n="theme.button">theme</span>
+        </button>
+        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
+          <p data-i18n="theme.mine">mine</p>
+          <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
+          <p data-i18n="theme.warm">warm</p>
+          <button class="theme-option" role="menuitemradio" data-theme="home" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>home</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lamplight" type="button"><span class="swatches"><i class="sw" style="background:#1e1a17"></i><i class="sw" style="background:#d18a5c"></i></span>lamplight</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mallow" type="button"><span class="swatches"><i class="sw" style="background:#fdf5f9"></i><i class="sw" style="background:#a55680"></i></span>mallow</button>
+          <button class="theme-option" role="menuitemradio" data-theme="meadow" type="button"><span class="swatches"><i class="sw" style="background:#f5f8f3"></i><i class="sw" style="background:#4a7a45"></i></span>meadow</button>
+          <p data-i18n="theme.cool">cool</p>
+          <button class="theme-option" role="menuitemradio" data-theme="paper" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#0969da"></i></span>paper</button>
+          <button class="theme-option" role="menuitemradio" data-theme="harbor" type="button"><span class="swatches"><i class="sw" style="background:#f4f7fa"></i><i class="sw" style="background:#3a7291"></i></span>harbor</button>
+          <button class="theme-option" role="menuitemradio" data-theme="tokyo" type="button"><span class="swatches"><i class="sw" style="background:#16161e"></i><i class="sw" style="background:#7aa2f7"></i></span>tokyo night</button>
+          <button class="theme-option" role="menuitemradio" data-theme="crt" type="button"><span class="swatches"><i class="sw" style="background:#0c110d"></i><i class="sw" style="background:#4ade80"></i></span>crt</button>
+          <p>catppuccin</p>
+          <button class="theme-option" role="menuitemradio" data-theme="latte" type="button"><span class="swatches"><i class="sw" style="background:#eff1f5"></i><i class="sw" style="background:#8839ef"></i></span>latte</button>
+          <button class="theme-option" role="menuitemradio" data-theme="frappe" type="button"><span class="swatches"><i class="sw" style="background:#303446"></i><i class="sw" style="background:#ca9ee6"></i></span>frappé</button>
+          <button class="theme-option" role="menuitemradio" data-theme="macchiato" type="button"><span class="swatches"><i class="sw" style="background:#24273a"></i><i class="sw" style="background:#c6a0f6"></i></span>macchiato</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mocha" type="button"><span class="swatches"><i class="sw" style="background:#1e1e2e"></i><i class="sw" style="background:#cba6f7"></i></span>mocha</button>
+        </div>
+      </div>
+
+      <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="container">
+
+    <p class="breadcrumb"><a href="index.html" data-i18n="nav.home">home</a> / <span class="here" data-i18n="footer.conduct">code of conduct</span></p>
+
+    <div class="guide-content page-narrow">
+      <h1 data-i18n="conduct.title">code of conduct</h1>
+      <p class="lead" data-i18n="conduct.lead">
+        this project is about the software. technical problems get technical
+        answers — that is the entire scope.
+      </p>
+      <div class="divider"></div>
+
+      <h2 data-i18n="conduct.politics.title">no politics, no policing</h2>
+      <ul>
+        <li data-i18n="conduct.politics.li1">no ideological or political messaging in code, commits, comments, pull requests, issues, or docs — from any side, about anything. flags, slogans, causes, elections, wars: if that's what it is, it doesn't belong here, no matter which side it's on.</li>
+        <li data-i18n="conduct.politics.li2">nobody gets judged, silenced, or rejected for beliefs, identity, or affiliations — only contributions get judged, technically. bad code gets rejected for being bad code.</li>
+        <li data-i18n="conduct.politics.li3">pull requests adding political messaging get denied with a polite request to amend them out. repeated ones get closed.</li>
+      </ul>
+
+      <h2 data-i18n="conduct.decent.title">stay on topic, stay decent</h2>
+      <ul>
+        <li data-i18n="conduct.decent.li1">off-topic and NSFW contributions (issues, PRs, comments, code, docs) get rejected. this is a toolbox, not a forum.</li>
+        <li data-i18n="conduct.decent.li2">treat everyone neutrally: no arguing, lashing out, drama, or vendettas, regardless of who anyone is or believes. disagree about code all you like — that's the job.</li>
+      </ul>
+
+      <h2 data-i18n="conduct.standard.title">why no standard coc</h2>
+      <p data-i18n="conduct.standard.body">
+        the big-project codes of conduct have repeatedly been used to silence
+        feedback and criticism over ideological disagreements. we won't run that
+        system here. the rule above replaces it: keep politics out, judge
+        contributions technically, treat people neutrally.
+      </p>
+
+      <p class="note" data-i18n="conduct.source">
+        this page mirrors <a href="https://github.com/Maidware-Project/maidware.github.io/blob/main/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a> in the repo, which is the file GitHub points contributors to.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>maidware project</h4>
+        <p data-i18n="footer.about">scripts for the parts of linux i got tired of doing by hand.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.tools">tools</h4>
+        <ul>
+          <li><a href="https://github.com/Maidware-Project/Maidshare">Maidshare</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maid-Runner">Maid Runner</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maid-BT">Maid BT</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maid-Helper">Maid Helper</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.elsewhere">elsewhere</h4>
+        <ul>
+          <li><a href="guides.html" data-i18n="nav.guides">guides</a></li>
+          <li><a href="help.html" data-i18n="nav.help">help</a></li>
+          <li><a href="conduct.html" aria-current="page" data-i18n="footer.conduct">code of conduct</a></li>
+          <li><a href="https://github.com/Maidware-Project" data-i18n="footer.org">github org</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Maidware Project</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
