@@ -1,7 +1,7 @@
-# maidware.github.io — the website for the maidware project
+# maidware.github.io - the website for the maidware project
 
 the landing page and the guides for the five maid tools. plain html and
-css, no build step — the files in this repo are the site github pages
+css, no build step - the files in this repo are the site github pages
 serves.
 
 category: docs
@@ -22,7 +22,7 @@ edit a file, refresh the page. that's the whole workflow.
 ```
 index.html      home: the rules, the five tools, the guide links
 guides.html     per-tool setup, requirements per distro, troubleshooting
-help.html       patches over donations — how to help, translations
+help.html       patches over donations - how to help, translations
 conduct.html    how the project is run (mirrors CODE_OF_CONDUCT.md)
 css/style.css   the layout and every theme, as css variables
 js/main.js      theme menu, mobile nav, copy buttons, star counts, toc
@@ -35,7 +35,7 @@ assets/icons/   favicon
 
 every theme is one block of variables in `css/style.css`. to add one,
 copy a block, change the colours, and add a matching button to the theme
-menu on each page — the two swatch dots are that theme's background and
+menu on each page - the two swatch dots are that theme's background and
 accent. `maidware` is the default and the one actually run day to day.
 
 ## adding a guide
@@ -49,15 +49,15 @@ it up on its own. command samples use `<pre class="code-block">`, with
 
 **help us do translations.** we at maidware project need help with
 translations, and we want translators to help us. english is the only
-language right now, on purpose — `js/i18n.js` holds the recipe: drop a
+language right now, on purpose - `js/i18n.js` holds the recipe: drop a
 `js/lang/<code>.js` beside it and add the language to the list. the
 switcher stays hidden until there is a second language. the repo would
 rather ship none than machine-made strings, so what we want is a
-hand-written set — write to maidwareproject@proton.me.
+hand-written set - write to maidwareproject@proton.me.
 
 ## deploying
 
-push to `main`. github pages rebuilds and serves the repo — nothing to run
+push to `main`. github pages rebuilds and serves the repo - nothing to run
 and no artifacts to store. the project site url is
 https://maidware-project.github.io/maidware.github.io/
 
@@ -65,12 +65,12 @@ https://maidware-project.github.io/maidware.github.io/
 
 the site documents all five, one category each:
 
-- [Maidshare](https://github.com/Maidware-Project/Maidshare) — files & sharing
-- [Maid Runner](https://github.com/Maidware-Project/Maid-Runner) — launcher
-- [Maid AU](https://github.com/Maidware-Project/Maid-AU) — system updates
-- [Maid BT](https://github.com/Maidware-Project/Maid-BT) — audio
-- [Maid Helper](https://github.com/Maidware-Project/Maid-Helper) — repair
+- [Maidshare](https://github.com/Maidware-Project/Maidshare) - files & sharing
+- [Maid Runner](https://github.com/Maidware-Project/Maid-Runner) - launcher
+- [Maid AU](https://github.com/Maidware-Project/Maid-AU) - system updates
+- [Maid BT](https://github.com/Maidware-Project/Maid-BT) - audio
+- [Maid Helper](https://github.com/Maidware-Project/Maid-Helper) - repair
 
 ## License
 
-MIT — see LICENSE. a Maidware Project, Forkable open source tools served to help
+MIT - see LICENSE. a Maidware Project, Forkable open source tools served to help

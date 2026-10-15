@@ -1,4 +1,4 @@
-/* Maidware Project — small, dependency-free site behaviour */
+/* Maidware Project - small, dependency-free site behaviour */
 (function () {
   "use strict";
 
@@ -131,7 +131,7 @@
     });
   });
 
-  /* live star counts — the page works fine without this */
+  /* live star counts - the page works fine without this */
 
   var counters = document.querySelectorAll(".stars[data-repo]");
 

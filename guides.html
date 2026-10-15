@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="doc.title.guides">Guides — Maidware Project</title>
+<title data-i18n="doc.title.guides">Guides - Maidware Project</title>
 <meta name="description" content="install and setup notes for maidshare, maid runner, maid au, maid bt and maid helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
@@ -124,7 +124,7 @@
           <p data-i18n="qs.independent">
             the installers don't know about each other. there's no suite-wide installer, and
             removing one tool leaves the rest alone. everything goes under your home
-            directory — <code>~/.local/bin</code> and friends — never into <code>/usr</code>.
+            directory - <code>~/.local/bin</code> and friends - never into <code>/usr</code>.
           </p>
 
           <h3 data-i18n="qs.keybind.title">bind a key to the runner</h3>
@@ -186,11 +186,11 @@
             <pre class="code-block"><span class="p">$</span> bash install.sh   <span class="c"># app + six rofi themes + launcher</span>
 <span class="p">$</span> maid-runner</pre>
             <ul>
-              <li data-i18n="t.runner.li1"><strong>applications</strong> — read from the same xdg menu data plasma shows. respects NoDisplay/Hidden/TryExec, flatpak exports included</li>
-              <li data-i18n="t.runner.li2"><strong>maid</strong> — every action in the suite. leave the query empty to list them all</li>
-              <li data-i18n="t.runner.li3"><strong>run</strong> — binaries on your PATH, always opened in a terminal so the cli ones work</li>
-              <li data-i18n="t.runner.li4"><strong>calculator</strong> — an ast allowlist, never <code>eval</code>. enter copies the result</li>
-              <li data-i18n="t.runner.li5"><strong>web</strong> — <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls, duckduckgo for everything else</li>
+              <li data-i18n="t.runner.li1"><strong>applications</strong> - read from the same xdg menu data plasma shows. respects NoDisplay/Hidden/TryExec, flatpak exports included</li>
+              <li data-i18n="t.runner.li2"><strong>maid</strong> - every action in the suite. leave the query empty to list them all</li>
+              <li data-i18n="t.runner.li3"><strong>run</strong> - binaries on your PATH, always opened in a terminal so the cli ones work</li>
+              <li data-i18n="t.runner.li4"><strong>calculator</strong> - an ast allowlist, never <code>eval</code>. enter copies the result</li>
+              <li data-i18n="t.runner.li5"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls, duckduckgo for everything else</li>
             </ul>
             <p data-i18n="t.runner.fallback">
               no pyqt6, or no display? it runs the rofi fallback with one of six themes:
@@ -213,7 +213,7 @@
             </p>
             <pre class="code-block"><span class="p">$</span> bash install.sh              <span class="c"># deps (sudo) + copy + launcher</span>
 <span class="p">$</span> update-all.sh --check        <span class="c"># dry run, change nothing</span>
-<span class="p">$</span> update-all.sh                <span class="c"># real run — snapshots first</span>
+<span class="p">$</span> update-all.sh                <span class="c"># real run - snapshots first</span>
 <span class="p">$</span> UPDATE_PM=pacman ./bin/update-all.sh --check</pre>
             <ul>
               <li data-i18n="t.au.li1">a snapshot before <em>and</em> after every real run</li>
@@ -250,7 +250,7 @@
 <span class="p">$</span> bluetooth-toggle.sh release    <span class="c"># hand buds to phone, back is instant</span>
 <span class="p">$</span> bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></pre>
             <ul>
-              <li data-i18n="t.bt.li1"><code>release</code> is the everyday one — the buds stay half-connected so coming back is instant. set <code>MULTIPOINT=1</code> once if yours connect to two devices</li>
+              <li data-i18n="t.bt.li1"><code>release</code> is the everyday one - the buds stay half-connected so coming back is instant. set <code>MULTIPOINT=1</code> once if yours connect to two devices</li>
               <li data-i18n="t.bt.li2">the watcher connects the buds when they show up and parks the sound on your speakers when they disappear</li>
               <li data-i18n="t.bt.li3">optional maid watcher: on a call it pauses music, mutes discord, and puts both back when you hang up. warns at 25% and 12% battery</li>
               <li data-i18n="t.bt.li4">a tray widget with pc / phone / off buttons</li>
@@ -442,7 +442,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <p class="note" data-i18n="distros.note">
             arch: add <code>pacman-contrib</code> if you want <code>checkupdates</code> in
-            maid au — it checks for updates without touching your local database.
+            maid au - it checks for updates without touching your local database.
           </p>
         </section>
 
@@ -459,7 +459,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
           <h3 data-i18n="safety.backup.title">timestamped backups</h3>
           <p data-i18n="safety.backup.body">
             a file an installer is about to overwrite becomes
-            <code>&lt;name&gt;.bak-&lt;timestamp&gt;</code> first — but only if the contents
+            <code>&lt;name&gt;.bak-&lt;timestamp&gt;</code> first - but only if the contents
             actually differ, so reinstalling doesn't fill your home directory with copies.
           </p>
 
@@ -468,10 +468,10 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <h3 data-i18n="safety.manual.title">manual stays manual</h3>
           <ul>
-            <li data-i18n="safety.manual.li1">reboot warnings — printed, never performed</li>
-            <li data-i18n="safety.manual.li2">bootloader edits — printed exactly, run by you</li>
-            <li data-i18n="safety.manual.li3">firmware updates — need root and a reboot, so they're described, not run</li>
-            <li data-i18n="safety.manual.li4">proprietary drivers — not offered at all</li>
+            <li data-i18n="safety.manual.li1">reboot warnings - printed, never performed</li>
+            <li data-i18n="safety.manual.li2">bootloader edits - printed exactly, run by you</li>
+            <li data-i18n="safety.manual.li3">firmware updates - need root and a reboot, so they're described, not run</li>
+            <li data-i18n="safety.manual.li4">proprietary drivers - not offered at all</li>
           </ul>
 
           <h3 data-i18n="safety.dl.title">no downloads, ever</h3>
@@ -491,7 +491,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <h3 data-i18n="faq.services.title">do these install background services?</h3>
           <p data-i18n="faq.services.body">
-            maidshare, maid runner, maid au and maid helper don't — they run when you call
+            maidshare, maid runner, maid au and maid helper don't - they run when you call
             them and exit. maid bt ships optional systemd units for its watcher and phone
             listener. maid watcher runs as a normal user process through xdg autostart, so
             it doesn't care which init you use.
@@ -508,15 +508,15 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
           <h3 data-i18n="faq.broken.title">something didn't work</h3>
           <ol>
             <li data-i18n="faq.broken.li1">re-run the installer with <code>--check</code> and read the backend report</li>
-            <li data-i18n="faq.broken.li2">run the module in <code>check</code> mode — exit 2 means it still needs attention</li>
+            <li data-i18n="faq.broken.li2">run the module in <code>check</code> mode - exit 2 means it still needs attention</li>
             <li data-i18n="faq.broken.li3">open an issue with that output. every script prints plain english lines for exactly this</li>
           </ol>
 
           <h3 data-i18n="faq.alone.title">can i use one without the others?</h3>
           <p data-i18n="faq.alone.body">
             yes. they're separate packages with separate installers. the parts that reach
-            across the suite — the runner's maid tab, the helper handing gamepad work to
-            maid au on opensuse — just quietly do less when something's missing.
+            across the suite - the runner's maid tab, the helper handing gamepad work to
+            maid au on opensuse - just quietly do less when something's missing.
           </p>
 
           <div class="callout">
@@ -553,11 +553,11 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
       <div>
         <h4 data-i18n="footer.tools">tools</h4>
         <ul>
-          <li><a href="https://github.com/Maidware-Project/Maidshare">Maidshare</a></li>
-          <li><a href="https://github.com/Maidware-Project/Maid-Runner">Maid Runner</a></li>
-          <li><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></li>
-          <li><a href="https://github.com/Maidware-Project/Maid-BT">Maid BT</a></li>
-          <li><a href="https://github.com/Maidware-Project/Maid-Helper">Maid Helper</a></li>
+          <li><a href="guides.html#guide-maidshare">Maidshare</a></li>
+          <li><a href="guides.html#guide-maid-runner">Maid Runner</a></li>
+          <li><a href="guides.html#guide-maid-au">Maid AU</a></li>
+          <li><a href="guides.html#guide-maid-bt">Maid BT</a></li>
+          <li><a href="guides.html#guide-maid-helper">Maid Helper</a></li>
         </ul>
       </div>
       <div>

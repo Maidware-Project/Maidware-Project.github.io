@@ -4,7 +4,7 @@
    ========================================================================== */
 
 :root {
-  /* HOME — warm paper */
+  /* HOME - warm paper */
   --bg: #faf7f2;
   --bg-soft: #f3ede4;
   --surface: #ffffff;
@@ -136,7 +136,7 @@
   --prompt: #d7c94a;
 }
 
-/* catppuccin — the four flavours */
+/* catppuccin - the four flavours */
 
 [data-theme="latte"] {
   --bg: #eff1f5;
@@ -202,7 +202,7 @@
   --prompt: #a6e3a1;
 }
 
-/* maidware — this is the one i actually run. plasma's TokyoNight scheme with a teal accent. */
+/* maidware - this is the one i actually run. plasma's TokyoNight scheme with a teal accent. */
 
 [data-theme="maidware"] {
   --bg: #1a1b26;
@@ -283,7 +283,7 @@ h2 { font-size: 1.5rem; }
 h3 { font-size: 1.12rem; }
 p { margin: 0 0 16px; }
 
-/* header — just a line of links, nothing more */
+/* header - just a line of links, nothing more */
 
 .site-header {
   position: sticky;
@@ -325,7 +325,7 @@ p { margin: 0 0 16px; }
 
 .header-tools { display: flex; align-items: center; gap: 8px; }
 
-/* pickers — theme and language */
+/* pickers - theme and language */
 
 .menu-wrap { position: relative; }
 
@@ -440,7 +440,7 @@ p { margin: 0 0 16px; }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .btn-primary:hover { color: var(--bg); opacity: 0.9; }
 
-/* sections — separated by air, not by frames */
+/* sections - separated by air, not by frames */
 
 .section { padding: 70px 0; }
 .section + .section { border-top: 1px solid var(--border); }
@@ -462,7 +462,7 @@ p { margin: 0 0 16px; }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb .here { color: var(--accent); }
 
-/* a plain single-column page — help, and anything else that isn't a guide */
+/* a plain single-column page - help, and anything else that isn't a guide */
 
 .page-narrow { max-width: 68ch; padding: 30px 0 80px; }
 .page-narrow h1 { margin-bottom: 16px; }
@@ -470,7 +470,7 @@ p { margin: 0 0 16px; }
 .page-narrow p strong { color: var(--text); }
 .page-narrow .lead { font-size: 1.12rem; color: var(--text); margin-bottom: 22px; }
 
-/* principles — six small boxes, because they hold up on their own */
+/* principles - six small boxes, because they hold up on their own */
 
 .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 18px; }
 
@@ -490,7 +490,7 @@ p { margin: 0 0 16px; }
 .rule h3 { font-size: 1.03rem; margin-bottom: 6px; }
 .rule p { margin: 0; color: var(--muted); font-size: 0.93rem; }
 
-/* projects — open, no frames */
+/* projects - open, no frames */
 
 .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px 48px; }
 
@@ -624,7 +624,7 @@ pre.code-block .p { color: var(--prompt); }
 .callout p { margin: 0; font-size: 0.93rem; color: var(--muted); }
 .callout strong { color: var(--text); }
 
-/* per-tool requirements — stacked rows, never a horizontal scroll */
+/* per-tool requirements - stacked rows, never a horizontal scroll */
 
 .req-group { margin-top: 32px; }
 .req-group h3 { font-size: 1rem; margin-bottom: 6px; }
@@ -660,7 +660,7 @@ pre.code-block .p { color: var(--prompt); }
 .pkg code { font-size: 0.84rem; }
 .pkg em { font-style: normal; color: var(--muted); opacity: 0.85; }
 
-/* cta — just words and two buttons */
+/* cta - just words and two buttons */
 
 .cta { text-align: center; padding: 20px 0 8px; }
 .cta h2 { margin-bottom: 12px; }
@@ -768,7 +768,7 @@ pre.code-block .p { color: var(--prompt); }
 .tool-block ul { margin-bottom: 14px; }
 
 /* ==========================================================================
-   responsive — one fluid column that grows into a layout, never the reverse
+   responsive - one fluid column that grows into a layout, never the reverse
    ========================================================================== */
 
 /* tablets and small laptops: drop the sidebar to chips */
@@ -875,7 +875,7 @@ pre.code-block .p { color: var(--prompt); }
 }
 
 /* ==========================================================================
-   right to left — for hebrew
+   right to left - for hebrew
    ========================================================================== */
 
 [dir="rtl"] .theme-menu { right: auto; left: 0; }

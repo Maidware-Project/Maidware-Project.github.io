@@ -53,7 +53,7 @@ class Page(HTMLParser):
 def main():
     pages = sorted(f for f in os.listdir(".") if f.endswith(".html"))
     if not pages:
-        print("no html files here — run from the repo root")
+        print("no html files here - run from the repo root")
         return 1
 
     parsed = {}
@@ -85,7 +85,7 @@ def main():
             print("  " + p)
         return 1
 
-    print("ok — %d page(s): tags balance, every local asset and anchor resolves"
+    print("ok - %d page(s): tags balance, every local asset and anchor resolves"
           % len(pages))
     return 0
 

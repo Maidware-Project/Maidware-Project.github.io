@@ -1,4 +1,4 @@
-/* Maidware Project — translations.
+/* Maidware Project - translations.
 
    english is the page itself. the text in the html is the source of truth,
    and the data-i18n keys on elements are just handles so a translation can
@@ -7,7 +7,7 @@
    to add a language:
      1. write js/lang/<code>.js that sets
           window.MAIDWARE_I18N.<code> = { "hero.title": "…", "nav.home": "…" }
-        use only the keys you have — anything missing falls back to the html.
+        use only the keys you have - anything missing falls back to the html.
      2. add it to LANGS below with its native name, and dir: "rtl" for
         hebrew or arabic, otherwise "ltr".
 

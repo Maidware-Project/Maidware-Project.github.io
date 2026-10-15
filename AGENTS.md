@@ -1,6 +1,6 @@
-# AGENTS.md — maidware.github.io (for AI assistants; humans see README.md)
+# AGENTS.md - maidware.github.io (for AI assistants; humans see README.md)
 
-One maintainer plus friends helping out — keep every change small,
+One maintainer plus friends helping out - keep every change small,
 reviewable, and justified. No drive-by refactors, no new dependencies
 without asking, and no build step, ever.
 
@@ -12,11 +12,11 @@ a skipped step behind vague wording.
 
 People over AI, always: this project is human-built and human-reviewed.
 AI assists, humans decide. Write code, messages, and docs a person can
-follow with no assistant involved — clear names, plain language, no
+follow with no assistant involved - clear names, plain language, no
 cleverness. The goal is users who understand their system, not users
 dependent on one.
 
-Static site for the five Maid tools. Plain html, css and vanilla js —
+Static site for the five Maid tools. Plain html, css and vanilla js -
 the files in this repo are the site GitHub Pages serves. Lowercase terse
 voice, in the pages and in the docs.
 
@@ -45,9 +45,9 @@ voice, in the pages and in the docs.
 
 ## Verify
 
-- `python3 tests/check.py` — tags balance, local assets and anchors resolve
+- `python3 tests/check.py` - tags balance, local assets and anchors resolve
 - `node --check js/main.js` and `node --check js/i18n.js`
-- `python3 -m http.server 8000` — click through index, guides and help
+- `python3 -m http.server 8000` - click through index, guides and help
 - Readable in every theme: body and secondary text keep contrast
 
 Before finishing: pass docs/REVIEW.md.
