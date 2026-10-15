@@ -363,6 +363,65 @@
     </div>
   </section>
 
+  <section class="section" id="cost">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker" data-i18n="cost.kicker">the cost</span>
+        <h2 data-i18n="cost.title">what it costs to run</h2>
+        <p data-i18n="cost.intro">none of these sit in memory waiting. each is a shell or python script that runs and exits, so idle costs nothing. the one piece that stays on is the bluetooth fallback loop.</p>
+      </div>
+
+      <div class="perf-wrap">
+        <table class="perf">
+          <thead>
+            <tr>
+              <th data-i18n="cost.th.piece">piece</th>
+              <th data-i18n="cost.th.idle">idle</th>
+              <th data-i18n="cost.th.work">while working</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">MaidShare</th>
+              <td class="idle" data-i18n="cost.share.idle">nothing</td>
+              <td data-i18n="cost.share.work">~25 MB during a transfer, one python thread, gone the moment it ends</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid Runner</th>
+              <td class="idle" data-i18n="cost.runner.idle">nothing</td>
+              <td data-i18n="cost.runner.work">~60 MB while the window is open (PyQt6), nothing once it is closed</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid AU</th>
+              <td class="idle" data-i18n="cost.au.idle">nothing</td>
+              <td data-i18n="cost.au.work">a script that exits. the peak belongs to your package manager, not the tool</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid BT</th>
+              <td class="idle" data-i18n="cost.bt.idle">~4 MB</td>
+              <td data-i18n="cost.bt.work">+~29 MB for the call watcher, +~24 MB for phone remote, both off until you ask</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid Helper</th>
+              <td class="idle" data-i18n="cost.helper.idle">nothing</td>
+              <td data-i18n="cost.helper.work">one script per module, exits when the module is done</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="perf-note" data-i18n="cost.note">idle is what stays resident between uses; the working figures are one short-lived process each. measured on a normal desktop, so yours will differ a little.</p>
+
+      <ul class="perf-why">
+        <li data-i18n="cost.why1">shell and python only: no electron, no bundled browser, no node runtime</li>
+        <li data-i18n="cost.why2">nothing runs in the background per tool; the watcher, phone remote and tray all ship off</li>
+        <li data-i18n="cost.why3">maid bt reacts to system events instead of polling in a tight loop</li>
+        <li data-i18n="cost.why4">no build step: the installer copies files into your home directory</li>
+        <li data-i18n="cost.why5">this site is static html: no trackers, no analytics, nothing loaded from another server</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section" id="guides">
     <div class="container">
       <div class="section-head">

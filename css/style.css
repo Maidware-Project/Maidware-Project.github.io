@@ -621,6 +621,21 @@ pre.code-block .p { color: var(--prompt); }
 .moment h3 { font-size: 1.02rem; margin-bottom: 6px; }
 .moment p { margin: 0; font-size: 0.91rem; color: var(--muted); }
 
+/* cost - what each tool spends while it runs */
+.perf-wrap { overflow-x: auto; }
+.perf { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.perf th, .perf td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.perf thead th { color: var(--muted); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--border-strong); }
+.perf tbody th { font-weight: 600; white-space: nowrap; }
+.perf .idle { white-space: nowrap; color: var(--text); font-variant-numeric: tabular-nums; }
+.perf tbody tr:last-child th, .perf tbody tr:last-child td { border-bottom: 0; }
+.perf-note { margin: 18px 0 0; color: var(--muted); font-size: 0.86rem; max-width: 70ch; }
+.perf-why { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; max-width: 70ch; }
+.perf-why li { position: relative; padding-left: 16px; font-size: 0.92rem; color: var(--muted); }
+.perf-why li::before { content: "·"; position: absolute; left: 3px; color: var(--accent); font-weight: 700; }
+[dir="rtl"] .perf-why li { padding-left: 0; padding-right: 16px; }
+[dir="rtl"] .perf-why li::before { left: auto; right: 3px; }
+
 /* guide links */
 
 .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 34px 44px; }
