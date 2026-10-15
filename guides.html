@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="doc.title.guides">Guides - Maidware Project</title>
-<meta name="description" content="install and setup notes for maidshare, maid runner, maid au, maid bt and maid helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
+<meta name="description" content="install and setup notes for MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
+<link rel="canonical" href="https://maidware-project.github.io/maidware.github.io/guides.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maidware Project">
+<meta property="og:title" content="Guides - Maidware Project">
+<meta property="og:description" content="install and setup notes for the five Maid tools: per-distro packages, dry runs and backups, and the usual fixes.">
+<meta property="og:url" content="https://maidware-project.github.io/maidware.github.io/guides.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Guides - Maidware Project">
+<meta name="twitter:description" content="install and setup notes for the five Maid tools.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
@@ -79,11 +88,11 @@
         <h2 data-i18n="toc.heading">on this page</h2>
         <ul>
           <li><a href="#quick-start" data-i18n="toc.quick">getting started</a></li>
-          <li><a href="#guide-maidshare" class="sub" data-i18n="toc.share">maidshare</a></li>
-          <li><a href="#guide-maid-runner" class="sub" data-i18n="toc.runner">maid runner</a></li>
-          <li><a href="#guide-maid-au" class="sub" data-i18n="toc.au">maid au</a></li>
-          <li><a href="#guide-maid-bt" class="sub" data-i18n="toc.bt">maid bt</a></li>
-          <li><a href="#guide-maid-helper" class="sub" data-i18n="toc.helper">maid helper</a></li>
+          <li><a href="#guide-maidshare" class="sub" data-i18n="toc.share">MaidShare</a></li>
+          <li><a href="#guide-maid-runner" class="sub" data-i18n="toc.runner">Maid Runner</a></li>
+          <li><a href="#guide-maid-au" class="sub" data-i18n="toc.au">Maid AU</a></li>
+          <li><a href="#guide-maid-bt" class="sub" data-i18n="toc.bt">Maid BT</a></li>
+          <li><a href="#guide-maid-helper" class="sub" data-i18n="toc.helper">Maid Helper</a></li>
           <li><a href="#distros" data-i18n="toc.distros">what each tool needs</a></li>
           <li><a href="#safety" data-i18n="toc.safety">backups and dry runs</a></li>
           <li><a href="#faq" data-i18n="toc.faq">troubleshooting</a></li>
@@ -151,7 +160,7 @@
               <span class="tag">shell</span>
               <span class="tag">kde connect · adb · qr</span>
             </div>
-            <h3>Maidshare</h3>
+            <h3>MaidShare</h3>
             <p data-i18n="t.share.body">
               it tries the backends in order and takes the first one that works. kde connect
               is best, if the phone is paired on the same wifi; usb/adb needs no network at
@@ -306,7 +315,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
           </p>
 
           <div class="req-group">
-            <h3>Maidshare</h3>
+            <h3>MaidShare</h3>
             <dl class="reqs">
               <div class="req">
                 <dt data-i18n="req.share.kde">kde connect backend</dt>
@@ -442,7 +451,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <p class="note" data-i18n="distros.note">
             arch: add <code>pacman-contrib</code> if you want <code>checkupdates</code> in
-            maid au - it checks for updates without touching your local database.
+            Maid AU - it checks for updates without touching your local database.
           </p>
         </section>
 
@@ -464,7 +473,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
           </p>
 
           <h3 data-i18n="safety.snap.title">snapshots around updates</h3>
-          <p data-i18n="safety.snap.body">maid au takes one before and after a real run. between that and the dry run you can see the whole update coming, and roll back if the summary ends up PARTIAL.</p>
+          <p data-i18n="safety.snap.body">Maid AU takes one before and after a real run. between that and the dry run you can see the whole update coming, and roll back if the summary ends up PARTIAL.</p>
 
           <h3 data-i18n="safety.manual.title">manual stays manual</h3>
           <ul>
@@ -484,15 +493,15 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <h3 data-i18n="faq.logs.title">where are the logs?</h3>
           <ul>
-            <li data-i18n="faq.logs.li1">maid au → <code>~/.local/share/update-all.log</code></li>
-            <li data-i18n="faq.logs.li2">maidshare → force a backend so you see its output directly</li>
-            <li data-i18n="faq.logs.li3">the maid bt watcher → journalctl, or the tray widget if you started it that way</li>
+            <li data-i18n="faq.logs.li1">Maid AU → <code>~/.local/share/update-all.log</code></li>
+            <li data-i18n="faq.logs.li2">MaidShare → force a backend so you see its output directly</li>
+            <li data-i18n="faq.logs.li3">the Maid BT watcher → journalctl, or the tray widget if you started it that way</li>
           </ul>
 
           <h3 data-i18n="faq.services.title">do these install background services?</h3>
           <p data-i18n="faq.services.body">
-            maidshare, maid runner, maid au and maid helper don't - they run when you call
-            them and exit. maid bt ships optional systemd units for its watcher and phone
+            MaidShare, Maid Runner, Maid AU and Maid Helper don't - they run when you call
+            them and exit. Maid BT ships optional systemd units for its watcher and phone
             listener. maid watcher runs as a normal user process through xdg autostart, so
             it doesn't care which init you use.
           </p>
@@ -516,7 +525,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
           <p data-i18n="faq.alone.body">
             yes. they're separate packages with separate installers. the parts that reach
             across the suite - the runner's maid tab, the helper handing gamepad work to
-            maid au on opensuse - just quietly do less when something's missing.
+            Maid AU on opensuse - just quietly do less when something's missing.
           </p>
 
           <div class="callout">
@@ -530,7 +539,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
         <section>
           <div class="cta">
             <h2 data-i18n="end.title">that's it</h2>
-            <p data-i18n="end.body">start with whichever chore annoys you most. for most people that's maid au, then the runner.</p>
+            <p data-i18n="end.body">start with whichever chore annoys you most. for most people that's Maid AU, then the runner.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#quick-start" data-i18n="end.btn1">back to quick start</a>
               <a class="btn" href="https://github.com/Maidware-Project">github</a>
@@ -553,7 +562,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
       <div>
         <h4 data-i18n="footer.tools">tools</h4>
         <ul>
-          <li><a href="guides.html#guide-maidshare">Maidshare</a></li>
+          <li><a href="guides.html#guide-maidshare">MaidShare</a></li>
           <li><a href="guides.html#guide-maid-runner">Maid Runner</a></li>
           <li><a href="guides.html#guide-maid-au">Maid AU</a></li>
           <li><a href="guides.html#guide-maid-bt">Maid BT</a></li>

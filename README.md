@@ -65,7 +65,7 @@ https://maidware-project.github.io/maidware.github.io/
 
 the site documents all five, one category each:
 
-- [Maidshare](https://github.com/Maidware-Project/Maidshare) - files & sharing
+- [MaidShare](https://github.com/Maidware-Project/Maidshare) - files & sharing
 - [Maid Runner](https://github.com/Maidware-Project/Maid-Runner) - launcher
 - [Maid AU](https://github.com/Maidware-Project/Maid-AU) - system updates
 - [Maid BT](https://github.com/Maidware-Project/Maid-BT) - audio
