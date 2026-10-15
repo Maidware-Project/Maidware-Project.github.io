@@ -524,16 +524,6 @@ p { margin: 0 0 16px; }
   gap: 16px;
   font-size: 0.88rem;
 }
-.stars {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-}
-.stars svg { color: var(--accent); }
 
 /* code */
 
@@ -882,7 +872,6 @@ pre.code-block .p { color: var(--prompt); }
 [dir="rtl"] .theme-option { text-align: right; }
 [dir="rtl"] .project li { padding-left: 0; padding-right: 16px; }
 [dir="rtl"] .project li::before { left: auto; right: 3px; }
-[dir="rtl"] .stars { margin-left: 0; margin-right: auto; }
 [dir="rtl"] .callout { border-left: none; border-right: 3px solid var(--accent); padding: 2px 18px 2px 0; }
 [dir="rtl"] .steps li { padding: 0 44px 16px 0; }
 [dir="rtl"] .steps li::before { left: auto; right: 0; }

@@ -25,7 +25,7 @@ guides.html     per-tool setup, requirements per distro, troubleshooting
 help.html       patches over donations - how to help, translations
 conduct.html    how the project is run (mirrors CODE_OF_CONDUCT.md)
 css/style.css   the layout and every theme, as css variables
-js/main.js      theme menu, mobile nav, copy buttons, star counts, toc
+js/main.js      theme menu, mobile nav, copy buttons, toc
 js/i18n.js      english-only scaffolding for adding a translation
 tests/check.py  tag, asset and anchor checker
 assets/icons/   favicon

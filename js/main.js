@@ -131,27 +131,6 @@
     });
   });
 
-  /* live star counts - the page works fine without this */
-
-  var counters = document.querySelectorAll(".stars[data-repo]");
-
-  if (counters.length && window.fetch) {
-    Array.prototype.forEach.call(counters, function (el) {
-      fetch("https://api.github.com/repos/Maidware-Project/" + el.getAttribute("data-repo"), {
-        headers: { Accept: "application/vnd.github+json" }
-      })
-        .then(function (res) { return res.ok ? res.json() : null; })
-        .then(function (data) {
-          if (data && typeof data.stargazers_count === "number") {
-            el.querySelector(".star-count").textContent = data.stargazers_count;
-          } else {
-            el.style.display = "none";
-          }
-        })
-        .catch(function () { el.style.display = "none"; });
-    });
-  }
-
   /* mark the current toc entry while scrolling the guides page */
 
   var tocLinks = document.querySelectorAll(".toc a[href^='#']");

@@ -20,7 +20,7 @@ pages and in the docs.
 - `index.html` home, `guides.html` the per-tool guides, `help.html` how
   to help, `conduct.html` how the project is run
 - `css/style.css` the whole layout and every theme, as css variables
-- `js/main.js` theme menu, mobile nav, copy buttons, star counts, toc
+- `js/main.js` theme menu, mobile nav, copy buttons, toc
 - `js/i18n.js` english-only scaffolding for adding a translation
 - `tests/check.py` tag/link checker
 
@@ -33,8 +33,7 @@ pages and in the docs.
   `feat:`, `docs:`, `chore:`), one logical change each. Sign off every
   commit (`git commit -s`); AI-assisted work adds an `Assisted-by:`
   trailer naming the tool.
-- No trackers, no analytics, no build step. The only network call is the
-  GitHub star count, and the page must work when it fails.
+- No trackers, no analytics, no build step, no network calls at all.
 - A nav or footer change touches every page at once; a new theme touches
   the menu on every page. Never leave the pages disagreeing.
 
