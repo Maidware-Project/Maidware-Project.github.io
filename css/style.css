@@ -316,7 +316,6 @@ p { margin: 0 0 16px; }
   letter-spacing: -0.02em;
 }
 .brand:hover { text-decoration: none; color: var(--accent); }
-.brand .mark { color: var(--accent); font-size: 1.1rem; }
 .brand .sub { color: var(--muted); font-weight: 400; }
 
 .site-nav { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }

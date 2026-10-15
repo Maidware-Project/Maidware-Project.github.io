@@ -1,8 +1,8 @@
 # maidware.github.io — the website for the maidware project
 
 the landing page and the guides for the five maid tools. plain html and
-css, no build step, no framework — the files in this repo are the site
-github pages serves.
+css, no build step — the files in this repo are the site github pages
+serves.
 
 category: docs
 
