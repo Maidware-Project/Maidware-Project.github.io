@@ -61,7 +61,7 @@
   --bg-soft: #1a1b26;
   --surface: #1f2130;
   --text: #c0caf5;
-  --muted: #7d86ad;
+  --muted: #8089b0;
   --accent: #7aa2f7;
   --link: #7dcfff;
   --border: #2b2f44;
@@ -77,8 +77,8 @@
   --bg-soft: #f9ecf3;
   --surface: #ffffff;
   --text: #3f3444;
-  --muted: #8a7b91;
-  --accent: #b85c8c;
+  --muted: #7a6b80;
+  --accent: #a55680;
   --link: #a54e7d;
   --border: #f2e4ed;
   --border-strong: #e2ccdb;
@@ -93,7 +93,7 @@
   --bg-soft: #edf2e9;
   --surface: #ffffff;
   --text: #26302a;
-  --muted: #6b7a6f;
+  --muted: #657469;
   --accent: #4a7a45;
   --link: #3f6c3b;
   --border: #e2eae0;
@@ -109,7 +109,7 @@
   --bg-soft: #eaf0f5;
   --surface: #ffffff;
   --text: #22303a;
-  --muted: #64798a;
+  --muted: #5e7283;
   --accent: #3a7291;
   --link: #2f6585;
   --border: #dfe7ee;
@@ -143,9 +143,9 @@
   --bg-soft: #e6e9ef;
   --surface: #ffffff;
   --text: #4c4f69;
-  --muted: #6c6f85;
+  --muted: #686b82;
   --accent: #8839ef;
-  --link: #1e66f5;
+  --link: #2363e6;
   --border: #dce0e8;
   --border-strong: #bcc0cc;
   --shadow: rgba(76, 79, 105, 0.16);
@@ -209,7 +209,7 @@
   --bg-soft: #16161d;
   --surface: #2c2d37;
   --text: #d7dae0;
-  --muted: #787c99;
+  --muted: #9295ac;
   --accent: #5cb9ae;
   --link: #5cb9ae;
   --border: #2c2d37;
@@ -463,6 +463,14 @@ p { margin: 0 0 16px; }
 .breadcrumb a { color: var(--muted); }
 .breadcrumb .here { color: var(--accent); }
 
+/* a plain single-column page — help, and anything else that isn't a guide */
+
+.page-narrow { max-width: 68ch; padding: 30px 0 80px; }
+.page-narrow h1 { margin-bottom: 16px; }
+.page-narrow p { color: var(--muted); }
+.page-narrow p strong { color: var(--text); }
+.page-narrow .lead { font-size: 1.12rem; color: var(--text); margin-bottom: 22px; }
+
 /* principles — six small boxes, because they hold up on their own */
 
 .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 18px; }
@@ -500,6 +508,7 @@ p { margin: 0 0 16px; }
   color: var(--muted);
   letter-spacing: 0.04em;
 }
+.tag.cat { color: var(--accent); }
 
 .project .tagline { color: var(--accent); font-size: 0.93rem; font-weight: 600; margin: 0 0 12px; }
 .project .blurb { color: var(--muted); font-size: 0.94rem; margin-bottom: 14px; }
