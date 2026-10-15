@@ -22,10 +22,12 @@ edit a file, refresh the page. that's the whole workflow.
 ```
 index.html      home: the rules, the five tools, the guide links
 guides.html     per-tool setup, requirements per distro, troubleshooting
-help.html       patches over donations — how to help
+help.html       patches over donations — how to help, translations
+conduct.html    how the project is run (mirrors CODE_OF_CONDUCT.md)
 css/style.css   the layout and every theme, as css variables
 js/main.js      theme menu, mobile nav, copy buttons, star counts, toc
 js/i18n.js      english-only scaffolding for adding a translation
+tests/check.py  tag, asset and anchor checker
 assets/icons/   favicon
 ```
 
@@ -45,10 +47,13 @@ it up on its own. command samples use `<pre class="code-block">`, with
 
 ## translations
 
-english only right now, on purpose. `js/i18n.js` holds the recipe: drop a
+**help us do translations.** we at maidware project need help with
+translations, and we want translators to help us. english is the only
+language right now, on purpose — `js/i18n.js` holds the recipe: drop a
 `js/lang/<code>.js` beside it and add the language to the list. the
 switcher stays hidden until there is a second language. the repo would
-rather ship none than machine-made strings.
+rather ship none than machine-made strings, so what we want is a
+hand-written set — write to maidwareproject@proton.me.
 
 ## deploying
 

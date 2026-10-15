@@ -23,7 +23,7 @@ voice, in the pages and in the docs.
 ## Layout
 
 - `index.html` home, `guides.html` the per-tool guides, `help.html` how
-  to help
+  to help, `conduct.html` how the project is run
 - `css/style.css` the whole layout and every theme, as css variables
 - `js/main.js` theme menu, mobile nav, copy buttons, star counts, toc
 - `js/i18n.js` english-only scaffolding for adding a translation
