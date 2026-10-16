@@ -260,8 +260,8 @@ body {
 
 img, svg { max-width: 100%; }
 
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 2px; }
+a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
@@ -319,7 +319,7 @@ p { margin: 0 0 16px; }
 .brand .sub { color: var(--muted); font-weight: 400; }
 
 .site-nav { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.site-nav a { color: var(--muted); font-size: 0.93rem; }
+.site-nav a { color: var(--muted); font-size: 0.93rem; border-bottom: none; }
 .site-nav a:hover { color: var(--text); }
 .site-nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
 
