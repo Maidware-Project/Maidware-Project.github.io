@@ -1,6 +1,6 @@
-# maidware.github.io
+# maidware.github.io - the website for the maidware project
 
-website for the maidware project. small forkable linux tools that help - on-demand command-line helpers. shows what they do, can preview with <code>--check</code>.
+serving you small forkable linux tools that help. on-demand, cli helpers - shows what they do, can preview with `--check`.
 
 the landing page and the guides for the five maid tools. plain html and
 css, no build step - the files in this repo are the site github pages
