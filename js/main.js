@@ -64,6 +64,77 @@
 
   /* mobile nav */
 
+  var accessBtn = document.getElementById("access-btn");
+  var accessMenu = document.getElementById("access-menu");
+
+  function closeAccessMenu() {
+    if (!accessMenu || !accessBtn) return;
+    accessMenu.hidden = true;
+    accessBtn.setAttribute("aria-expanded", "false");
+  }
+
+  if (accessBtn && accessMenu) {
+    accessBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (themeMenu) { themeMenu.hidden = true; if (themeBtn) themeBtn.setAttribute("aria-expanded", "false"); }
+      var open = accessMenu.hidden;
+      accessMenu.hidden = !open;
+      accessBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    accessMenu.addEventListener("click", function (event) {
+      var option = event.target.closest ? event.target.closest(".access-option") : null;
+      if (!option) return;
+      var type = option.getAttribute("data-access");
+      var value = option.getAttribute("data-value");
+      if (type === "text") {
+        document.documentElement.setAttribute("data-a11y-text", value === "normal" ? "" : value);
+        try { localStorage.setItem("maidware-text", value === "normal" ? "" : value); } catch (e) {}
+        accessMenu.querySelectorAll('.access-option[data-access="text"]').forEach(function (btn) {
+          btn.setAttribute("aria-checked", btn.getAttribute("data-value") === value ? "true" : "false");
+        });
+      } else if (type === "font") {
+        var on = document.documentElement.getAttribute("data-a11y-font") === "plain";
+        if (on) {
+          document.documentElement.removeAttribute("data-a11y-font");
+          try { localStorage.setItem("maidware-font", ""); } catch (e) {}
+          option.setAttribute("aria-checked", "false");
+        } else {
+          document.documentElement.setAttribute("data-a11y-font", "plain");
+          try { localStorage.setItem("maidware-font", "plain"); } catch (e) {}
+          option.setAttribute("aria-checked", "true");
+        }
+      } else if (type === "space") {
+        var son = document.documentElement.getAttribute("data-a11y-space") === "more";
+        if (son) {
+          document.documentElement.removeAttribute("data-a11y-space");
+          try { localStorage.setItem("maidware-space", ""); } catch (e) {}
+          option.setAttribute("aria-checked", "false");
+        } else {
+          document.documentElement.setAttribute("data-a11y-space", "more");
+          try { localStorage.setItem("maidware-space", "more"); } catch (e) {}
+          option.setAttribute("aria-checked", "true");
+        }
+      } else if (type === "links") {
+        var lon = document.documentElement.getAttribute("data-a11y-links") === "underline";
+        if (lon) {
+          document.documentElement.removeAttribute("data-a11y-links");
+          try { localStorage.setItem("maidware-links", ""); } catch (e) {}
+          option.setAttribute("aria-checked", "false");
+        } else {
+          document.documentElement.setAttribute("data-a11y-links", "underline");
+          try { localStorage.setItem("maidware-links", "underline"); } catch (e) {}
+          option.setAttribute("aria-checked", "true");
+        }
+      }
+      closeAccessMenu();
+    });
+    document.addEventListener("click", function (event) {
+      if (!accessMenu.hidden && !accessMenu.contains(event.target) && event.target !== accessBtn) {
+        closeAccessMenu();
+      }
+    });
+  }
+
   var navToggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("site-nav");
 
@@ -82,6 +153,7 @@
 
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
+    if (accessMenu && !accessMenu.hidden) { closeAccessMenu(); if (accessBtn) accessBtn.focus(); }
     if (themeMenu && !themeMenu.hidden) { closeThemeMenu(); themeBtn.focus(); }
     if (nav && nav.classList.contains("open")) {
       nav.classList.remove("open");

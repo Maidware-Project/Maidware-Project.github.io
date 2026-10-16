@@ -28,6 +28,15 @@
   window.MAIDWARE_I18N = window.MAIDWARE_I18N || {};
   window.MAIDWARE_LANGS = LANGS;
 
+  /* accessibility defaults */
+  try {
+    var aT = localStorage.getItem("maidware-text");
+    if (aT) document.documentElement.setAttribute("data-a11y-text", aT);
+    if (localStorage.getItem("maidware-font") === "plain") document.documentElement.setAttribute("data-a11y-font", "plain");
+    if (localStorage.getItem("maidware-space") === "more") document.documentElement.setAttribute("data-a11y-space", "more");
+    if (localStorage.getItem("maidware-links") === "underline") document.documentElement.setAttribute("data-a11y-links", "underline");
+  } catch (e) {}
+
   /* the english currently in the html, captured once so we can get back to it */
 
   var textEls = Array.prototype.slice.call(document.querySelectorAll("[data-i18n]"));
