@@ -23,7 +23,9 @@
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   --font-plain: "Atkinson Hyperlegible", "DejaVu Sans", "Liberation Sans", Verdana, Tahoma, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  --maxw: 980px;
+  /* rem, so the page grows with the reader's text size instead of the
+     text outgrowing the page. 61.25rem is the 980px it always was. */
+  --maxw: 61.25rem;
 }
 
 /* maidware - the default. this is the one i actually run. plasma's TokyoNight
@@ -292,10 +294,24 @@ html[data-a11y-font="plain"] body { font-family: var(--font-plain); }
 html[data-a11y-space="more"] body { line-height: 2.0; letter-spacing: 0.03em; word-spacing: 0.14em; }
 [data-a11y-links="underline"] main a:not(.btn):not(.guide-card) { border-bottom-color: currentColor; }
 
+/* text the reader has stretched: the header gives a little back so the row
+   keeps its shape - tighter gaps, less padding, and once the text is at
+   "larger" the brand drops its "project" suffix, which the small-screen
+   rule drops anyway. nothing here is hidden that is not a repeat. */
+html[data-a11y-text="large"] .header-inner,
+html[data-a11y-text="larger"] .header-inner { gap: 8px 14px; }
+html[data-a11y-text="large"] .site-nav,
+html[data-a11y-text="larger"] .site-nav { gap: 16px; }
+html[data-a11y-text="larger"] .tool-btn { padding: 0 10px; }
+html[data-a11y-text="larger"] .brand .sub { display: none; }
+
 /* below the fold, sections skip layout and paint until they come near the
    viewport; "auto 800px" keeps the real height once seen, so the scrollbar
    and any anchor jump stay put instead of twitching as you scroll. */
-section { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+/* sections are a few hundred nodes: keep them all painted. content-visibility
+   was tried here and made sections show up blank on some loads (and shifted
+   anchor jumps), not worth it for a page this size. */
+
 
 body {
   margin: 0;
@@ -1006,7 +1022,7 @@ pre.code-block .p { color: var(--prompt); }
 /* big screens: a little more room, nothing more */
 
 @media (min-width: 1240px) {
-  :root { --maxw: 1040px; }
+  :root { --maxw: 65rem; }
 }
 
 /* only lift boxes where a pointer can hover */
