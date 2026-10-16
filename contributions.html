@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="maidware">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="doc.title">Maidware Project - contributions</title>
+<meta name="description" content="small, on-demand command-line helpers - contributions." data-i18n-attr="content:doc.description">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://maidware-project.github.io/maidware.github.io/contributions.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maidware Project">
+<meta property="og:title" content="Maidware Project - contributions">
+<meta property="og:description" content="small, on-demand command-line helpers.">
+<meta property="og:url" content="https://maidware-project.github.io/maidware.github.io/contributions.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maidware Project - contributions">
+<meta name="twitter:description" content="small, on-demand command-line helpers.">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem('maidware-theme');if(t)document.documentElement.setAttribute('data-theme',t);var l=localStorage.getItem('maidware-lang');if(l){document.documentElement.lang=l;document.documentElement.dir=(l==='he')?'rtl':'ltr';}}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">maidware<span class="sub">project</span></a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="index.html" data-i18n="nav.home">home</a>
+      <a href="index.html#suite" data-i18n="nav.tools">tools</a>
+      <a href="index.html#idea" data-i18n="nav.why">why</a>
+      <a href="guides.html" data-i18n="nav.guides">guides</a>
+      <a href="performance.html" data-i18n="nav.performance">performance</a>
+      <a href="faq.html" data-i18n="nav.faq">faq</a>
+      <a href="help.html" data-i18n="nav.help">help</a>
+      <a href="contributions.html" aria-current="page">contributions</a>
+    </nav>
+
+    <div class="header-tools">
+      <div class="menu-wrap" hidden>
+        <button class="tool-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+          <span id="lang-label">english</span>
+        </button>
+        <div class="theme-menu" id="lang-menu" role="menu" aria-label="Language" hidden></div>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="tool-btn" id="theme-btn" type="button" aria-expanded="false" aria-controls="theme-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <span data-i18n="theme.button">theme</span>
+        </button>
+        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
+          <p data-i18n="theme.dark">dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
+          <button class="theme-option" role="menuitemradio" data-theme="dark" type="button"><span class="swatches"><i class="sw" style="background:#0f1115"></i><i class="sw" style="background:#6ea8fe"></i></span>dark</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lamplight" type="button"><span class="swatches"><i class="sw" style="background:#1e1a17"></i><i class="sw" style="background:#d18a5c"></i></span>lamplight</button>
+          <button class="theme-option" role="menuitemradio" data-theme="tokyo" type="button"><span class="swatches"><i class="sw" style="background:#16161e"></i><i class="sw" style="background:#7aa2f7"></i></span>tokyo night</button>
+          <button class="theme-option" role="menuitemradio" data-theme="crt" type="button"><span class="swatches"><i class="sw" style="background:#0c110d"></i><i class="sw" style="background:#4ade80"></i></span>crt</button>
+          <button class="theme-option" role="menuitemradio" data-theme="frappe" type="button"><span class="swatches"><i class="sw" style="background:#303446"></i><i class="sw" style="background:#ca9ee6"></i></span>frappé</button>
+          <button class="theme-option" role="menuitemradio" data-theme="macchiato" type="button"><span class="swatches"><i class="sw" style="background:#24273a"></i><i class="sw" style="background:#c6a0f6"></i></span>macchiato</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mocha" type="button"><span class="swatches"><i class="sw" style="background:#1e1e2e"></i><i class="sw" style="background:#cba6f7"></i></span>mocha</button>
+          <p data-i18n="theme.light">light</p>
+          <button class="theme-option" role="menuitemradio" data-theme="white" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#1a1a1a"></i></span>white</button>
+          <button class="theme-option" role="menuitemradio" data-theme="home" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>home</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mallow" type="button"><span class="swatches"><i class="sw" style="background:#fdf5f9"></i><i class="sw" style="background:#a55680"></i></span>mallow</button>
+          <button class="theme-option" role="menuitemradio" data-theme="meadow" type="button"><span class="swatches"><i class="sw" style="background:#f5f8f3"></i><i class="sw" style="background:#4a7a45"></i></span>meadow</button>
+          <button class="theme-option" role="menuitemradio" data-theme="paper" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#0969da"></i></span>paper</button>
+          <button class="theme-option" role="menuitemradio" data-theme="harbor" type="button"><span class="swatches"><i class="sw" style="background:#f4f7fa"></i><i class="sw" style="background:#3a7291"></i></span>harbor</button>
+          <button class="theme-option" role="menuitemradio" data-theme="latte" type="button"><span class="swatches"><i class="sw" style="background:#eff1f5"></i><i class="sw" style="background:#8839ef"></i></span>latte</button>
+        </div>
+      </div>
+
+      <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="container">
+
+    <p class="breadcrumb"><a href="index.html" data-i18n="nav.home">home</a> / <span class="here">contributions</span></p>
+
+    <div class="guide-content page-narrow">
+      <h1>contributions</h1>
+      <p class="lead">people who pitch in, and how to join them.</p>
+
+      <p>RoozerXC from the atrim project - <a href="https://github.com/roozerxc/atrim">github.com/roozerxc/atrim</a></p>
+
+      <div class="divider"></div>
+
+      <h2>contributing to maidware</h2>
+      <pre class="md-block"># contributing
+
+small, reviewable changes only - one logical change per pull request.
+read AGENTS.md first (it applies to humans and AI assistants alike).
+maintained by Maidware Project.
+
+## commits
+
+- short lowercase summaries with a prefix: `fix:`, `feat:`, `docs:`,
+  `chore:` - e.g. `fix: help page link in the footer`
+- sign off every commit (`git commit -s` appends it):
+  `Signed-off-by: Your Name &lt;you@example.com&gt;`
+  (developer's certificate of origin - proves you may contribute it)
+
+## before opening anything
+
+- `python3 tests/check.py` green on your machine - paste the result in
+  the PR (the template asks for it). it checks that tags balance, that
+  every local asset exists, and that every `#anchor` lands somewhere.
+- CI must be green before review - a green run on your machine is the
+  start, not the finish
+- the pages open fine from `python3 -m http.server 8000` - click through
+  index, guides and help
+- check both a light and a dark theme (the picker is in the header); a
+  colour change that only works in one theme isn't done
+- no personal data anywhere
+
+## know your patch
+
+understand every line you send, assistant-written parts included. if you
+can't say what a line does, drop it. "the assistant wrote it" doesn't
+answer the question.
+
+it's plain html, css and vanilla js, no build step. if a change needs a
+toolchain, that's a reason to skip the change, not to add one.
+
+reviewers here are people, not bots: expect to answer questions about your
+change, and don't open one you can't back up. unattended drive-by or bot
+PRs get closed.
+
+## issues
+
+say which page, which theme, and what you expected. a screenshot or the
+console output helps. "the site is broken" with nothing attached will be
+closed with a pointer back here.
+</pre>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>maidware project</h4>
+        <p data-i18n="footer.about">serving you small forkable linux tools that help.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.tools">tools</h4>
+        <ul>
+          <li><a href="guides.html#guide-maidshare">MaidShare</a></li>
+          <li><a href="guides.html#guide-maid-runner">Maid Runner</a></li>
+          <li><a href="guides.html#guide-maid-au">Maid AU</a></li>
+          <li><a href="guides.html#guide-maid-bt">Maid BT</a></li>
+          <li><a href="guides.html#guide-maid-helper">Maid Helper</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.elsewhere">elsewhere</h4>
+        <ul>
+          <li><a href="guides.html" data-i18n="nav.guides">guides</a></li>
+          <li><a href="performance.html" data-i18n="nav.performance">performance</a></li>
+          <li><a href="faq.html" data-i18n="nav.faq">faq</a></li>
+          <li><a href="help.html" data-i18n="nav.help">help</a></li>
+          <li><a href="contributions.html">contributions</a></li>
+          <li><a href="conduct.html" data-i18n="footer.conduct">code of conduct</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Maidware Project</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

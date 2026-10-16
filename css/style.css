@@ -807,6 +807,19 @@ pre.code-block .p { color: var(--prompt); }
 
 .divider { border-top: 1px solid var(--border); margin: 10px 0 28px; }
 
+.md-block {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin: 0 0 18px;
+}
+
 .steps { list-style: none; counter-reset: step; padding-left: 0 !important; margin: 0 0 18px !important; }
 .steps li {
   counter-increment: step;
