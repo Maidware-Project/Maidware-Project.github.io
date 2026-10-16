@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<body>
+<iframe id="f" style="border:0;display:block"></iframe>
+<pre id="out">pending</pre>
+<script>
+var q = new URLSearchParams(location.search);
+var w = parseInt(q.get("w") || "1400", 10);
+var f = document.getElementById("f");
+f.style.width = w + "px";
+f.style.height = "4000px";
+f.src = "guides.html";
+f.addEventListener("load", function () {
+  setTimeout(function () {
+    var d = f.contentDocument, win = f.contentWindow, de = d.documentElement;
+    function rect(el) { var r = el.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) }; }
+    var toc = d.querySelector(".toc");
+    var content = d.querySelector(".guide-content");
+    var header = d.querySelector(".site-header");
+    var crumb = d.querySelector(".breadcrumb");
+    var links = [].map.call(d.querySelectorAll(".toc a"), function (a) {
+      var r = rect(a);
+      r.t = a.textContent.trim();
+      r.sub = a.classList.contains("sub");
+      r.fs = win.getComputedStyle(a).fontSize;
+      return r;
+    });
+    document.getElementById("out").textContent = JSON.stringify({
+      vw: w,
+      gridCols: win.getComputedStyle(d.querySelector(".guide-layout")).gridTemplateColumns,
+      header: rect(header), crumb: rect(crumb),
+      toc: rect(toc), tocPos: win.getComputedStyle(toc).position,
+      content: rect(content),
+      links: links
+    }, null, 1);
+  }, 400);
+});
+</script>
