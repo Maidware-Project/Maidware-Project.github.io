@@ -275,16 +275,27 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  /* the sticky header, and the offsets further down, are written in rem
+     on purpose: raise the text size and the header, the menus and the
+     scroll offsets all grow with it instead of the words outgrowing them. */
+  scroll-padding-top: 5.25rem;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
+
+/* accessibility - the reader's own choices, written on <html> so a setting
+   applies to the whole page and gets picked up before the first paint */
+
 html[data-a11y-text="large"] { font-size: 112.5%; }
 html[data-a11y-text="larger"] { font-size: 125%; }
 html[data-a11y-font="plain"] body { font-family: var(--font-plain); }
 html[data-a11y-space="more"] body { line-height: 2.0; letter-spacing: 0.03em; word-spacing: 0.14em; }
 [data-a11y-links="underline"] main a:not(.btn):not(.guide-card) { border-bottom-color: currentColor; }
-section { content-visibility: auto; contain-intrinsic-size: 800px; }
+
+/* below the fold, sections skip layout and paint until they come near the
+   viewport; "auto 800px" keeps the real height once seen, so the scrollbar
+   and any anchor jump stay put instead of twitching as you scroll. */
+section { content-visibility: auto; contain-intrinsic-size: auto 800px; }
 
 body {
   margin: 0;
@@ -345,7 +356,7 @@ p { margin: 0 0 16px; }
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px 20px;
-  min-height: 58px;
+  min-height: 3.625rem;
 }
 
 .brand {
@@ -376,7 +387,7 @@ p { margin: 0 0 16px; }
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  height: 32px;
+  height: 2rem;
   padding: 0 12px;
   background: none;
   color: var(--muted);
@@ -389,13 +400,13 @@ p { margin: 0 0 16px; }
 .tool-btn:hover { color: var(--text); border-color: var(--accent); }
 .tool-btn[aria-expanded="true"] { color: var(--text); border-color: var(--accent); }
 
-.nav-toggle { display: none; width: 34px; justify-content: center; padding: 0; }
+.nav-toggle { display: none; width: 2.125rem; justify-content: center; padding: 0; }
 
 .theme-menu {
   position: absolute;
   right: 0;
   top: calc(100% + 10px);
-  width: 226px;
+  width: 14.125rem;
   max-height: min(70vh, 460px);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -538,6 +549,11 @@ p { margin: 0 0 16px; }
 }
 .section-head h2 { margin-bottom: 12px; }
 .section-head p { color: var(--muted); margin: 0; }
+
+/* one small paragraph under a grid - centred block, centred text, so it
+   reads as a closing note instead of a stray line hugging the left edge */
+.section-note { max-width: 70ch; margin: clamp(1rem, 2vw, 1.5rem) auto 0; text-align: center; }
+.section-note p { color: var(--muted); margin: 0; }
 
 .breadcrumb { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); padding-top: 28px; }
 .breadcrumb a { color: var(--muted); }
@@ -719,7 +735,7 @@ pre.code-block .p { color: var(--prompt); }
 .reqs { margin: 0; }
 .req {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
+  grid-template-columns: 11.875rem minmax(0, 1fr);
   gap: 3px 24px;
   padding: 12px 0;
   border-top: 1px solid var(--border);
@@ -785,9 +801,9 @@ pre.code-block .p { color: var(--prompt); }
 
 /* guide page */
 
-.guide-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 44px; align-items: start; padding: 26px 0 80px; }
+.guide-layout { display: grid; grid-template-columns: 13.75rem minmax(0, 1fr); gap: 44px; align-items: start; padding: 26px 0 80px; }
 
-.toc { position: sticky; top: 86px; min-width: 0; }
+.toc { position: sticky; top: 5.375rem; min-width: 0; }
 .toc h2 {
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -805,8 +821,8 @@ pre.code-block .p { color: var(--prompt); }
 
 .guide-content { min-width: 0; }
 .guide-content h1 { margin-bottom: 14px; }
-.guide-content h2 { margin-top: 8px; scroll-margin-top: 86px; }
-.guide-content h3 { scroll-margin-top: 86px; }
+.guide-content h2 { margin-top: 8px; scroll-margin-top: 5.375rem; }
+.guide-content h3 { scroll-margin-top: 5.375rem; }
 .guide-content p { color: var(--muted); }
 .guide-content p strong, .guide-content li strong { color: var(--text); }
 .guide-content ul, .guide-content ol { color: var(--muted); padding-left: 22px; margin: 0 0 16px; }
@@ -883,7 +899,7 @@ pre.code-block .p { color: var(--prompt); }
 }
 .steps li strong { display: block; }
 
-.tool-block { padding: 6px 0; margin-bottom: 30px; scroll-margin-top: 86px; }
+.tool-block { padding: 6px 0; margin-bottom: 30px; scroll-margin-top: 5.375rem; }
 .tool-block h3 { margin-bottom: 10px; }
 .tool-block .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
 .tool-block ul { margin-bottom: 14px; }
@@ -904,7 +920,7 @@ pre.code-block .p { color: var(--prompt); }
 }
 
 @media (max-width: 780px) {
-  .header-inner { min-height: 54px; }
+  .header-inner { min-height: 3.375rem; }
   .projects { grid-template-columns: 1fr; gap: 38px; }
   .section-head { margin-bottom: 30px; }
 }
@@ -943,7 +959,16 @@ pre.code-block .p { color: var(--prompt); }
   .site-nav a:hover { background: var(--bg-soft); text-decoration: none; }
   .site-nav a[aria-current="page"] { background: var(--bg-soft); }
 
-  .theme-menu { right: 0; left: auto; width: min(78vw, 240px); }
+  .theme-menu {
+    /* a dropdown pinned to its own button runs off the side of a phone
+       once the header carries three of them, so on phones both menus drop
+       as one sheet under the header, edge to edge with the container. */
+    left: clamp(18px, 4.5vw, 32px);
+    right: clamp(18px, 4.5vw, 32px);
+    width: auto;
+    top: calc(100% + 6px);
+  }
+  .menu-wrap { position: static; }
   .theme-option { padding: 10px; }
 
   pre.code-block, .code { font-size: 0.79rem; }
@@ -1013,4 +1038,9 @@ pre.code-block .p { color: var(--prompt); }
 
 @media (min-width: 901px) {
   [dir="rtl"] .toc a.sub { padding-left: 12px; padding-right: 22px; }
+}
+
+/* rtl phones: the menus still drop as a full-width sheet */
+@media (max-width: 720px) {
+  [dir="rtl"] .theme-menu { left: clamp(18px, 4.5vw, 32px); right: clamp(18px, 4.5vw, 32px); }
 }

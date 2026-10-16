@@ -53,6 +53,7 @@
       if (!option) return;
       applyTheme(option.getAttribute("data-theme"));
       closeThemeMenu();
+      themeBtn.focus();
     });
 
     document.addEventListener("click", function (event) {
@@ -89,7 +90,7 @@
       if (type === "text") {
         document.documentElement.setAttribute("data-a11y-text", value === "normal" ? "" : value);
         try { localStorage.setItem("maidware-text", value === "normal" ? "" : value); } catch (e) {}
-        accessMenu.querySelectorAll('.access-option[data-access="text"]').forEach(function (btn) {
+        Array.prototype.forEach.call(accessMenu.querySelectorAll('.access-option[data-access="text"]'), function (btn) {
           btn.setAttribute("aria-checked", btn.getAttribute("data-value") === value ? "true" : "false");
         });
       } else if (type === "font") {
@@ -127,6 +128,7 @@
         }
       }
       closeAccessMenu();
+      accessBtn.focus();
     });
     document.addEventListener("click", function (event) {
       if (!accessMenu.hidden && !accessMenu.contains(event.target) && event.target !== accessBtn) {
@@ -134,6 +136,51 @@
       }
     });
   }
+
+  /* the head script applied the saved settings to <html> before the first
+     paint. copy them onto the rows once, here, so the ticks tell the truth
+     the first time the menu is opened and not only after it has been used. */
+  if (accessMenu) {
+    ["text", "font", "space", "links"].forEach(function (kind) {
+      var on = document.documentElement.getAttribute("data-a11y-" + kind);
+      if (kind === "text" && !on) on = "normal";
+      Array.prototype.forEach.call(
+        accessMenu.querySelectorAll('.access-option[data-access="' + kind + '"]'),
+        function (row) {
+          row.setAttribute("aria-checked", row.getAttribute("data-value") === on ? "true" : "false");
+        }
+      );
+    });
+  }
+
+  /* keyboard in the menus: arrows walk the rows, home and end jump to the
+     ends, enter or space press the row that has focus. tab and escape are
+     left alone - they already do the right thing. */
+
+  function wireMenuKeys(menu) {
+    var scope = menu && menu.parentNode;
+    if (!scope) return;
+    scope.addEventListener("keydown", function (event) {
+      if (menu.hidden) return;
+      var rows = Array.prototype.slice.call(menu.querySelectorAll(".theme-option"));
+      if (!rows.length) return;
+      var key = event.key;
+      var here = rows.indexOf(document.activeElement);
+      var to;
+      if (key === "ArrowDown") to = here + 1;
+      else if (key === "ArrowUp") to = here < 0 ? rows.length - 1 : here - 1;
+      else if (key === "Home") to = 0;
+      else if (key === "End") to = rows.length - 1;
+      else return;
+      event.preventDefault();
+      if (to >= rows.length) to = 0;
+      if (to < 0) to = rows.length - 1;
+      rows[to].focus();
+    });
+  }
+
+  wireMenuKeys(themeMenu);
+  wireMenuKeys(accessMenu);
 
   var navToggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("site-nav");
