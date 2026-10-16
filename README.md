@@ -41,6 +41,9 @@ copy a block, change the colours, and add a matching button to the theme
 menu on each page - the two swatch dots are that theme's background and
 accent. `maidware` is the default and the one actually run day to day.
 
+`blackout` is pure black for oled screens. the menu lists it under its own
+`pure dark` heading, after the dark themes, never among them.
+
 `apron` is the base and sits on `:root` instead of in a block of its own,
 so a name we no longer ship still lands on a readable page. the names also
 live in `js/main.js` and in each page's head script, which checks the list

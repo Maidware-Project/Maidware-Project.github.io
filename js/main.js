@@ -17,6 +17,7 @@
     "maidware",
     "nightshift", "lampblack", "rinse", "scrub",
     "lavender", "starch", "mop",
+    "blackout",
     "spotless", "apron", "lace", "suds", "linen", "pail", "sachet"
   ];
 

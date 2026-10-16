@@ -152,6 +152,24 @@
   --prompt: #a8d0a2;
 }
 
+/* pure black for oled screens. the menu lists it in its own "pure dark"
+   group after the dark themes, and never as one of them. maidware's teal
+   otherwise. */
+[data-theme="blackout"] {
+  --bg: #000000;
+  --bg-soft: #0a0a0d;
+  --surface: #141419;
+  --text: #e8e9ec;
+  --muted: #a4a7b4;
+  --accent: #5cb9ae;
+  --border: #202027;
+  --border-strong: #3c3d47;
+  --shadow: rgba(0, 0, 0, 0.7);
+  --code-bg: #0a0a0d;
+  --code-text: #e8e9ec;
+  --prompt: #b3e1a3;
+}
+
 [data-theme="spotless"] {
   --bg: #ffffff;
   --bg-soft: #f5f5f7;
@@ -269,7 +287,8 @@
 [data-theme="scrub"],
 [data-theme="lavender"],
 [data-theme="starch"],
-[data-theme="mop"] { color-scheme: dark; }
+[data-theme="mop"],
+[data-theme="blackout"] { color-scheme: dark; }
 
 /* --------------------------------------------------------------------- */
 
@@ -508,6 +527,7 @@ p { margin: 0 0 16px; }
 .theme-option[data-theme="lavender"]  { --opt-bg: #1d1a23; --opt-fg: #e0dae9; --opt-accent: #a98cc7; }
 .theme-option[data-theme="starch"]    { --opt-bg: #161927; --opt-fg: #dae0ef; --opt-accent: #8f9ede; }
 .theme-option[data-theme="mop"]       { --opt-bg: #1a1621; --opt-fg: #e1d9e9; --opt-accent: #b08ed2; }
+.theme-option[data-theme="blackout"]  { --opt-bg: #000000; --opt-fg: #e8e9ec; --opt-accent: #5cb9ae; }
 .theme-option[data-theme="spotless"]  { --opt-bg: #ffffff; --opt-fg: #16181c; --opt-accent: #39424e; }
 .theme-option[data-theme="apron"]     { --opt-bg: #faf7f2; --opt-fg: #2e2a26; --opt-accent: #a55d3d; }
 .theme-option[data-theme="lace"]      { --opt-bg: #fdf6f8; --opt-fg: #3a2f36; --opt-accent: #9a4c73; }
