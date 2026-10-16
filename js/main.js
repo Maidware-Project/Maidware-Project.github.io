@@ -217,6 +217,26 @@
     });
   }
 
+  /* tuck the header away while the reader scrolls down, bring it back on
+     the way up, near the top, when focus lands inside it, or while one of
+     its menus is open. */
+  var header = document.querySelector(".site-header");
+
+  if (header) {
+    var lastY = window.scrollY;
+    var revealHeader = function () { header.classList.remove("tucked"); };
+    header.addEventListener("focusin", revealHeader);
+    window.addEventListener("scroll", function () {
+      var y = window.scrollY;
+      var menuOpen = (themeMenu && !themeMenu.hidden) ||
+                     (accessMenu && !accessMenu.hidden) ||
+                     (nav && nav.classList.contains("open"));
+      if (y < lastY || y < 90 || menuOpen) revealHeader();
+      else if (y > lastY && y > 140) header.classList.add("tucked");
+      lastY = y;
+    }, { passive: true });
+  }
+
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
     if (accessMenu && !accessMenu.hidden) { closeAccessMenu(); if (accessBtn) accessBtn.focus(); }
