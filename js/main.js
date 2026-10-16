@@ -5,6 +5,7 @@
   var root = document.documentElement;
   var STORAGE_KEY = "maidware-theme";
   var VALID = [
+    "dark", "white",
     "maidware", "home", "lamplight", "mallow", "meadow",
     "paper", "harbor", "tokyo", "crt",
     "latte", "frappe", "macchiato", "mocha"

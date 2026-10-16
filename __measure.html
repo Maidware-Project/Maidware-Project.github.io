@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<body>
+<iframe id="f" style="border:0;display:block"></iframe>
+<pre id="out">pending</pre>
+<script>
+var q = new URLSearchParams(location.search);
+var t = q.get("t") || "index.html";
+var w = parseInt(q.get("w") || "390", 10);
+var th = q.get("th") || "dark";
+var f = document.getElementById("f");
+f.style.width = w + "px";
+f.style.height = "7000px";
+f.src = t;
+f.addEventListener("load", function () {
+  var d = f.contentDocument, win = f.contentWindow, de = d.documentElement;
+  var before = de.getAttribute("data-theme");
+  de.setAttribute("data-theme", th);
+  setTimeout(function () {
+    var cs = win.getComputedStyle(de);
+    var bs = win.getComputedStyle(d.body);
+    var cw = de.clientWidth, sw = de.scrollWidth;
+    var bad = [];
+    Array.prototype.forEach.call(d.querySelectorAll("*"), function (el) {
+      if (el.classList && el.classList.contains("skip-link")) return;
+      var r = el.getBoundingClientRect();
+      if (r.width > 0 && r.right > cw + 1 && !el.closest("pre.code-block")) bad.push(el.tagName.toLowerCase() + "." + (el.className || ""));
+    });
+    document.getElementById("out").textContent = JSON.stringify({
+      page: t, theme: th, before: before, attr: de.getAttribute("data-theme"),
+      bgVar: cs.getPropertyValue("--bg").trim(),
+      mutedVar: cs.getPropertyValue("--muted").trim(),
+      bodyBg: bs.backgroundColor, bodyFg: bs.color,
+      cw: cw, sw: sw, overflow: sw > cw,
+      optionMenu: !!d.querySelector('.theme-option[data-theme="' + th + '"]'),
+      offenders: bad.slice(0, 6)
+    });
+  }, 500);
+});
+</script>
