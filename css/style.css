@@ -396,7 +396,13 @@ p { margin: 0 0 16px; }
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
+  transition: transform 0.18s ease;
 }
+
+/* reading down tucks the header out of the way; scrolling up, coming back
+   near the top, or moving focus into it brings it back. the reduced-motion
+   rule at the end of the file makes every move instant. */
+.site-header.tucked { transform: translateY(-100%); }
 
 .header-inner {
   display: flex;
