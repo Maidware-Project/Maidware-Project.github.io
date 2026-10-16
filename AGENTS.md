@@ -1,4 +1,4 @@
-# AGENTS.md - maidware.github.io (for AI assistants; humans see README.md)
+# AGENTS.md - Maidware-Project.github.io (for AI assistants; humans see README.md)
 
 One maintainer plus a few friends helping out. Keep changes small enough
 to review, skip refactors nobody asked for, and ask before adding a
@@ -17,8 +17,9 @@ pages and in the docs.
 
 ## Layout
 
-- `index.html` home, `guides.html` the per-tool guides, `help.html` how
-  to help, `conduct.html` how the project is run
+- `index.html` home, `guides.html` the per-tool guides,
+  `performance.html` what the tools cost to run, `faq.html` short answers,
+  `contributions.html` how to help, `conduct.html` how the project is run
 - `css/style.css` the whole layout and every theme, as css variables
 - `js/main.js` theme menu, mobile nav, copy buttons, toc
 - `js/i18n.js` english-only scaffolding for adding a translation
@@ -34,13 +35,11 @@ pages and in the docs.
   commit (`git commit -s`).
 - No trackers, no analytics, no build step, no network calls at all.
 - A nav or footer change touches every page at once; a new theme touches
-  the menu on every page. Never leave the pages disagreeing.
+  the menu on every page, `js/main.js`, and the head script on each page
+  that applies the stored theme. Never leave the pages disagreeing.
 
 ## Verify
 
 - `python3 tests/check.py` - tags balance, local assets and anchors resolve
 - `node --check js/main.js` and `node --check js/i18n.js`
-- `python3 -m http.server 8000` - click through index, guides and help
-- Readable in every theme: body and secondary text keep contrast
-
-Before finishing: pass docs/REVIEW.md.
+- readable in every theme: body and secondary text keep contrast

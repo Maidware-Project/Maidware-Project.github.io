@@ -9,6 +9,7 @@ run through these before a change ships.
 3. look at the changed page in a light and a dark theme. body and
    secondary text keep their contrast.
 4. pages agree. a nav, footer or theme change touched index, guides and
-   help together.
-5. still no build step. the only thing fetched at load is the GitHub star
-   count, and it's fine for that to fail.
+   contributions together.
+5. still no build step, and nothing is fetched at load - no api, no
+   counters, no analytics. the stats on the contributions page are
+   plain text written down by hand.

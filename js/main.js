@@ -5,10 +5,10 @@
   var root = document.documentElement;
   var STORAGE_KEY = "maidware-theme";
   var VALID = [
-    "dark", "white",
-    "maidware", "home", "lamplight", "mallow", "meadow",
-    "paper", "harbor", "tokyo", "crt",
-    "latte", "frappe", "macchiato", "mocha"
+    "maidware",
+    "nightshift", "lampblack", "rinse", "scrub",
+    "lavender", "starch", "mop",
+    "spotless", "apron", "lace", "suds", "linen", "pail", "sachet"
   ];
 
   /* theme */
@@ -25,6 +25,9 @@
 
   var saved = null;
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* private mode */ }
+  /* a name we no longer ship is not a choice - drop it and fall back to
+     the page's own default, so a row is still ticked in the menu. */
+  if (saved && VALID.indexOf(saved) === -1) saved = null;
 
   applyTheme(saved || root.getAttribute("data-theme") || "maidware");
 
