@@ -32,6 +32,7 @@ css/style.css       the layout and every theme, as css variables
 js/main.js          theme menu, mobile nav, copy buttons, toc
 js/i18n.js          english-only scaffolding for adding a translation
 tests/check.py      tag, asset and anchor checker
+SECURITY.md         what the site does not do, and how to report issues
 ```
 
 ## themes
