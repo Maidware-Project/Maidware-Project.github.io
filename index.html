@@ -83,18 +83,58 @@
 
   <section class="hero">
     <div class="container">
-      <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
+      <h1 data-i18n="hero.title">Make switching from Windows to Linux easier</h1>
       <p class="lede" data-i18n="hero.lede">
-        five little scripts for the tedious parts of linux: updating everything, getting a
-        file onto your phone, moving sound between earbuds and speakers, finding a thing,
-        and cleaning up whatever an update broke. plain shell, nothing running in the
-        background, and they print what they did. fork them for whatever setup you run.
+        Maidware is a small set of safe, on-demand tools that handle a few annoying Linux tasks so you're not stuck digging through terminal commands. It helps with system updates, sending files to your Android phone, switching audio between Bluetooth earbuds and speakers, launching/searching things, and fixing common small issues. Everything runs only when you ask, shows you what it's doing, and can be previewed first with <code>--check</code>.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="guides.html" data-i18n="hero.cta1">read the guides</a>
         <a class="btn" href="https://github.com/Maidware-Project">github</a>
       </div>
       <p class="lang-note" data-i18n="lang.note">we need coders - <a href="help.html">help out</a><br>we need translators - <a href="help.html#translations">help us do translations</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="what-it-helps">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker" data-i18n="features.kicker">what it helps with</span>
+        <h2 data-i18n="features.title">Five small things that usually get annoying</h2>
+        <p data-i18n="features.intro">Each tool does one job and stays out of your way. You only install the ones you actually want.</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="guide-card">
+          <h3 data-i18n="feat1.title">Updates</h3>
+          <p data-i18n="feat1.body">Update your whole system (packages + Flatpak + firmware) safely. Preview changes with <code>--check</code>, get timestamped backups before anything changes, and see if a reboot is needed—it never reboots automatically.</p>
+        </article>
+
+        <article class="guide-card">
+          <h3 data-i18n="feat2.title">Send files to phone</h3>
+          <p data-i18n="feat2.body">Right-click a file and send it to your Android phone. It picks the easiest way on its own (KDE Connect, USB/ADB, or a temporary QR web share). Files go to <code>~/Downloads/MaidShare</code> and nothing gets uploaded to a cloud.</p>
+        </article>
+
+        <article class="guide-card">
+          <h3 data-i18n="feat3.title">Audio switching</h3>
+          <p data-i18n="feat3.body">Flip sound between your PC and Bluetooth earbuds with one command, without them fighting your phone. It also helps prevent LDAC from dropping down to SBC and can automatically reconnect when your buds come back in range.</p>
+        </article>
+
+        <article class="guide-card">
+          <h3 data-i18n="feat4.title">Search & launcher</h3>
+          <p data-i18n="feat4.body">One search box to launch apps, run commands, do quick math, or trigger Maidware actions. It's the only launcher here that can actually talk to the other Maidware tools. When it's closed, it's not running at all.</p>
+        </article>
+
+        <article class="guide-card">
+          <h3 data-i18n="feat5.title">First-aid</h3>
+          <p data-i18n="feat5.body">Checks and safely fixes common small breakages (like a missing Flathub remote or firmware updater). It only changes what it can safely fix, never installs proprietary drivers, and will print any bootloader changes for you to run by hand.</p>
+        </article>
+      </div>
+
+      <div class="section-head" style="margin-top: clamp(1.5rem, 3vw, 2.5rem); text-align: center;">
+        <p class="lede" data-i18n="features.explain">
+          The important part: <strong>on-demand, not always-on.</strong> None of these run in the background by default. You run one when you need it, it does the job, shows you exactly what changed, and exits. Most of them also have a safe <code>--check</code> preview first, and anything they overwrite gets a timestamped <code>.bak-*</code> backup.
+        </p>
+      </div>
     </div>
   </section>
 
