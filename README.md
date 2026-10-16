@@ -67,7 +67,7 @@ hand-written set - write to maidwareproject@proton.me.
 
 push to `main`. github pages rebuilds and serves the repo - nothing to run
 and no artifacts to store. the project site url is
-https://maidware-project.github.io/
+https://maidware-project.github.io
 
 ## works with the Maid suite
 
