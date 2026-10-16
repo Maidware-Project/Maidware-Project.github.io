@@ -4,20 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="doc.title">Maidware Project - contributions</title>
-<meta name="description" content="small, on-demand command-line helpers - contributions." data-i18n-attr="content:doc.description">
+<meta name="description" content="send a patch, test a tool on your distro, or offer a translation. we don't take donations, we take help." data-i18n-attr="content:doc.description.contrib">
 <meta name="color-scheme" content="light dark">
-<link rel="canonical" href="https://maidware-project.github.io/maidware.github.io/contributions.html">
+<link rel="canonical" href="https://maidware-project.github.io/contributions.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Maidware Project">
-<meta property="og:title" content="Maidware Project - contributions">
-<meta property="og:description" content="small, on-demand command-line helpers.">
-<meta property="og:url" content="https://maidware-project.github.io/maidware.github.io/contributions.html">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maidware Project - contributions">
-<meta name="twitter:description" content="small, on-demand command-line helpers.">
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Maidware Project - contributions" data-i18n-attr="content:doc.title">
+<meta property="og:description" content="send a patch, test a tool on your distro, or offer a translation. we don't take donations, we take help." data-i18n-attr="content:doc.description.contrib">
+<meta property="og:url" content="https://maidware-project.github.io/contributions.html">
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){try{var t=localStorage.getItem('maidware-theme');if(t)document.documentElement.setAttribute('data-theme',t);var l=localStorage.getItem('maidware-lang');if(l){document.documentElement.lang=l;document.documentElement.dir=(l==='he')?'rtl':'ltr';}}catch(e){}})();</script>
+<script>(function(){try{var T='|maidware|nightshift|lampblack|rinse|scrub|lavender|starch|mop|spotless|apron|lace|suds|linen|pail|sachet|';var t=localStorage.getItem('maidware-theme');if(t&&T.indexOf('|'+t+'|')>-1)document.documentElement.setAttribute('data-theme',t);var l=localStorage.getItem('maidware-lang');if(l){document.documentElement.lang=l;document.documentElement.dir=(l==='he')?'rtl':'ltr';}}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
@@ -28,13 +23,11 @@
 
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="index.html" data-i18n="nav.home">home</a>
-      <a href="index.html#suite" data-i18n="nav.tools">tools</a>
-      <a href="index.html#idea" data-i18n="nav.why">why</a>
       <a href="guides.html" data-i18n="nav.guides">guides</a>
       <a href="performance.html" data-i18n="nav.performance">performance</a>
       <a href="faq.html" data-i18n="nav.faq">faq</a>
-      <a href="help.html" data-i18n="nav.help">help</a>
-      <a href="contributions.html" aria-current="page">contributions</a>
+      <a href="contributions.html" data-i18n="nav.contributions" aria-current="page">contributions</a>
+      <a href="https://github.com/Maidware-Project">github</a>
     </nav>
 
     <div class="header-tools">
@@ -54,21 +47,21 @@
         <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
           <p data-i18n="theme.dark">dark</p>
           <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
-          <button class="theme-option" role="menuitemradio" data-theme="dark" type="button"><span class="swatches"><i class="sw" style="background:#0f1115"></i><i class="sw" style="background:#6ea8fe"></i></span>dark</button>
-          <button class="theme-option" role="menuitemradio" data-theme="lamplight" type="button"><span class="swatches"><i class="sw" style="background:#1e1a17"></i><i class="sw" style="background:#d18a5c"></i></span>lamplight</button>
-          <button class="theme-option" role="menuitemradio" data-theme="tokyo" type="button"><span class="swatches"><i class="sw" style="background:#16161e"></i><i class="sw" style="background:#7aa2f7"></i></span>tokyo night</button>
-          <button class="theme-option" role="menuitemradio" data-theme="crt" type="button"><span class="swatches"><i class="sw" style="background:#0c110d"></i><i class="sw" style="background:#4ade80"></i></span>crt</button>
-          <button class="theme-option" role="menuitemradio" data-theme="frappe" type="button"><span class="swatches"><i class="sw" style="background:#303446"></i><i class="sw" style="background:#ca9ee6"></i></span>frappé</button>
-          <button class="theme-option" role="menuitemradio" data-theme="macchiato" type="button"><span class="swatches"><i class="sw" style="background:#24273a"></i><i class="sw" style="background:#c6a0f6"></i></span>macchiato</button>
-          <button class="theme-option" role="menuitemradio" data-theme="mocha" type="button"><span class="swatches"><i class="sw" style="background:#1e1e2e"></i><i class="sw" style="background:#cba6f7"></i></span>mocha</button>
+          <button class="theme-option" role="menuitemradio" data-theme="nightshift" type="button"><span class="swatches"><i class="sw" style="background:#15171b"></i><i class="sw" style="background:#8aa9c9"></i></span>nightshift</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lampblack" type="button"><span class="swatches"><i class="sw" style="background:#1c1815"></i><i class="sw" style="background:#d3a05f"></i></span>lampblack</button>
+          <button class="theme-option" role="menuitemradio" data-theme="rinse" type="button"><span class="swatches"><i class="sw" style="background:#101a24"></i><i class="sw" style="background:#63a8cf"></i></span>rinse</button>
+          <button class="theme-option" role="menuitemradio" data-theme="scrub" type="button"><span class="swatches"><i class="sw" style="background:#101712"></i><i class="sw" style="background:#5cb583"></i></span>scrub</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lavender" type="button"><span class="swatches"><i class="sw" style="background:#1d1a23"></i><i class="sw" style="background:#a98cc7"></i></span>lavender</button>
+          <button class="theme-option" role="menuitemradio" data-theme="starch" type="button"><span class="swatches"><i class="sw" style="background:#161927"></i><i class="sw" style="background:#8f9ede"></i></span>starch</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mop" type="button"><span class="swatches"><i class="sw" style="background:#1a1621"></i><i class="sw" style="background:#b08ed2"></i></span>mop</button>
           <p data-i18n="theme.light">light</p>
-          <button class="theme-option" role="menuitemradio" data-theme="white" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#1a1a1a"></i></span>white</button>
-          <button class="theme-option" role="menuitemradio" data-theme="home" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>home</button>
-          <button class="theme-option" role="menuitemradio" data-theme="mallow" type="button"><span class="swatches"><i class="sw" style="background:#fdf5f9"></i><i class="sw" style="background:#a55680"></i></span>mallow</button>
-          <button class="theme-option" role="menuitemradio" data-theme="meadow" type="button"><span class="swatches"><i class="sw" style="background:#f5f8f3"></i><i class="sw" style="background:#4a7a45"></i></span>meadow</button>
-          <button class="theme-option" role="menuitemradio" data-theme="paper" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#0969da"></i></span>paper</button>
-          <button class="theme-option" role="menuitemradio" data-theme="harbor" type="button"><span class="swatches"><i class="sw" style="background:#f4f7fa"></i><i class="sw" style="background:#3a7291"></i></span>harbor</button>
-          <button class="theme-option" role="menuitemradio" data-theme="latte" type="button"><span class="swatches"><i class="sw" style="background:#eff1f5"></i><i class="sw" style="background:#8839ef"></i></span>latte</button>
+          <button class="theme-option" role="menuitemradio" data-theme="spotless" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#39424e"></i></span>spotless</button>
+          <button class="theme-option" role="menuitemradio" data-theme="apron" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>apron</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lace" type="button"><span class="swatches"><i class="sw" style="background:#fdf6f8"></i><i class="sw" style="background:#9a4c73"></i></span>lace</button>
+          <button class="theme-option" role="menuitemradio" data-theme="suds" type="button"><span class="swatches"><i class="sw" style="background:#f4f9f5"></i><i class="sw" style="background:#3a7154"></i></span>suds</button>
+          <button class="theme-option" role="menuitemradio" data-theme="linen" type="button"><span class="swatches"><i class="sw" style="background:#fbfcfe"></i><i class="sw" style="background:#34618f"></i></span>linen</button>
+          <button class="theme-option" role="menuitemradio" data-theme="pail" type="button"><span class="swatches"><i class="sw" style="background:#f2f6f8"></i><i class="sw" style="background:#2f6a80"></i></span>pail</button>
+          <button class="theme-option" role="menuitemradio" data-theme="sachet" type="button"><span class="swatches"><i class="sw" style="background:#f8f6fc"></i><i class="sw" style="background:#5f4a9c"></i></span>sachet</button>
         </div>
       </div>
 
@@ -80,68 +73,178 @@
 </header>
 
 <main id="main-content">
+
   <div class="container">
+    <p class="breadcrumb"><a href="index.html" data-i18n="nav.home">home</a> / <span class="here" data-i18n="nav.contributions">contributions</span></p>
 
-    <p class="breadcrumb"><a href="index.html" data-i18n="nav.home">home</a> / <span class="here">contributions</span></p>
-
-    <div class="guide-content page-narrow">
-      <h1>contributions</h1>
-      <p class="lead">people who pitch in, and how to join them.</p>
-
-      <p>RoozerXC from the atrim project - <a href="https://github.com/roozerxc/atrim">github.com/roozerxc/atrim</a></p>
-
-      <div class="divider"></div>
-
-      <h2>contributing to maidware</h2>
-      <pre class="md-block"># contributing
-
-small, reviewable changes only - one logical change per pull request.
-read AGENTS.md first (it applies to humans and AI assistants alike).
-maintained by Maidware Project.
-
-## commits
-
-- short lowercase summaries with a prefix: `fix:`, `feat:`, `docs:`,
-  `chore:` - e.g. `fix: help page link in the footer`
-- sign off every commit (`git commit -s` appends it):
-  `Signed-off-by: Your Name &lt;you@example.com&gt;`
-  (developer's certificate of origin - proves you may contribute it)
-
-## before opening anything
-
-- `python3 tests/check.py` green on your machine - paste the result in
-  the PR (the template asks for it). it checks that tags balance, that
-  every local asset exists, and that every `#anchor` lands somewhere.
-- CI must be green before review - a green run on your machine is the
-  start, not the finish
-- the pages open fine from `python3 -m http.server 8000` - click through
-  index, guides and help
-- check both a light and a dark theme (the picker is in the header); a
-  colour change that only works in one theme isn't done
-- no personal data anywhere
-
-## know your patch
-
-understand every line you send, assistant-written parts included. if you
-can't say what a line does, drop it. "the assistant wrote it" doesn't
-answer the question.
-
-it's plain html, css and vanilla js, no build step. if a change needs a
-toolchain, that's a reason to skip the change, not to add one.
-
-reviewers here are people, not bots: expect to answer questions about your
-change, and don't open one you can't back up. unattended drive-by or bot
-PRs get closed.
-
-## issues
-
-say which page, which theme, and what you expected. a screenshot or the
-console output helps. "the site is broken" with nothing attached will be
-closed with a pointer back here.
-</pre>
+    <div class="guide-content page-narrow tight">
+      <h1 data-i18n="contrib.title">contributions</h1>
+      <p class="lead" data-i18n="contrib.lead">
+        made better by people who used the tools and said something. every fix, test run and blunt report below came from someone who actually ran the code.
+      </p>
+      <p data-i18n="contrib.intro">
+        six public repositories, all of them small. the numbers here were counted by hand from github, the commits link straight to the changes, and this page fetches nothing while you read it - no counters, no analytics, no api.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#get-involved" data-i18n="contrib.cta1">start contributing</a>
+        <a class="btn" href="https://github.com/Maidware-Project" data-i18n="contrib.cta2">the repositories</a>
+      </div>
     </div>
-
   </div>
+
+  <section class="section" id="numbers">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker" data-i18n="stats.kicker">by the numbers</span>
+        <h2 data-i18n="stats.title">what's actually there</h2>
+        <p data-i18n="stats.intro">
+          counted from the six public repositories on 16 october 2026.
+        </p>
+      </div>
+
+      <div class="rules">
+        <div class="rule stat">
+          <span class="num">268</span>
+          <h3 data-i18n="stats.s1.title">commits</h3>
+          <p data-i18n="stats.s1.body">every change made to the five tools and this site, all of it public.</p>
+        </div>
+
+        <div class="rule stat">
+          <span class="num">6</span>
+          <h3 data-i18n="stats.s2.title">repositories</h3>
+          <p data-i18n="stats.s2.body">five tools plus this site, all public on github.</p>
+        </div>
+
+        <div class="rule stat">
+          <span class="num">3</span>
+          <h3 data-i18n="stats.s3.title">languages</h3>
+          <p data-i18n="stats.s3.body">shell for the tools, python where it helps, plain html and css for this site.</p>
+        </div>
+
+        <div class="rule stat">
+          <span class="num">0</span>
+          <h3 data-i18n="stats.s4.title">open issues</h3>
+          <p data-i18n="stats.s4.body">nothing waiting right now. if something's broken, that's the first good thing to report.</p>
+        </div>
+      </div>
+
+      <p class="stat-note" data-i18n="stats.note">written down once (not live)</p>
+    </div>
+  </section>
+
+  <section class="section" id="recent">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker" data-i18n="recent.kicker">recent</span>
+        <h2 data-i18n="recent.title">what landed lately</h2>
+        <p data-i18n="recent.intro">
+          real commits, in plain words. a card here means it's in main, not that it came through a pull request.
+        </p>
+      </div>
+
+      <div class="rules">
+        <div class="rule contrib">
+          <span class="tag cat" data-i18n="recent.status">in main</span>
+          <h3><a href="https://github.com/Maidware-Project/Maidware-Project.github.io/commit/7e3700e700905eb6c15b920c88268987f3235b5e" data-i18n="recent.c1.title">the theme menu works again, in a fixed order</a></h3>
+          <p data-i18n="recent.c1.body">
+            the picker had gone dead on six pages at once; it opens again, and the list sits in one order everywhere instead of reshuffling.
+          </p>
+          <p class="meta">this site</p>
+        </div>
+
+        <div class="rule contrib">
+          <span class="tag cat" data-i18n="recent.status">in main</span>
+          <h3><a href="https://github.com/Maidware-Project/Maidware-Project.github.io/commit/17e9da0236729c75b3bdf27854d362f68024cb0b" data-i18n="recent.c2.title">the guides page stops scrolling sideways on phones</a></h3>
+          <p data-i18n="recent.c2.body">
+            code blocks were forcing the whole page about 600px wide. the column can shrink now, so only the code scrolls, inside itself.
+          </p>
+          <p class="meta">this site</p>
+        </div>
+
+        <div class="rule contrib">
+          <span class="tag cat" data-i18n="recent.status">in main</span>
+          <h3><a href="https://github.com/Maidware-Project/Maid-Runner/commit/41b2f8bf218b40310d68746ff4f60e0a3fe672a5" data-i18n="recent.c3.title">the launcher window opens in the middle of the screen</a></h3>
+          <p data-i18n="recent.c3.body">
+            it used to pop up wherever the compositor felt like putting it. now it centers itself once the frame size is known.
+          </p>
+          <p class="meta">maid runner</p>
+        </div>
+
+        <div class="rule contrib">
+          <span class="tag cat" data-i18n="recent.status">in main</span>
+          <h3><a href="https://github.com/Maidware-Project/Maidware-Project.github.io/commit/c23a9da76fd5d038be75094cc0cd346b5a6f4ee7" data-i18n="recent.c4.title">pull requests now need green tests and a person</a></h3>
+          <p data-i18n="recent.c4.body">
+            the template asks for the check output and the themes you looked at, and says bot-only patches get closed.
+          </p>
+          <p class="meta">this site</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="get-involved">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker" data-i18n="involve.kicker">your turn</span>
+        <h2 data-i18n="involve.title">want to help build maidware?</h2>
+        <p data-i18n="involve.intro">
+          you don't need to be an experienced developer, and a little time is worth more here than money ever will be. these three are the ways in, and none of them is big on its own.
+        </p>
+      </div>
+
+      <div class="guide-grid">
+        <a class="guide-card" href="https://github.com/Maidware-Project">
+          <span class="kicker" data-i18n="involve.c1.kicker">code</span>
+          <h3 data-i18n="involve.c1.title">fix or add something small</h3>
+          <p data-i18n="involve.c1.body">each tool has its own repository and a test suite that runs offline. start with one you already use.</p>
+        </a>
+
+        <a class="guide-card" href="#translations">
+          <span class="kicker" data-i18n="involve.c2.kicker">translations</span>
+          <h3 data-i18n="involve.c2.title">write a language</h3>
+          <p data-i18n="involve.c2.body">english is the only one here, on purpose. a hand-written set of strings beats any machine output.</p>
+        </a>
+
+        <a class="guide-card" href="#say-hello">
+          <span class="kicker" data-i18n="involve.c3.kicker">testing</span>
+          <h3 data-i18n="involve.c3.title">run it and say what broke</h3>
+          <p data-i18n="involve.c3.body">a tool on your distro plus the console output beats a vague report. it gets read.</p>
+        </a>
+      </div>
+
+      <div class="callout">
+        <p data-i18n="involve.next">
+          <strong>before you open anything:</strong> the full guide is <a href="https://github.com/Maidware-Project/Maidware-Project.github.io/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>. the short version - run the tests, sign your commits, and know what every line does.
+        </p>
+      </div>
+
+      <div class="guide-content page-narrow tight">
+        <div class="divider"></div>
+
+        <h3 data-i18n="help.donate.title">we don't take donations</h3>
+        <p data-i18n="help.donate.body">
+          we take help. a small tool stays alive because someone read the code and sent a fix, not because someone paid for it. if you want to keep open source going, your time is the useful thing.
+        </p>
+
+        <h3 id="translations" data-i18n="help.i18n.title">help us do translations</h3>
+        <p data-i18n="help.i18n.body">
+          we at maidware project need help with translations, and we want translators to help us. english is the only language here right now, on purpose. we'd rather ship none than machine-made strings that read badly to the people they're for. if you speak another language, a hand-written set of strings is welcome.
+        </p>
+
+        <div class="callout" id="say-hello">
+          <p data-i18n="help.mail">
+            <strong>say hello, send a patch, or offer a translation:</strong>
+            <a href="mailto:maidwareproject@proton.me">maidwareproject@proton.me</a>
+          </p>
+        </div>
+
+        <p data-i18n="help.close">
+          keeping open source alive is worth the effort, and it only works when people pitch in.
+        </p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -167,10 +270,15 @@ closed with a pointer back here.
           <li><a href="guides.html" data-i18n="nav.guides">guides</a></li>
           <li><a href="performance.html" data-i18n="nav.performance">performance</a></li>
           <li><a href="faq.html" data-i18n="nav.faq">faq</a></li>
-          <li><a href="help.html" data-i18n="nav.help">help</a></li>
           <li><a href="contributions.html">contributions</a></li>
           <li><a href="conduct.html" data-i18n="footer.conduct">code of conduct</a></li>
           <li><a href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.social">social</h4>
+        <ul>
+          <li><a href="https://bsky.app/profile/maidwareproject.bsky.social" data-i18n="footer.bluesky">bluesky</a></li>
         </ul>
       </div>
     </div>

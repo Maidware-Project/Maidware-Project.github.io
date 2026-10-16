@@ -1,4 +1,4 @@
-# maidware.github.io - the website for the maidware project
+# Maidware-Project.github.io - the website for the maidware project
 
 serving you small forkable linux tools that help. on-demand, cli helpers - shows what they do, can preview with `--check`.
 
@@ -22,15 +22,16 @@ edit a file, refresh the page. that's the whole workflow.
 ## layout
 
 ```
-index.html      home: the rules, the five tools, the guide links
-guides.html     per-tool setup, requirements per distro, troubleshooting
-help.html       patches over donations - how to help, translations
-conduct.html    how the project is run (mirrors CODE_OF_CONDUCT.md)
-css/style.css   the layout and every theme, as css variables
-js/main.js      theme menu, mobile nav, copy buttons, toc
-js/i18n.js      english-only scaffolding for adding a translation
-tests/check.py  tag, asset and anchor checker
-assets/icons/   favicon
+index.html          home: the rules, the five tools, the guide links
+guides.html         per-tool setup, requirements per distro, troubleshooting
+performance.html    what each tool costs to run - memory, cpu, startup
+faq.html            short answers to the common questions
+contributions.html  patches over donations: stats, recent, how to help
+conduct.html        how the project is run (mirrors CODE_OF_CONDUCT.md)
+css/style.css       the layout and every theme, as css variables
+js/main.js          theme menu, mobile nav, copy buttons, toc
+js/i18n.js          english-only scaffolding for adding a translation
+tests/check.py      tag, asset and anchor checker
 ```
 
 ## themes
@@ -39,6 +40,11 @@ every theme is one block of variables in `css/style.css`. to add one,
 copy a block, change the colours, and add a matching button to the theme
 menu on each page - the two swatch dots are that theme's background and
 accent. `maidware` is the default and the one actually run day to day.
+
+`apron` is the base and sits on `:root` instead of in a block of its own,
+so a name we no longer ship still lands on a readable page. the names also
+live in `js/main.js` and in each page's head script, which checks the list
+before it applies a stored theme.
 
 ## adding a guide
 
@@ -61,7 +67,7 @@ hand-written set - write to maidwareproject@proton.me.
 
 push to `main`. github pages rebuilds and serves the repo - nothing to run
 and no artifacts to store. the project site url is
-https://maidware-project.github.io/maidware.github.io/
+https://maidware-project.github.io/
 
 ## works with the Maid suite
 

@@ -7,7 +7,7 @@ maintained by Maidware Project.
 ## commits
 
 - short lowercase summaries with a prefix: `fix:`, `feat:`, `docs:`,
-  `chore:` - e.g. `fix: help page link in the footer`
+  `chore:` - e.g. `fix: dead link in the footer`
 - sign off every commit (`git commit -s` appends it):
   `Signed-off-by: Your Name <you@example.com>`
   (developer's certificate of origin - proves you may contribute it)
@@ -20,7 +20,7 @@ maintained by Maidware Project.
 - CI must be green before review - a green run on your machine is the
   start, not the finish
 - the pages open fine from `python3 -m http.server 8000` - click through
-  index, guides and help
+  index, guides and contributions
 - check both a light and a dark theme (the picker is in the header); a
   colour change that only works in one theme isn't done
 - no personal data anywhere
