@@ -3,6 +3,15 @@
   "use strict";
 
   var root = document.documentElement;
+
+  /* a screen reader can't see a tick move. say what changed, in the page's
+     own words - the menu headings and row labels on screen are the words. */
+  var status = document.getElementById("sr-status");
+  function say(message) {
+    if (!status) return;
+    status.textContent = "";
+    setTimeout(function () { status.textContent = message; }, 60);
+  }
   var STORAGE_KEY = "maidware-theme";
   var VALID = [
     "maidware",
@@ -52,6 +61,7 @@
       var option = event.target.closest ? event.target.closest(".theme-option") : null;
       if (!option) return;
       applyTheme(option.getAttribute("data-theme"));
+      say(themeBtn.textContent.trim() + ": " + option.textContent.trim());
       closeThemeMenu();
       themeBtn.focus();
     });
@@ -126,6 +136,14 @@
           try { localStorage.setItem("maidware-links", "underline"); } catch (e) {}
           option.setAttribute("aria-checked", "true");
         }
+      }
+      var label = option.textContent.trim();
+      if (type === "text") {
+        var heading = option.previousElementSibling;
+        while (heading && heading.tagName !== "P") heading = heading.previousElementSibling;
+        say((heading ? heading.textContent.trim() + ": " : "") + label);
+      } else {
+        say(label + ": " + (option.getAttribute("aria-checked") === "true" ? "on" : "off"));
       }
       closeAccessMenu();
       accessBtn.focus();
@@ -217,6 +235,7 @@
   function flashCopied(button) {
     button.classList.add("copied");
     button.innerHTML = CHECK_ICON;
+    say("copied");
     setTimeout(function () {
       button.classList.remove("copied");
       button.innerHTML = COPY_ICON;
