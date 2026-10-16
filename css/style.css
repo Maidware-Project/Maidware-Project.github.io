@@ -742,7 +742,7 @@ pre.code-block .p { color: var(--prompt); }
 
 .guide-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 44px; align-items: start; padding: 26px 0 80px; }
 
-.toc { position: sticky; top: 86px; }
+.toc { position: sticky; top: 86px; min-width: 0; }
 .toc h2 {
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -758,6 +758,7 @@ pre.code-block .p { color: var(--prompt); }
 .toc a.sub { padding-left: 22px; font-size: 0.83rem; }
 .toc a.here { color: var(--accent); font-weight: 600; }
 
+.guide-content { min-width: 0; }
 .guide-content h1 { margin-bottom: 14px; }
 .guide-content h2 { margin-top: 8px; scroll-margin-top: 86px; }
 .guide-content h3 { scroll-margin-top: 86px; }
@@ -815,7 +816,7 @@ pre.code-block .p { color: var(--prompt); }
 /* tablets and small laptops: drop the sidebar to chips */
 
 @media (max-width: 900px) {
-  .guide-layout { grid-template-columns: 1fr; gap: 22px; padding-top: 18px; }
+  .guide-layout { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-top: 18px; }
   .toc { position: static; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
   .toc ul { display: flex; flex-wrap: wrap; gap: 6px; }
   .toc a { padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.83rem; }
