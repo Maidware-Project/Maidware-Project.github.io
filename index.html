@@ -83,7 +83,7 @@
 
   <section class="hero">
     <div class="container">
-      <h1 data-i18n="hero.title">Make switching from Windows to Linux easier</h1>
+      <h1 data-i18n="hero.title">make switching from windows to linux easier</h1>
       <p class="lede" data-i18n="hero.lede">
         Maidware is a small set of safe, on-demand tools that handle a few annoying Linux tasks so you're not stuck digging through terminal commands. It helps with system updates, sending files to your Android phone, switching audio between Bluetooth earbuds and speakers, launching/searching things, and fixing common small issues. Everything runs only when you ask, shows you what it's doing, and can be previewed first with <code>--check</code>.
       </p>
@@ -99,40 +99,45 @@
     <div class="container">
       <div class="section-head">
         <span class="kicker" data-i18n="features.kicker">what it helps with</span>
-        <h2 data-i18n="features.title">Five small things that usually get annoying</h2>
-        <p data-i18n="features.intro">Each tool does one job and stays out of your way. You only install the ones you actually want.</p>
+        <h2 data-i18n="features.title">five small things that usually get annoying</h2>
+        <p data-i18n="features.intro">each tool does one job and stays out of your way. you only install the ones you actually want.</p>
       </div>
 
-      <div class="guide-grid">
-        <article class="guide-card">
+      <div class="rules">
+        <div class="rule">
+          <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></span>
           <h3 data-i18n="feat1.title">Updates</h3>
-          <p data-i18n="feat1.body">Update your whole system (packages + Flatpak + firmware) safely. Preview changes with <code>--check</code>, get timestamped backups before anything changes, and see if a reboot is needed—it never reboots automatically.</p>
-        </article>
+          <p data-i18n="feat1.body">Packages + Flatpak + firmware in one go. Preview with <code>--check</code>, get timestamped backups, and see if a reboot is needed—it never reboots on its own.</p>
+        </div>
 
-        <article class="guide-card">
+        <div class="rule">
+          <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></span>
           <h3 data-i18n="feat2.title">Send files to phone</h3>
-          <p data-i18n="feat2.body">Right-click a file and send it to your Android phone. It picks the easiest way on its own (KDE Connect, USB/ADB, or a temporary QR web share). Files go to <code>~/Downloads/MaidShare</code> and nothing gets uploaded to a cloud.</p>
-        </article>
+          <p data-i18n="feat2.body">Send any file to your Android phone from the right-click menu. Picks KDE Connect, USB/ADB, or a temporary QR web share. Lands in <code>~/Downloads/MaidShare</code>. No cloud.</p>
+        </div>
 
-        <article class="guide-card">
+        <div class="rule">
+          <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 4V3l5 4L7 17"/></svg></span>
           <h3 data-i18n="feat3.title">Audio switching</h3>
-          <p data-i18n="feat3.body">Flip sound between your PC and Bluetooth earbuds with one command, without them fighting your phone. It also helps prevent LDAC from dropping down to SBC and can automatically reconnect when your buds come back in range.</p>
-        </article>
+          <p data-i18n="feat3.body">Flip sound between PC and Bluetooth earbuds with one command. Stops them fighting your phone, helps keep LDAC active, and auto-reconnects when buds return.</p>
+        </div>
 
-        <article class="guide-card">
+        <div class="rule">
+          <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
           <h3 data-i18n="feat4.title">Search & launcher</h3>
-          <p data-i18n="feat4.body">One search box to launch apps, run commands, do quick math, or trigger Maidware actions. It's the only launcher here that can actually talk to the other Maidware tools. When it's closed, it's not running at all.</p>
-        </article>
+          <p data-i18n="feat4.body">One search box for apps, commands, quick math, or Maidware actions. Talks to the other tools. When closed, nothing runs.</p>
+        </div>
 
-        <article class="guide-card">
+        <div class="rule">
+          <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg></span>
           <h3 data-i18n="feat5.title">First-aid</h3>
-          <p data-i18n="feat5.body">Checks and safely fixes common small breakages (like a missing Flathub remote or firmware updater). It only changes what it can safely fix, never installs proprietary drivers, and will print any bootloader changes for you to run by hand.</p>
-        </article>
+          <p data-i18n="feat5.body">Checks and safely fixes common small breakages. Only changes what it can safely fix, never installs proprietary drivers, and prints bootloader edits to run by hand.</p>
+        </div>
       </div>
 
-      <div class="section-head" style="margin-top: clamp(1.5rem, 3vw, 2.5rem); text-align: center;">
-        <p class="lede" data-i18n="features.explain">
-          The important part: <strong>on-demand, not always-on.</strong> None of these run in the background by default. You run one when you need it, it does the job, shows you exactly what changed, and exits. Most of them also have a safe <code>--check</code> preview first, and anything they overwrite gets a timestamped <code>.bak-*</code> backup.
+      <div class="section-head" style="margin-top: clamp(1rem, 2vw, 1.5rem); text-align: center;">
+        <p data-i18n="features.explain">
+          <strong>on-demand, not always-on.</strong> none run in the background by default. you run one when you need it, it shows you what it's doing, exits when done. most have <code>--check</code> first, and anything they overwrite gets a timestamped <code>.bak-*</code> backup.
         </p>
       </div>
     </div>
