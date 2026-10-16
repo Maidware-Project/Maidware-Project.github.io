@@ -11,15 +11,14 @@ maintained by Maidware Project.
 - sign off every commit (`git commit -s` appends it):
   `Signed-off-by: Your Name <you@example.com>`
   (developer's certificate of origin - proves you may contribute it)
-- AI-assisted work gets an `Assisted-by:` trailer naming the tool,
-  e.g. `Assisted-by: opencode (muse-spark)`. the kernel requires this;
-  so do we. never claim a check ran that didn't.
 
 ## before opening anything
 
 - `python3 tests/check.py` green on your machine - paste the result in
   the PR (the template asks for it). it checks that tags balance, that
   every local asset exists, and that every `#anchor` lands somewhere.
+- CI must be green before review - a green run on your machine is the
+  start, not the finish
 - the pages open fine from `python3 -m http.server 8000` - click through
   index, guides and help
 - check both a light and a dark theme (the picker is in the header); a
@@ -34,6 +33,10 @@ answer the question.
 
 it's plain html, css and vanilla js, no build step. if a change needs a
 toolchain, that's a reason to skip the change, not to add one.
+
+reviewers here are people, not bots: expect to answer questions about your
+change, and don't open one you can't back up. unattended drive-by or bot
+PRs get closed.
 
 ## issues
 

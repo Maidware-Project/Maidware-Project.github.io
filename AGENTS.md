@@ -31,8 +31,7 @@ pages and in the docs.
   technical scope, no politics, stay neutral.
 - Commit style: short lowercase summaries with a prefix (`fix:`,
   `feat:`, `docs:`, `chore:`), one logical change each. Sign off every
-  commit (`git commit -s`); AI-assisted work adds an `Assisted-by:`
-  trailer naming the tool.
+  commit (`git commit -s`).
 - No trackers, no analytics, no build step, no network calls at all.
 - A nav or footer change touches every page at once; a new theme touches
   the menu on every page. Never leave the pages disagreeing.
