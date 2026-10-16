@@ -11,14 +11,19 @@ pages. no server, no database, no build step, no accounts, no forms.
   script, style, font and image sources.
 - preferences (theme, language, text size, spacing) live in your
   browser's localstorage. nothing is sent anywhere.
+- all javascript is self-hosted in `js/`: `js/theme-boot.js` in the
+  head, `js/main.js` and `js/i18n.js` at the end of the body. no
+  inline scripts, so the content security policy holds
+  `script-src 'self'` with no exceptions.
 - no personal data in this repo, and forked pages are expected to keep
   it that way.
 
 ## limits
 
-- github pages cannot send response headers, so hsts,
-  x-content-type-options or frame-ancestors cannot be set here. the csp
-  meta covers resource loading, not headers.
+- github pages sends its own `strict-transport-security` header, so
+  hsts is covered. `x-content-type-options` or `frame-ancestors`
+  cannot be set from a static repo - the csp meta covers resource
+  loading, not headers.
 
 ## reporting
 

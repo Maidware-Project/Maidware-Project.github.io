@@ -32,6 +32,7 @@ pages and in the docs.
   `contributions.html` how to help, `conduct.html` how the project is run
 - `css/style.css` the whole layout and every theme, as css variables
 - `js/main.js` theme menu, mobile nav, copy buttons, toc
+- `js/theme-boot.js` stored theme and settings, loaded in every page's head
 - `js/i18n.js` english-only scaffolding for adding a translation
 - `tests/check.py` tag/link checker
 
@@ -45,8 +46,9 @@ pages and in the docs.
   commit - the trailer is exactly `Signed-off-by: visa`, no email.
 - No trackers, no analytics, no build step, no network calls at all.
 - A nav or footer change touches every page at once; a new theme touches
-  the menu on every page, `js/main.js`, and the head script on each page
-  that applies the stored theme. Never leave the pages disagreeing.
+  the menu on every page, `js/main.js`, and `js/theme-boot.js`, which
+  every page loads in its head and which applies the stored theme.
+  Never leave the pages disagreeing.
 
 ## Theme names live in five places
 
@@ -56,7 +58,7 @@ starts lying about what is selected:
 - the palette block in `css/style.css`
 - the `.theme-option` row in the menu, on all six pages
 - the `VALID` list in `js/main.js`
-- the `T` list in the head script, on all six pages
+- the `T` list in `js/theme-boot.js`
 - the name lists in `README.md` and this file
 
 `maidware` sits first in the menu and stays the default. Art added later
@@ -80,7 +82,8 @@ uses its palette: tile `#1a1b26`, edge `#454654`, glyph `#5cb9ae`.
 ## Verify
 
 - `python3 tests/check.py` - tags balance, local assets and anchors resolve
-- `node --check js/main.js` and `node --check js/i18n.js`
+- `node --check js/main.js`, `node --check js/i18n.js` and
+  `node --check js/theme-boot.js`
 - readable in every theme: body and secondary text keep contrast
 - a visual change gets rendered and looked at. Render in headless
   librewolf with a fresh profile each time - the page writes its theme to

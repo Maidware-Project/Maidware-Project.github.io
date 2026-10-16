@@ -30,6 +30,7 @@ contributions.html  patches over donations: stats, recent, how to help
 conduct.html        how the project is run (mirrors CODE_OF_CONDUCT.md)
 css/style.css       the layout and every theme, as css variables
 js/main.js          theme menu, mobile nav, copy buttons, toc
+js/theme-boot.js    stored theme and settings, applied before first paint
 js/i18n.js          english-only scaffolding for adding a translation
 tests/check.py      tag, asset and anchor checker
 SECURITY.md         what the site does not do, and how to report issues
@@ -47,8 +48,8 @@ accent. `maidware` is the default and the one actually run day to day.
 
 `apron` is the base and sits on `:root` instead of in a block of its own,
 so a name we no longer ship still lands on a readable page. the names also
-live in `js/main.js` and in each page's head script, which checks the list
-before it applies a stored theme.
+live in `js/main.js` and in `js/theme-boot.js`, which every page loads
+in its head and which checks the list before it applies a stored theme.
 
 ## adding a guide
 
