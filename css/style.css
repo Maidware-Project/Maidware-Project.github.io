@@ -469,8 +469,10 @@ p { margin: 0 0 16px; }
   cursor: pointer;
   font-family: inherit;
   text-decoration: none;
+  box-shadow: 0 1px 2px var(--shadow);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
-.btn:hover { border-color: var(--accent); }
+.btn:hover { border-color: var(--accent); box-shadow: 0 3px 10px var(--shadow); }
 .btn:active { transform: none; }
 .btn-primary { border-color: var(--accent); }
 
