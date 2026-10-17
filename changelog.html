@@ -68,6 +68,22 @@
           <button class="theme-option" role="menuitemradio" data-theme="sachet" type="button"><span class="swatches"><i class="sw" style="background:#f8f6fc"></i><i class="sw" style="background:#5f4a9c"></i></span>sachet</button>
         </div>
       </div>
+      <div class="menu-wrap">
+        <button class="tool-btn" id="access-btn" type="button" aria-expanded="false" aria-controls="access-menu" data-i18n-attr="aria-label:access.button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.9"/><path d="M12 7.4v5.4"/><path d="M5.2 9.4h13.6"/><path d="M12 12.8 9.2 18"/><path d="M12 12.8 14.8 18"/></svg>
+          <span data-i18n="access.button">accessibility</span>
+        </button>
+        <div class="theme-menu" id="access-menu" role="menu" aria-label="accessibility" hidden>
+          <p data-i18n="access.text">text size</p>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="normal" type="button" aria-checked="true"><span data-i18n="access.text.normal">normal</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="large" type="button" aria-checked="false"><span data-i18n="access.text.large">large</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="larger" type="button" aria-checked="false"><span data-i18n="access.text.larger">larger</span></button>
+          <p data-i18n="access.reading">reading</p>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="font" data-value="plain" type="button" aria-checked="false"><span data-i18n="access.font">plain font</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="space" data-value="more" type="button" aria-checked="false"><span data-i18n="access.space">more space</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="links" data-value="underline" type="button" aria-checked="false"><span data-i18n="access.links">underline links</span></button>
+        </div>
+      </div>
       <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
