@@ -200,7 +200,7 @@
             <div class="meta">
               <span class="tag cat">launcher</span>
               <span class="tag">python · qt</span>
-              <span class="tag">rofi fallback</span>
+              <span class="tag">maid scroll</span>
             </div>
             <h3>Maid Runner</h3>
             <p data-i18n="t.runner.body">
@@ -208,7 +208,7 @@
               that knows what's going on with your system: earbuds state, pending updates,
               share targets.
             </p>
-            <pre class="code-block"><span class="p">$</span> bash install.sh   <span class="c"># app + six rofi themes + launcher</span>
+            <pre class="code-block"><span class="p">$</span> bash install.sh   <span class="c"># app + palettes + launcher</span>
 <span class="p">$</span> maid-runner</pre>
             <ul>
               <li data-i18n="t.runner.li1"><strong>applications</strong> - read from the same xdg menu data plasma shows. respects NoDisplay/Hidden/TryExec, flatpak exports included</li>
@@ -217,10 +217,14 @@
               <li data-i18n="t.runner.li4"><strong>calculator</strong> - an ast allowlist, never <code>eval</code>. enter copies the result</li>
               <li data-i18n="t.runner.li5"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls, duckduckgo for everything else</li>
             </ul>
-            <p data-i18n="t.runner.fallback">
-              no pyqt6, or no display? it runs the rofi fallback with one of six themes:
-              maid-dark, maid-light, maid-tokyo, maid-mallow, maid-green, maid-blue.
+            <p data-i18n="t.runner.scroll">
+              <strong>maid scroll</strong> is the suite's own theme backend: six palettes -
+              dark, light, tokyo, mallow, green, blue - are built into the window, and caps
+              lock cycles them and remembers the pick. the same six ship as drun themes, for
+              when the window cannot run.
             </p>
+            <pre class="code-block"><span class="p">$</span> maid-scroll list        <span class="c"># every palette, star on the current one</span>
+<span class="p">$</span> maid-scroll set mallow  <span class="c"># jump straight to one</span></pre>
             <p><a href="https://github.com/Maidware-Project/Maid-Runner" data-i18n="common.readme">full readme →</a></p>
           </article>
 
@@ -375,14 +379,8 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
                   <span class="pkg"><b data-i18n="distros.all">all four</b><code>PyQt6</code></span>
                 </dd>
               </div>
-              <div class="req">
-                <dt data-i18n="req.runner.rofi">rofi fallback</dt>
-                <dd>
-                  <span class="pkg"><b data-i18n="distros.all">all four</b><code>rofi</code></span>
-                </dd>
-              </div>
             </dl>
-            <p class="note" data-i18n="req.runner.note">no pyqt6, or no display? it runs the rofi fallback instead, which needs only rofi.</p>
+            <p class="note" data-i18n="req.runner.note">the six maid scroll palettes and the <code>maid-scroll</code> command come with the app; there is nothing else to install.</p>
           </div>
 
           <div class="req-group">
