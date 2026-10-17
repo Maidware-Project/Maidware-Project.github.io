@@ -5,12 +5,12 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="doc.title.dl">Download Maidshare - Maidware Project</title>
-<meta name="description" content="get Maidshare as a ~25 KB source archive or a one-line git clone. no app store, no account, no phone app. send files to your phone and take files back on your PC." data-i18n-attr="content:doc.description.dl">
+<title data-i18n="doc.title.dl">Downloads - Maidware Project</title>
+<meta name="description" content="Download the five Maidware tools: .deb, .rpm, Arch packages built from each release, or source archives. No account, plain text." data-i18n-attr="content:doc.description.dl">
 <link rel="canonical" href="https://maidware-project.github.io/downloads.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Download Maidshare - Maidware Project" data-i18n-attr="content:doc.title.dl">
-<meta property="og:description" content="get Maidshare as a ~25 KB source archive or a one-line git clone. no app store, no account, no phone app. send files to your phone and take files back on your PC." data-i18n-attr="content:doc.description.dl">
+<meta property="og:title" content="Downloads - Maidware Project" data-i18n-attr="content:doc.title.dl">
+<meta property="og:description" content="Download the five Maidware tools: .deb, .rpm, Arch packages built from each release, or source archives. No account, plain text." data-i18n-attr="content:doc.description.dl">
 <meta property="og:url" content="https://maidware-project.github.io/downloads.html">
 <meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="css/style.css">
@@ -23,17 +23,15 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">maidware<span class="sub">project</span></a>
-
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="index.html" data-i18n="nav.home">home</a>
-      <a href="downloads.html" aria-current="page" data-i18n="nav.downloads">downloads</a>
       <a href="guides.html" data-i18n="nav.guides">guides</a>
       <a href="performance.html" data-i18n="nav.performance">performance</a>
+      <a href="downloads.html" aria-current="page" data-i18n="nav.downloads">downloads</a>
       <a href="faq.html" data-i18n="nav.faq">faq</a>
       <a href="contributions.html" data-i18n="nav.contributions">contributions</a>
       <a href="https://github.com/Maidware-Project">github</a>
     </nav>
-
     <div class="header-tools">
       <div class="menu-wrap" hidden>
         <button class="tool-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-menu">
@@ -42,13 +40,12 @@
         </button>
         <div class="theme-menu" id="lang-menu" role="menu" aria-label="Language" hidden></div>
       </div>
-
       <div class="menu-wrap">
         <button class="tool-btn" id="theme-btn" type="button" aria-expanded="false" aria-controls="theme-menu">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
           <span data-i18n="theme.button">theme</span>
         </button>
-                        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
+        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
           <p data-i18n="theme.dark">dark</p>
           <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
           <button class="theme-option" role="menuitemradio" data-theme="nightshift" type="button"><span class="swatches"><i class="sw" style="background:#15171b"></i><i class="sw" style="background:#8aa9c9"></i></span>nightshift</button>
@@ -70,23 +67,6 @@
           <button class="theme-option" role="menuitemradio" data-theme="sachet" type="button"><span class="swatches"><i class="sw" style="background:#f8f6fc"></i><i class="sw" style="background:#5f4a9c"></i></span>sachet</button>
         </div>
       </div>
-
-      <div class="menu-wrap">
-        <button class="tool-btn" id="access-btn" type="button" aria-expanded="false" aria-controls="access-menu" data-i18n-attr="aria-label:access.button">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.9"/><path d="M12 7.4v5.4"/><path d="M5.2 9.4h13.6"/><path d="M12 12.8 9.2 18"/><path d="M12 12.8 14.8 18"/></svg>
-          <span data-i18n="access.button">accessibility</span>
-        </button>
-        <div class="theme-menu" id="access-menu" role="menu" aria-label="accessibility" hidden>
-          <p data-i18n="access.text">text size</p>
-          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="normal" type="button" aria-checked="true"><span data-i18n="access.text.normal">normal</span></button>
-          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="large" type="button" aria-checked="false"><span data-i18n="access.text.large">large</span></button>
-          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="larger" type="button" aria-checked="false"><span data-i18n="access.text.larger">larger</span></button>
-          <p data-i18n="access.reading">reading</p>
-          <button class="theme-option access-option" role="menuitemcheckbox" data-access="font" data-value="plain" type="button" aria-checked="false"><span data-i18n="access.font">plain font</span></button>
-          <button class="theme-option access-option" role="menuitemcheckbox" data-access="space" data-value="more" type="button" aria-checked="false"><span data-i18n="access.space">more space</span></button>
-          <button class="theme-option access-option" role="menuitemcheckbox" data-access="links" data-value="underline" type="button" aria-checked="false"><span data-i18n="access.links">underline links</span></button>
-        </div>
-      </div>
       <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -96,87 +76,105 @@
 
 <main id="main-content">
   <div class="container">
-
     <p class="breadcrumb"><a href="index.html" data-i18n="nav.home">home</a> / <span class="here" data-i18n="nav.downloads">downloads</span></p>
-
     <div class="guide-content page-narrow">
-      <h1 data-i18n="dl.title">download Maidshare</h1>
+      <h1 data-i18n="dl.title">downloads</h1>
       <div class="divider"></div>
-
       <p data-i18n="dl.intro">
-        Maidshare sends files and links from your linux PC to your phone - and takes files
-        back the other way. it is a command-line tool, not an app: no store listing, no
-        account, and nothing to install on the phone.
+        every tool comes as <strong>real</strong> packages (.deb, .rpm, Arch) built from that tool's release tag.
+        the installer was already made to stage to a system prefix, so the packages drop the same files the installer would.
+        nothing here fetches at load.
       </p>
-
       <div class="callout">
         <p data-i18n="dl.slow">
-          <strong>on a slow or capped connection?</strong> the whole source archive is about
-          25 KB - smaller than a single photo, and it is plain text: no binaries, no images.
-          this page itself loads nothing from outside, so there are no fonts, trackers or
-          analytics to wait on. take the tar.gz over the zip, and if you use git, clone with
-          <code>--depth 1</code>.
+          <strong>packages appear after a tag.</strong> each repo's release workflow builds the packages when a tag like <code>v1.2.3</code> is pushed.
+          if a release page has no <code>.deb</code>/<code>.rpm</code>/<code>.pkg.tar.zst</code> yet, push a tag (or wait for the maintainer to do it).
         </p>
       </div>
 
-      <h2 data-i18n="dl.ways.title">two ways to get it</h2>
-
-      <h3 data-i18n="dl.archive.title">1. take the source archive</h3>
-      <p data-i18n="dl.archive.body">
-        a zip or tar.gz of the source. no git needed - unzip it and follow the install step.
-      </p>
+      <h2 id="maidshare">MaidShare</h2>
+      <p>send files and links from linux to an android phone - and back. no phone app.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maidshare/archive/refs/heads/main.zip">.zip &middot; about 31 KB</a>
-        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/archive/refs/heads/main.tar.gz">.tar.gz &middot; about 23 KB</a>
+        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maidshare/releases/latest/download/maidshare_all.deb">.deb</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/releases/latest/download/maidshare.noarch.rpm">.rpm</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/releases/latest/download/maidshare-any.pkg.tar.zst">arch</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/releases/latest">all releases</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/releases/latest/download/SHA256SUMS">checksums</a>
       </div>
+      <p>source</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/archive/refs/heads/main.zip">.zip</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/archive/refs/heads/main.tar.gz">.tar.gz</a>
+      </div>
+      <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maidshare<br><span class="p">$</span> cd Maidshare</pre>
 
-      <h3 data-i18n="dl.clone.title">2. or clone it with git</h3>
-      <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maidshare
-<span class="p">$</span> cd Maidshare</pre>
+      <h2 id="maid-runner">Maid Runner</h2>
+      <p>small qt search box for plasma. apps, commands, web search, maid actions - nothing runs when closed.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maid-Runner/releases/latest/download/maid-runner_all.deb">.deb</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Runner/releases/latest/download/maid-runner.noarch.rpm">.rpm</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Runner/releases/latest/download/maid-runner-any.pkg.tar.zst">arch</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Runner/releases/latest">all releases</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Runner/releases/latest/download/SHA256SUMS">checksums</a>
+      </div>
+      <p>source</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Runner/archive/refs/heads/main.zip">.zip</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Runner/archive/refs/heads/main.tar.gz">.tar.gz</a>
+      </div>
+      <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maid-Runner<br><span class="p">$</span> cd Maid-Runner</pre>
 
-      <h2 data-i18n="dl.install.title">install</h2>
-      <p data-i18n="dl.install.body">
-        one script copies the tool and its icon, and tells you which send backends your
-        machine already has.
-      </p>
-      <pre class="code-block"><span class="p">$</span> bash install.sh --check   <span class="c"># dry run: shows what it would copy</span>
-<span class="p">$</span> bash install.sh           <span class="c"># do it - existing files are backed up first</span></pre>
-      <p data-i18n="dl.install.note">
-        the installer downloads nothing: every dependency comes from your distro's own
-        packages. it never symlinks, and it asks before it touches anything.
-      </p>
+      <h2 id="maid-au">Maid AU</h2>
+      <p>one updater for packages, flatpak, firmware. previews with --check, snapshots before/after, doesn't reboot for you.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maid-AU/releases/latest/download/maid-au_all.deb">.deb</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-AU/releases/latest/download/maid-au.noarch.rpm">.rpm</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-AU/releases/latest/download/maid-au-any.pkg.tar.zst">arch</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-AU/releases/latest">all releases</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-AU/releases/latest/download/SHA256SUMS">checksums</a>
+      </div>
+      <p>source</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-AU/archive/refs/heads/main.zip">.zip</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-AU/archive/refs/heads/main.tar.gz">.tar.gz</a>
+      </div>
+      <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maid-AU<br><span class="p">$</span> cd Maid-AU</pre>
 
-      <h2 data-i18n="dl.pc.title">the PC side: getting files back</h2>
-      <p data-i18n="dl.pc.body">
-        the same install works in both directions on your computer. <code>maidshare --receive</code>
-        starts a small page on your own network and prints a QR code and a token link. open
-        either one on your phone's browser and the file uploads straight to your PC, landing
-        in <code>~/Downloads/MaidShare</code>. any other computer on the same network can use
-        that link too, so it doubles as a PC-to-PC hop. the page expires by itself, and
-        nothing leaves your local network.
-      </p>
-      <pre class="code-block"><span class="p">$</span> maidshare --receive           <span class="c"># qr + browser upload, phone or another pc</span>
-<span class="p">$</span> maidshare --receive --time 5  <span class="c"># close it again after 5 minutes</span></pre>
+      <h2 id="maid-bt">Maid BT</h2>
+      <p>bluetooth earbuds switching that doesn't fight you. pc/phone/off, watcher, tray entries.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maid-BT/releases/latest/download/maid-bt_all.deb">.deb</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-BT/releases/latest/download/maid-bt.noarch.rpm">.rpm</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-BT/releases/latest/download/maid-bt-any.pkg.tar.zst">arch</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-BT/releases/latest">all releases</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-BT/releases/latest/download/SHA256SUMS">checksums</a>
+      </div>
+      <p>source</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-BT/archive/refs/heads/main.zip">.zip</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-BT/archive/refs/heads/main.tar.gz">.tar.gz</a>
+      </div>
+      <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maid-BT<br><span class="p">$</span> cd Maid-BT</pre>
 
-      <h2 data-i18n="dl.need.title">what you need</h2>
-      <ul>
-        <li data-i18n="dl.need1">a linux PC - this is the computer half; the phone needs no app at all</li>
-        <li data-i18n="dl.need2">to send: KDE Connect, or adb, or just wifi. Maidshare picks whichever is there and tells you which one it used</li>
-        <li data-i18n="dl.need3">to receive: python 3, already present on nearly every distro</li>
-      </ul>
+      <h2 id="maid-helper">Maid Helper</h2>
+      <p>first-aid for common linux breakages. only fixes what it safely can; reports missing pieces.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maid-Helper/releases/latest/download/maid-helper_all.deb">.deb</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Helper/releases/latest/download/maid-helper.noarch.rpm">.rpm</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Helper/releases/latest/download/maid-helper-any.pkg.tar.zst">arch</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Helper/releases/latest">all releases</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Helper/releases/latest/download/SHA256SUMS">checksums</a>
+      </div>
+      <p>source</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Helper/archive/refs/heads/main.zip">.zip</a>
+        <a class="btn" href="https://github.com/Maidware-Project/Maid-Helper/archive/refs/heads/main.tar.gz">.tar.gz</a>
+      </div>
+      <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maid-Helper<br><span class="p">$</span> cd Maid-Helper</pre>
 
       <div class="callout">
-        <p data-i18n="dl.trust">
-          <strong>read it before you run it.</strong> the <a href="SECURITY.md">security notes</a>
-          say what this site and the tools do and do not do. found a problem? write to
-          maidwareproject@proton.me first, rather than opening a public issue.
-        </p>
-      </div>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://github.com/Maidware-Project/Maidshare" data-i18n="common.repository">repository</a>
-        <a class="btn" href="guides.html#guide-maidshare" data-i18n="dl.guide">setup guide</a>
-        <a class="btn" href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a>
+        <p>install: download the package for your distro, then install it with your package manager.
+          the packages mirror what each <code>install.sh</code> would do: they drop the same files (no symlinks), write system metadata, and tell the tools to use <code>/usr</code> paths.</p>
       </div>
     </div>
   </div>
