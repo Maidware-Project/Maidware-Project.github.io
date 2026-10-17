@@ -53,6 +53,7 @@
   if (themeBtn && themeMenu) {
     themeBtn.addEventListener("click", function (event) {
       event.stopPropagation();
+      closeAccessMenu();
       var open = themeMenu.hidden;
       themeMenu.hidden = !open;
       themeBtn.setAttribute("aria-expanded", open ? "true" : "false");
