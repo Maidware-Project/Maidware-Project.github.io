@@ -215,8 +215,15 @@
               <li data-i18n="t.runner.li2"><strong>maid</strong> - every action in the suite. leave the query empty to list them all</li>
               <li data-i18n="t.runner.li3"><strong>run</strong> - binaries on your PATH, always opened in a terminal so the cli ones work</li>
               <li data-i18n="t.runner.li4"><strong>calculator</strong> - an ast allowlist, never <code>eval</code>. enter copies the result</li>
-              <li data-i18n="t.runner.li5"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls, duckduckgo for everything else</li>
+              <li data-i18n="t.runner.li5"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls open directly, and everything else goes to <strong>searxng</strong></li>
             </ul>
+            <p data-i18n="t.runner.search">
+              bare text goes to <strong>searxng</strong> - a free and open source
+              metasearch engine - as the official search behind Maid Runner. it is what we
+              picked on purpose: no profiles, no ad tracking, and results pulled from many
+              engines at once, so your searches stay yours. the instance is yours to choose,
+              and any of the public ones works.
+            </p>
             <p data-i18n="t.runner.scroll">
               <strong>maid scroll</strong> is the suite's own theme backend: six palettes -
               dark, light, tokyo, mallow, green, blue - are built into the window, and caps
