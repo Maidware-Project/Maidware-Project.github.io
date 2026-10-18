@@ -123,6 +123,7 @@
 </div>
 <h2><a href="https://github.com/Maidware-Project/Maid-Runner">Maid Runner</a></h2>
 <div class="rule"><h3>recent commits</h3><ul>
+<li>2026-10-18: Maid Runner v0.5</li>
 <li>2026-10-18: docs: catch the readme up with the tabs, resident mode and weight</li>
 <li>2026-10-18: feat: fade in and out at the desktop&#x27;s animation speed</li>
 <li>2026-10-18: Maid runner update</li>
@@ -132,7 +133,6 @@
 <li>2026-10-17: fix: make terminal choice and leak guard machine-neutral</li>
 <li>2026-10-17: fix: keep the machine&#x27;s home path out of the repo</li>
 <li>2026-10-17: docs: add the project principles</li>
-<li>2026-10-17: tests: keep the install test off the real config</li>
 </ul></div>
 <h2><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></h2>
 <div class="rule"><h3>maid suite finds and clones from github <small style="font-weight:normal;">2026-10-17</small></h3>
@@ -224,6 +224,9 @@
 <p>- watcher reads earbuds battery over BlueZ (`Battery Percentage`) and<br>  matches the A2DP codec to it: 75%+ LDAC, 45%+ AAC, 15%+ SBC-XQ,<br>  below that SBC. check every 60s, at most one switch per 3 min,<br>  never touches the profile mid-call (HSP/HFP left alone).<br>- **off by default** (`BATTERY_BOOST=0`). turning it on means transport<br>  teardowns on purpose, and on some plasmashell builds any A2DP<br>  teardown segfaults the audio thread (`spa.bluez5: Failure ...` →<br>  `QAudioContext` SIGSEGV - seen live here). flip it to 1 only if your<br>  desktop survives a manual profile switch:<br>  `pactl set-card-profile bluez_card.&lt;AA_BB_CC_DD_EE_FF&gt; a2dp-sink-aac`<br>  then back, with no crash. if it crashes, leave it 0 - warm link +<br>  no teardowns is the whole crash strategy of this package.</p>
 </div>
 <h2><a href="https://github.com/Maidware-Project/Maid-Helper">MHE/Maid-Helper</a></h2>
+<div class="rule"><h3>fixes: an honest codecs check, a window you can read <small style="font-weight:normal;">2026-10-18</small></h3>
+<p>- codecs: the check asked ffmpeg&#x27;s *decoder* list for libmp3lame — an<br>  encoder only — so healthy systems were told &quot;NEEDS FIX - videos/music<br>  may not play&quot;. it now checks the decoders that matter (mp3/aac/h264),<br>  and the stub farm fakes real ffmpeg output so the old bug can&#x27;t hide<br>  behind the test again.<br>- launcher: the terminal window no longer vanishes the moment the report<br>  ends — it waits for enter, and when the check found trouble it offers<br>  to apply the safe fixes right there (sudo asks inside). a desktop<br>  default terminal that is no longer installed now falls back instead of<br>  failing silently.<br>- dispatcher: the run log the readme and uninstaller promise<br>  (`~/.local/share/maid-helper.log`) is finally written — run header,<br>  every module&#x27;s output, result line.<br>- print: &quot;no system default destination&quot; is said in words instead of<br>  leaking raw lpstat output; the Maidshare backend list loses its stray<br>  trailing space.</p>
+</div>
 <div class="rule"><h3>more doctors: gamepad, flatpak, firmware, AMD <small style="font-weight:normal;">2026-10-15</small></h3>
 <p>- new modules: gamepads (USB + bluetooth detect, Steam Input noted<br>  first, delegates to Maid AU&#x27;s stack on openSUSE), flathub remote,<br>  fwupd presence — same check/fix contract as the rest.<br>- gpu covers AMD now (amdgpu + firmware + Vulkan verified, legacy<br>  radeon gets printed kernel flags); NVIDIA stays Nouveau-only,<br>  nothing proprietary anywhere.<br>- distros: derivatives ride their family (manjaro, mint, pop, rocky);<br>  unknown distros get manual commands, tested via fixtures.</p>
 </div>
