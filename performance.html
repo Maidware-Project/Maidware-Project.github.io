@@ -103,8 +103,9 @@
       <div class="divider"></div>
 
       <p data-i18n="perf.intro">
-        none of these sit in memory waiting. each is a shell or python script that runs and
-        exits, so idle costs nothing. the one piece that stays on is the bluetooth fallback loop.
+        most of these run and exit, so idle costs nothing. two can stay in memory when you
+        use them: the bluetooth fallback loop, and maid runner after you open it - it waits
+        so the next open is instant, and <code>--quit</code> stops it.
       </p>
 
       <h2 data-i18n="perf.memory.title">memory</h2>
@@ -126,8 +127,8 @@
             </tr>
             <tr>
               <th scope="row">Maid Runner</th>
-              <td class="idle" data-i18n="perf.runner.idle">nothing</td>
-              <td data-i18n="perf.runner.work">~60 MB while the window is open (PyQt6), nothing once it is closed</td>
+              <td class="idle" data-i18n="perf.runner.idle">nothing until first open; then ~40 MB of its own, staying so the next open is instant (<code>--quit</code> stops it)</td>
+              <td data-i18n="perf.runner.work">~75 MB of its own with the window built - the qt6 toolkit is most of it and is shared with the rest of the desktop</td>
             </tr>
             <tr>
               <th scope="row">Maid AU</th>
@@ -148,7 +149,7 @@
         </table>
       </div>
 
-      <p class="perf-note" data-i18n="perf.note">idle is what stays in ram between uses; the working figures are one short-lived process each. measured on a normal desktop, so yours will differ a little.</p>
+      <p class="perf-note" data-i18n="perf.note">idle is what stays in ram between uses; the working figures are one short-lived process each. the runner figures are its own share of what it loads, so the shared qt6 toolkit is not counted twice. measured on a normal desktop, so yours will differ a little.</p>
 
       <h2 data-i18n="perf.why.title">why it stays small</h2>
 
@@ -156,7 +157,7 @@
 
       <ul class="perf-why">
         <li data-i18n="perf.why1">small scripts, not big apps. no electron and no bundled browser - the heavy engines many desktop apps carry. that is the difference between tens of megabytes and hundreds.</li>
-        <li data-i18n="perf.why2">nothing waits in the background. install all five and still nothing runs until you ask for it.</li>
+        <li data-i18n="perf.why2">nothing starts by itself. install all five and nothing runs until you ask; maid runner waits only after you first open it, and <code>--quit</code> ends that wait.</li>
         <li data-i18n="perf.why3">the bluetooth helper wakes on system events instead of checking over and over, so it barely touches the cpu.</li>
         <li data-i18n="perf.why4">nothing is compiled. there is no build step - the installer just copies files into your home directory.</li>
         <li data-i18n="perf.why5">the same goes for this site: plain html and css, so it opens instantly.</li>

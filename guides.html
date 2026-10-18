@@ -204,19 +204,31 @@
             </div>
             <h3>Maid Runner</h3>
             <p data-i18n="t.runner.body">
-              type, enter. tab cycles five sources, and the maid one is the only search box
-              that knows what's going on with your system: earbuds state, pending updates,
+              type, enter. tab moves between tabs that mirror your app menu - all
+              applications, then its groups - and the maid one is the only search box that
+              knows what's going on with your system: earbuds state, pending updates,
               share targets.
             </p>
             <pre class="code-block"><span class="p">$</span> bash install.sh   <span class="c"># app + palettes + launcher</span>
-<span class="p">$</span> maid-runner</pre>
+<span class="p">$</span> maid-runner
+<span class="p">$</span> maid-runner --toggle   <span class="c"># one key: open if hidden, close if open</span></pre>
             <ul>
               <li data-i18n="t.runner.li1"><strong>applications</strong> - read from the same xdg menu data plasma shows. respects NoDisplay/Hidden/TryExec, flatpak exports included</li>
-              <li data-i18n="t.runner.li2"><strong>maid</strong> - every action in the suite. leave the query empty to list them all</li>
-              <li data-i18n="t.runner.li3"><strong>run</strong> - binaries on your PATH, always opened in a terminal so the cli ones work</li>
-              <li data-i18n="t.runner.li4"><strong>calculator</strong> - an ast allowlist, never <code>eval</code>. enter copies the result</li>
-              <li data-i18n="t.runner.li5"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls open directly, and everything else goes to <a href="https://github.com/searxng/searxng">SearXNG</a></li>
+              <li data-i18n="t.runner.li2"><strong>the menu's groups</strong> - internet, games, multimedia, graphics, office, utilities, development, system, help: a tab per group that has apps, in the app manager's order</li>
+              <li data-i18n="t.runner.li3"><strong>maid</strong> - every action in the suite. leave the query empty to list them all</li>
+              <li data-i18n="t.runner.li4"><strong>files</strong> - your files by name from your home folder, scanned in the background while the runner is up</li>
+              <li data-i18n="t.runner.li5"><strong>run</strong> - binaries on your PATH, always opened in a terminal so the cli ones work</li>
+              <li data-i18n="t.runner.li6"><strong>calculator</strong> - an ast allowlist, never <code>eval</code>. enter copies the result</li>
+              <li data-i18n="t.runner.li7"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls open directly, and everything else goes to <a href="https://github.com/searxng/searxng">SearXNG</a>. opens in your default browser</li>
             </ul>
+            <p data-i18n="t.runner.resident">
+              the first open stays in memory: closing hides the window, and the next
+              keypress is a repaint, not a start. <code>maid-runner --quit</code> stops it;
+              <code>maid-runner --service</code> starts it hidden if you want it from
+              login. on kwin the window is a wayland layer surface, so it never shows in
+              the taskbar or alt-tab. opening and closing fades at your desktop's
+              animation speed.
+            </p>
             <p data-i18n="t.runner.search">
               bare text goes to <a href="https://github.com/searxng/searxng">SearXNG</a> - a free
               and open source metasearch engine - as the official search behind Maid Runner. it
