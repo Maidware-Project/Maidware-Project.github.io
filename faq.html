@@ -109,7 +109,8 @@
         every tool that writes a file takes <code>--check</code> first, which prints what it
         would do and stops. anything it would overwrite gets a
         <code>.bak-&lt;timestamp&gt;</code> copy. nothing sits in the background waiting for an
-        event.
+        event - maid runner alone waits for its next open after the first one, and
+        <code>--quit</code> stops it.
       </p>
 
       <h3 data-i18n="faq.q2">do they need root?</h3>

@@ -139,7 +139,7 @@
         <div class="rule">
           <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
           <h3 data-i18n="feat4.title">search & launcher</h3>
-          <p data-i18n="feat4.body">one search box for apps, commands, quick math, or maidware actions. talks to the other tools. when closed, nothing runs.</p>
+          <p data-i18n="feat4.body">one search box for apps, commands, quick math, or maidware actions. talks to the other tools. it waits once opened, so the next open is instant; nothing starts on its own.</p>
         </div>
 
         <div class="rule">
@@ -151,7 +151,7 @@
 
       <div class="section-note">
         <p data-i18n="features.explain">
-          <strong>on-demand, not always-on.</strong> none run in the background by default. you run one when you need it, it shows you what it's doing, exits when done. most have <code>--check</code> first, and anything they overwrite gets a timestamped <code>.bak-*</code> backup. installers only copy files, don't pull outside your distro repos.
+          <strong>on-demand, not always-on.</strong> nothing starts by itself. you run one when you need it, it shows you what it's doing, exits when done. maid runner is the one that waits after its first open - so the next open is instant, and <code>--quit</code> stops it. most have <code>--check</code> first, and anything they overwrite gets a timestamped <code>.bak-*</code> backup. installers only copy files, don't pull outside your distro repos.
         </p>
       </div>
     </div>
@@ -184,8 +184,9 @@
           <h3 data-i18n="rule2.title">runs on demand</h3>
           <p data-i18n="rule2.body">
             no service sitting in memory waiting for an event. you run it, it does the
-            thing, it exits. nothing to enable at boot and nothing to remember to disable
-            later.
+            thing, it exits - the one exception is maid runner, which waits after you
+            open it so the next open is instant (<code>--quit</code> stops it). nothing
+            to enable at boot and nothing to remember to disable later.
           </p>
         </div>
 
