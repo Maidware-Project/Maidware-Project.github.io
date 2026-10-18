@@ -135,6 +135,9 @@
 <li>2026-10-17: docs: add the project principles</li>
 </ul></div>
 <h2><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></h2>
+<div class="rule"><h3>controller kmps follow the running kernel <small style="font-weight:normal;">2026-10-18</small></h3>
+<p>- the openSUSE controller stack no longer assumes the `-default`<br>  kernel: it takes the flavor from the running kernel&#x27;s release suffix<br>  (`uname -r` &quot;7.2.10-1-default&quot; -&gt; default, the same convention the<br>  kmp names use) and installs the xone/xpadneo/hid-tmff2 kmps built<br>  for it, so a longterm (or other) kernel gets its own builds.<br>- a flavor the repos publish no build for is skipped with a plain line<br>  in the log; the rest of the controller stack still installs.<br>- the controller health check and the updater&#x27;s count of missing kmps<br>  resolve the same flavor, so both speak about the packages the<br>  machine really needs.</p>
+</div>
 <div class="rule"><h3>maid suite finds and clones from github <small style="font-weight:normal;">2026-10-17</small></h3>
 <p>- the maid suite no longer guesses by folder name: each family repo is<br>  matched by its github origin (so a checkout anywhere counts, e.g.<br>  Maid Helper under `MHE/`), and one that is not on disk yet is cloned<br>  from its github url into `~/.local/share/maid-au/suite`.<br>- the status line reads &quot;maid suite: enabled - pulling from github Maid<br>  BT, Maidshare, Maid Watcher, Maid Helper, Maid Runner&quot;. Maid Watcher<br>  has no repo of its own - it ships inside Maid BT - so pulling Maid BT<br>  covers it.<br>- tests point the suite at a local fixture origin (`MAID_SUITE_LIST`) so<br>  the suite is exercised with no network; a new test covers the clone.</p>
 </div>
