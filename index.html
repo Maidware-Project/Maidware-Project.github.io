@@ -96,16 +96,34 @@
 <main id="main-content">
 
   <section class="hero">
-    <div class="container">
-      <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
-      <p class="lede" data-i18n="hero.lede">
-        small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="guides.html" data-i18n="hero.cta1">read the guides</a>
-        <a class="btn" href="https://github.com/Maidware-Project">github</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
+        <p class="lede" data-i18n="hero.lede">
+          small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
+        </p>
+        <ul class="hero-points">
+          <li><b>01</b> <span data-i18n="hero.p1">asks first - <code>--check</code> prints the plan and stops</span></li>
+          <li><b>02</b> <span data-i18n="hero.p2">keeps backups - overwritten files get a timestamped <code>.bak</code></span></li>
+          <li><b>03</b> <span data-i18n="hero.p3">honest about results - <code>PARTIAL</code> means partial</span></li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="guides.html" data-i18n="hero.cta1">read the guides</a>
+          <a class="btn" href="https://github.com/Maidware-Project">github</a>
+        </div>
+        <p class="lang-note" data-i18n="lang.note">we need coders - <a href="contributions.html">help out</a><br>we need translators - <a href="contributions.html#translations">help us do translations</a>.</p>
       </div>
-      <p class="lang-note" data-i18n="lang.note">we need coders - <a href="contributions.html">help out</a><br>we need translators - <a href="contributions.html#translations">help us do translations</a>.</p>
+
+      <aside class="hero-term" aria-label="example run">
+        <div class="term-bar"><span>maid au</span><span data-i18n="hero.term.example">example</span></div>
+        <pre class="term-body"><span class="p">$</span> update-all.sh --check
+backend: zypper <span class="dim">(from /etc/os-release)</span>
+packages: 14 updates
+flatpak: 3 apps
+firmware: 1 device
+snapshot: snapper found
+<span class="dim">dry run - nothing was changed</span></pre>
+      </aside>
     </div>
   </section>
 
