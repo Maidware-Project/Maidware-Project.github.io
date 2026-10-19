@@ -1,7 +1,7 @@
 # contributing
 
 small, reviewable changes only - one logical change per pull request.
-read AGENTS.md first (it applies to humans and AI assistants alike).
+read README.md first - it covers what the site is and how it deploys.
 maintained by Maidware Project.
 
 ## commits
@@ -27,8 +27,8 @@ maintained by Maidware Project.
 
 ## know your patch
 
-understand every line you send, assistant-written parts included. if you
-can't say what a line does, drop it. "the assistant wrote it" doesn't
+understand every line you send. if you
+can't say what a line does, drop it. "i didn't write it" doesn't
 answer the question.
 
 it's plain html, css and vanilla js, no build step. if a change needs a
