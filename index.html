@@ -96,36 +96,23 @@
 <main id="main-content">
 
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
-        <p class="lede" data-i18n="hero.lede">
-          small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="guides/" data-i18n="hero.cta1">read the guides</a>
-          <a class="btn" href="https://github.com/Maidware-Project">github</a>
-        </div>
-        <p class="lang-note" data-i18n="lang.note">we need coders - <a href="contributions/">help out</a><br>we need translators - <a href="contributions/#translations">help us do translations</a>.</p>
-      </div>
-
-      <div class="hero-side">
-        <aside class="hero-term" aria-label="example run">
-          <div class="term-bar"><span>Maid AU</span><span data-i18n="hero.term.example">example</span></div>
-          <pre class="term-body"><span class="p">$</span> update-all.sh --check
-backend: zypper <span class="dim">(from /etc/os-release)</span>
+    <div class="container">
+      <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
+      <p class="lede" data-i18n="hero.lede">
+        small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
+      </p>
+      <pre class="code-block"><span class="p">$</span> update-all.sh --check
+backend: zypper (from /etc/os-release)
 packages: 14 updates
 flatpak: 3 apps
 firmware: 1 device
 snapshot: snapper found
-<span class="dim">dry run - nothing was changed</span></pre>
-        </aside>
-        <ul class="hero-points">
-          <li><b>01</b> <span data-i18n="hero.p1">asks first - <code>--check</code> prints the plan and stops</span></li>
-          <li><b>02</b> <span data-i18n="hero.p2">keeps backups - overwritten files get a timestamped <code>.bak</code></span></li>
-          <li><b>03</b> <span data-i18n="hero.p3">honest about results - <code>PARTIAL</code> means partial</span></li>
-        </ul>
+<span class="c"># dry run - nothing was changed</span></pre>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="guides/" data-i18n="hero.cta1">read the guides</a>
+        <a class="btn" href="https://github.com/Maidware-Project">github</a>
       </div>
+      <p class="lang-note" data-i18n="lang.note">we need coders - <a href="contributions/">help out</a><br>we need translators - <a href="contributions/#translations">help us do translations</a>.</p>
     </div>
   </section>
 
@@ -141,7 +128,7 @@ snapshot: snapper found
         <div class="rule">
           <span class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></span>
           <h3 data-i18n="feat1.title">updates</h3>
-          <p data-i18n="feat1.body">packages + flatpak + firmware in one go. preview with <code>--check</code>, get timestamped backups, and see if a reboot is needed—it never reboots on its own.</p>
+          <p data-i18n="feat1.body">packages + flatpak + firmware in one go. preview with <code>--check</code>, get timestamped backups, and see if a reboot is needed - it never reboots on its own.</p>
         </div>
 
         <div class="rule">
