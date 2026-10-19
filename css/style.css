@@ -1125,18 +1125,22 @@ pre.code-block .p { color: var(--prompt); }
   align-items: center;
 }
 
-.hero-copy { min-width: 0; }
+.hero-copy,
+.hero-side { min-width: 0; }
 
+/* the three promises sit under the example card, stacked */
 .hero-points {
   list-style: none;
-  margin: 0 0 26px;
+  margin: 18px 0 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
+  flex-direction: column;
+  gap: 9px;
   font-size: 0.85rem;
   color: var(--muted);
 }
+
+.credit { font-size: 0.82rem; color: var(--muted); margin: -24px 0 0; }
 .hero-points li { display: flex; align-items: baseline; gap: 7px; }
 .hero-points b {
   color: var(--accent);
@@ -1188,5 +1192,5 @@ pre.code-block .p { color: var(--prompt); }
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-term { max-width: 560px; }
+  .hero-side { max-width: 560px; }
 }
