@@ -393,10 +393,11 @@ p { margin: 0 0 16px; }
   top: 0;
   z-index: 60;
   background: var(--bg);
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
   border-bottom: 1px solid var(--border);
+  /* no backdrop blur here: the header sits over every scroll frame, and
+     recompositing the blur each frame is the dearest thing on the page.
+     at 97% opaque the page behind it barely shows anyway. */
   transition: transform 0.18s ease-out;
 }
 
