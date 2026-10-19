@@ -76,7 +76,11 @@ def entries_for_repo(repo):
             body = "\n".join(b.splitlines()[1:]).strip()
             html.append("<div class=\"rule\"><h3>%s <small style=\"font-weight:normal;\">%s</small></h3>" % (escape(head), escape(date)))
             if body:
-                html.append("<p>%s</p>" % escape(body).replace("\n", "<br>"))
+                b = escape(body).replace("\u2014", "-").replace("\u2013", "-")
+                b = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", b)
+                b = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", b)
+                b = re.sub(r"`([^`]+)`", r"<code>\1</code>", b)
+                html.append("<p>%s</p>" % b.replace("\n", "<br>"))
             html.append("</div>")
     else:
         out = run_git(os.path.join(BASE, repo), "log", "--format=%as: %s", "-10")
