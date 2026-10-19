@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="maidware">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="same-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="doc.title.guides">Guides - Maidware Project</title>
+<meta name="description" content="install and setup notes for MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
+<link rel="canonical" href="https://maidware-project.github.io/guides/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guides - Maidware Project" data-i18n-attr="content:doc.title.guides">
+<meta property="og:description" content="install and setup notes for MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
+<meta property="og:url" content="https://maidware-project.github.io/guides/">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/theme-boot.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+<div class="sr-only" id="sr-status" role="status"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../">maidware<span class="sub">project</span></a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="../" data-i18n="nav.home">home</a>
+      <a href="../guides/" aria-current="page" data-i18n="nav.guides">guides</a>
+      <a href="../performance/" data-i18n="nav.performance">performance</a>
+      <a href="../faq/" data-i18n="nav.faq">faq</a>
+      <a href="../contributions/" data-i18n="nav.contributions">contributions</a>
+      <a href="https://github.com/Maidware-Project">github</a>
+    </nav>
+
+    <div class="header-tools">
+      <div class="menu-wrap" hidden>
+        <button class="tool-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+          <span id="lang-label">english</span>
+        </button>
+        <div class="theme-menu" id="lang-menu" role="menu" aria-label="Language" hidden></div>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="tool-btn" id="theme-btn" type="button" aria-expanded="false" aria-controls="theme-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+          <span data-i18n="theme.button">theme</span>
+        </button>
+                        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
+          <p data-i18n="theme.dark">dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
+          <button class="theme-option" role="menuitemradio" data-theme="nightshift" type="button"><span class="swatches"><i class="sw" style="background:#15171b"></i><i class="sw" style="background:#8aa9c9"></i></span>nightshift</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lampblack" type="button"><span class="swatches"><i class="sw" style="background:#1c1815"></i><i class="sw" style="background:#d3a05f"></i></span>lampblack</button>
+          <button class="theme-option" role="menuitemradio" data-theme="rinse" type="button"><span class="swatches"><i class="sw" style="background:#101a24"></i><i class="sw" style="background:#63a8cf"></i></span>rinse</button>
+          <button class="theme-option" role="menuitemradio" data-theme="scrub" type="button"><span class="swatches"><i class="sw" style="background:#101712"></i><i class="sw" style="background:#5cb583"></i></span>scrub</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lavender" type="button"><span class="swatches"><i class="sw" style="background:#1d1a23"></i><i class="sw" style="background:#a98cc7"></i></span>lavender</button>
+          <button class="theme-option" role="menuitemradio" data-theme="starch" type="button"><span class="swatches"><i class="sw" style="background:#161927"></i><i class="sw" style="background:#8f9ede"></i></span>starch</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mop" type="button"><span class="swatches"><i class="sw" style="background:#1a1621"></i><i class="sw" style="background:#b08ed2"></i></span>mop</button>
+          <p data-i18n="theme.puredark">pure dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="blackout" type="button"><span class="swatches"><i class="sw" style="background:#000000"></i><i class="sw" style="background:#5cb9ae"></i></span>blackout</button>
+          <p data-i18n="theme.light">light</p>
+          <button class="theme-option" role="menuitemradio" data-theme="spotless" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#39424e"></i></span>spotless</button>
+          <button class="theme-option" role="menuitemradio" data-theme="apron" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>apron</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lace" type="button"><span class="swatches"><i class="sw" style="background:#fdf6f8"></i><i class="sw" style="background:#9a4c73"></i></span>lace</button>
+          <button class="theme-option" role="menuitemradio" data-theme="suds" type="button"><span class="swatches"><i class="sw" style="background:#f4f9f5"></i><i class="sw" style="background:#3a7154"></i></span>suds</button>
+          <button class="theme-option" role="menuitemradio" data-theme="linen" type="button"><span class="swatches"><i class="sw" style="background:#fbfcfe"></i><i class="sw" style="background:#34618f"></i></span>linen</button>
+          <button class="theme-option" role="menuitemradio" data-theme="pail" type="button"><span class="swatches"><i class="sw" style="background:#f2f6f8"></i><i class="sw" style="background:#2f6a80"></i></span>pail</button>
+          <button class="theme-option" role="menuitemradio" data-theme="sachet" type="button"><span class="swatches"><i class="sw" style="background:#f8f6fc"></i><i class="sw" style="background:#5f4a9c"></i></span>sachet</button>
+        </div>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="tool-btn" id="access-btn" type="button" aria-expanded="false" aria-controls="access-menu" data-i18n-attr="aria-label:access.button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.9"/><path d="M12 7.4v5.4"/><path d="M5.2 9.4h13.6"/><path d="M12 12.8 9.2 18"/><path d="M12 12.8 14.8 18"/></svg>
+          <span data-i18n="access.button">accessibility</span>
+        </button>
+        <div class="theme-menu" id="access-menu" role="menu" aria-label="accessibility" hidden>
+          <p data-i18n="access.text">text size</p>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="normal" type="button" aria-checked="true"><span data-i18n="access.text.normal">normal</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="large" type="button" aria-checked="false"><span data-i18n="access.text.large">large</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="larger" type="button" aria-checked="false"><span data-i18n="access.text.larger">larger</span></button>
+          <p data-i18n="access.reading">reading</p>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="font" data-value="plain" type="button" aria-checked="false"><span data-i18n="access.font">plain font</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="space" data-value="more" type="button" aria-checked="false"><span data-i18n="access.space">more space</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="links" data-value="underline" type="button" aria-checked="false"><span data-i18n="access.links">underline links</span></button>
+        </div>
+      </div>
+      <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="container">
+
+    <p class="breadcrumb"><a href="../" data-i18n="nav.home">home</a> / <span class="here" data-i18n="nav.guides">guides</span></p>
+
+    <div class="guide-layout">
+
+      <aside class="toc">
+        <h2 data-i18n="toc.heading">on this page</h2>
+        <ul>
+          <li><a href="#quick-start" data-i18n="toc.quick">getting started</a></li>
+          <li><a href="#guide-maidshare" class="sub" data-i18n="toc.share">MaidShare</a></li>
+          <li><a href="#guide-maid-runner" class="sub" data-i18n="toc.runner">Maid Runner</a></li>
+          <li><a href="#guide-maid-au" class="sub" data-i18n="toc.au">Maid AU</a></li>
+          <li><a href="#guide-maid-bt" class="sub" data-i18n="toc.bt">Maid BT</a></li>
+          <li><a href="#guide-maid-helper" class="sub" data-i18n="toc.helper">Maid Helper</a></li>
+          <li><a href="#distros" data-i18n="toc.distros">what each tool needs</a></li>
+          <li><a href="#safety" data-i18n="toc.safety">backups and dry runs</a></li>
+          <li><a href="#faq" data-i18n="toc.faq">troubleshooting</a></li>
+        </ul>
+      </aside>
+
+      <div class="guide-content">
+
+        <section id="quick-start">
+          <h1 data-i18n="qs.title">guides</h1>
+          <p class="lead" data-i18n="qs.lead">
+            every tool ships an <code>install.sh</code> that copies files into your home
+            directory, adds a launcher, and prints which optional backends it found. it
+            downloads nothing from outside your distro's repos, and it backs up anything it
+            replaces.
+          </p>
+          <div class="divider"></div>
+
+          <h2 data-i18n="qs.install.title">install what you want</h2>
+          <p data-i18n="qs.install.intro">clone, dry run, run. the same three steps for all of them.</p>
+
+          <ol class="steps">
+            <li>
+              <strong data-i18n="qs.step1.title">get it</strong>
+              <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maid-AU
+<span class="p">$</span> cd Maid-AU</pre>
+            </li>
+            <li>
+              <strong data-i18n="qs.step2.title">see what it would do</strong>
+              <pre class="code-block"><span class="p">$</span> bash install.sh --check</pre>
+            </li>
+            <li>
+              <strong data-i18n="qs.step3.title">do it</strong>
+              <pre class="code-block"><span class="p">$</span> bash install.sh</pre>
+            </li>
+          </ol>
+
+          <p data-i18n="qs.independent">
+            the installers don't know about each other. there's no suite-wide installer, and
+            removing one tool leaves the rest alone. everything goes under your home
+            directory - <code>~/.local/bin</code> and friends - never into <code>/usr</code>.
+          </p>
+
+          <h3 data-i18n="qs.keybind.title">bind a key to the runner</h3>
+          <p data-i18n="qs.keybind.intro">the suite never touches your shortcuts. those are yours, they stay on your machine. on plasma:</p>
+          <ol>
+            <li data-i18n="qs.keybind.li1">settings → keyboard → shortcuts → custom shortcuts</li>
+            <li data-i18n="qs.keybind.li2">add → command/url, command: <code>~/.local/bin/maid-runner --toggle</code> - one key that opens and closes</li>
+            <li data-i18n="qs.keybind.li3">pick a key. meta+space is the usual one</li>
+          </ol>
+
+          <h3 data-i18n="qs.check.title">check that they can see each other</h3>
+          <pre class="code-block"><span class="p">$</span> update-all.sh --check   <span class="c"># what would update, nothing changed</span>
+<span class="p">$</span> maid-runner             <span class="c"># empty query on the maid tab lists every action</span>
+<span class="p">$</span> maidshare --check       <span class="c"># which send backends are available</span></pre>
+        </section>
+
+        <section id="the-suite">
+          <div class="divider"></div>
+          <h2 data-i18n="suite.title">tool by tool</h2>
+
+          <article class="tool-block" id="guide-maidshare">
+            <div class="meta">
+              <span class="tag cat">files &amp; sharing</span>
+              <span class="tag">shell</span>
+              <span class="tag">kde connect · adb · qr</span>
+            </div>
+            <h3>MaidShare</h3>
+            <p data-i18n="t.share.body">
+              it tries the backends in order and takes the first one that works. kde connect
+              is best, if the phone is paired on the same wifi; usb/adb needs no network at
+              all; the http fallback puts up a temporary wifi page with a qr code. a popup
+              says which one it used, so check it before you walk away.
+            </p>
+            <pre class="code-block"><span class="p">$</span> bash install.sh              <span class="c"># copy + icon, reports backends</span>
+<span class="p">$</span> maidshare file.pdf           <span class="c"># auto-picks</span>
+<span class="p">$</span> maidshare --via adb file.pdf <span class="c"># force one</span>
+<span class="p">$</span> maidshare --receive          <span class="c"># phone → pc: qr + browser upload</span></pre>
+            <ul>
+              <li data-i18n="t.share.li1">hand it several files or links at once and it fans them out</li>
+              <li data-i18n="t.share.li2">receive side is token + https + expiry by default</li>
+              <li data-i18n="t.share.li3">dolphin right-click: send, or send via qr</li>
+              <li data-i18n="t.share.li4">optional: <code>kdialog</code> or <code>zenity</code> for popups, <code>qrencode</code> for qr codes</li>
+            </ul>
+            <p><a href="https://github.com/Maidware-Project/Maidshare" data-i18n="common.readme">full readme →</a></p>
+          </article>
+
+          <article class="tool-block" id="guide-maid-runner">
+            <div class="meta">
+              <span class="tag cat">launcher</span>
+              <span class="tag">python · qt</span>
+              <span class="tag">maid scroll</span>
+            </div>
+            <h3>Maid Runner</h3>
+            <p data-i18n="t.runner.body">
+              type, enter. typing searches every source at once - all applications, files,
+              run, calculator, web and the maid suite - so nothing needs a tab switch.
+              tab still walks the tabs that mirror your app menu, and the maid one is the
+              only search box that knows what's going on with your system: earbuds state,
+              pending updates, share targets.
+            </p>
+            <pre class="code-block"><span class="p">$</span> bash install.sh   <span class="c"># app + palettes + launcher</span>
+<span class="p">$</span> maid-runner
+<span class="p">$</span> maid-runner --toggle   <span class="c"># one key: open if hidden, close if open</span></pre>
+            <ul>
+              <li data-i18n="t.runner.li1"><strong>applications</strong> - read from the same xdg menu data plasma shows. respects NoDisplay/Hidden/TryExec, flatpak exports included</li>
+              <li data-i18n="t.runner.li2"><strong>the menu's groups</strong> - internet, games, multimedia, graphics, office, utilities, development, system, help: a tab per group that has apps, in the app manager's order</li>
+              <li data-i18n="t.runner.li3"><strong>maid</strong> - every action in the suite. leave the query empty to list them all</li>
+              <li data-i18n="t.runner.li4"><strong>files</strong> - your files by name from your home folder, scanned in the background while the runner is up</li>
+              <li data-i18n="t.runner.li5"><strong>run</strong> - binaries on your PATH, always opened in a terminal so the cli ones work</li>
+              <li data-i18n="t.runner.li6"><strong>calculator</strong> - an ast allowlist, never <code>eval</code>. enter copies the result</li>
+              <li data-i18n="t.runner.li7"><strong>web</strong> - <code>yt</code>, <code>wiki</code>, <code>gh</code> and <code>g</code>/<code>ddg</code> prefixes, bare urls open directly, and everything else goes to <a href="https://github.com/searxng/searxng">SearXNG</a>. opens in your default browser</li>
+            </ul>
+            <p data-i18n="t.runner.resident">
+              the first open stays in memory: closing hides the window, and the next
+              keypress is a repaint, not a start. <code>maid-runner --quit</code> stops it;
+              <code>maid-runner --service</code> starts it hidden if you want it from
+              login. on kwin the window is a wayland layer surface, so it never shows in
+              the taskbar or alt-tab. opening and closing fades at your desktop's
+              animation speed.
+            </p>
+            <p data-i18n="t.runner.search">
+              bare text goes to <a href="https://github.com/searxng/searxng">SearXNG</a> - a free
+              and open source metasearch engine - as the official search behind Maid Runner. it
+              is what we picked on purpose: no profiles, no ad tracking, and results pulled from
+              many engines at once, so your searches stay yours. the instance is yours to choose,
+              and any of the public ones works.
+            </p>
+            <p data-i18n="t.runner.scroll">
+              <strong>maid scroll</strong> is the suite's own theme backend: six palettes -
+              dark, light, tokyo, mallow, green, blue - are built into the window, and caps
+              lock cycles them and remembers the pick. the same six ship as drun themes, for
+              when the window cannot run.
+            </p>
+            <pre class="code-block"><span class="p">$</span> maid-scroll list        <span class="c"># every palette, star on the current one</span>
+<span class="p">$</span> maid-scroll set mallow  <span class="c"># jump straight to one</span></pre>
+            <p><a href="https://github.com/Maidware-Project/Maid-Runner" data-i18n="common.readme">full readme →</a></p>
+          </article>
+
+          <article class="tool-block" id="guide-maid-au">
+            <div class="meta">
+              <span class="tag cat">system updates</span>
+              <span class="tag">shell</span>
+              <span class="tag">zypper · dnf · pacman · apt</span>
+            </div>
+            <h3>Maid AU</h3>
+            <p data-i18n="t.au.body">
+              system packages, flatpak and firmware in one run. the backend comes from
+              <code>/etc/os-release</code>, so it just works on your distro; set
+              <code>UPDATE_PM=</code> to force a different one.
+            </p>
+            <pre class="code-block"><span class="p">$</span> bash install.sh              <span class="c"># deps (sudo) + copy + launcher</span>
+<span class="p">$</span> update-all.sh --check        <span class="c"># dry run, change nothing</span>
+<span class="p">$</span> update-all.sh                <span class="c"># real run - snapshots first</span>
+<span class="p">$</span> UPDATE_PM=pacman ./bin/update-all.sh --check</pre>
+            <ul>
+              <li data-i18n="t.au.li1">a snapshot before <em>and</em> after every real run</li>
+              <li data-i18n="t.au.li2">prints <code>PARTIAL</code> when one layer failed but the others didn't</li>
+              <li data-i18n="t.au.li3">warns when a reboot is needed. never reboots for you</li>
+              <li data-i18n="t.au.li4">a launcher too: <code>system-updater</code>, a terminal picker that holds off sleep while it runs</li>
+            </ul>
+            <div class="callout">
+              <p data-i18n="t.au.callout">
+                <strong>passwordless sudo is opt-in.</strong> by default the installer asks
+                for your password like anything else. a NOPASSWD rule for the package
+                manager is passwordless root in practice, so it only prints the safe version
+                if you ask for it.
+              </p>
+            </div>
+            <p><a href="https://github.com/Maidware-Project/Maid-AU" data-i18n="common.readme">full readme →</a></p>
+          </article>
+
+          <article class="tool-block" id="guide-maid-bt">
+            <div class="meta">
+              <span class="tag cat">audio</span>
+              <span class="tag">shell</span>
+              <span class="tag">pipewire · bluez</span>
+            </div>
+            <h3>Maid BT</h3>
+            <p data-i18n="t.bt.body">
+              keep your normal bluetooth tool for pairing mice and keyboards. this one
+              handles the earbuds routine: where the sound is right now, and moving it
+              around without a fight.
+            </p>
+            <pre class="code-block"><span class="p">$</span> bash install.sh                <span class="c"># asks for your mac + fallback sink</span>
+<span class="p">$</span> bluetoothctl pair &lt;MAC&gt;        <span class="c"># then: trust &lt;MAC&gt;</span>
+<span class="p">$</span> bluetooth-toggle.sh on         <span class="c"># sound moves to your earbuds</span>
+<span class="p">$</span> bluetooth-toggle.sh release    <span class="c"># hand buds to phone, back is instant</span>
+<span class="p">$</span> bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></pre>
+            <ul>
+              <li data-i18n="t.bt.li1"><code>release</code> is the everyday one - the buds stay half-connected so coming back is instant. set <code>MULTIPOINT=1</code> once if yours connect to two devices</li>
+              <li data-i18n="t.bt.li2">the watcher connects the buds when they show up and parks the sound on your speakers when they disappear</li>
+              <li data-i18n="t.bt.li3">optional maid watcher: on a call it pauses music, mutes discord, and puts both back when you hang up. warns at 25% and 12% battery</li>
+              <li data-i18n="t.bt.li4">a tray widget with pc / phone / off buttons</li>
+            </ul>
+            <p data-i18n="t.bt.extra">
+              also optional, and off unless you turn them on: the phone remote
+              (<code>phone/</code>, macrodroid or tasker), pausing ldac when the battery is
+              low, and a wireplumber fix for a start that lags a second behind.
+            </p>
+            <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a></p>
+          </article>
+
+          <article class="tool-block" id="guide-maid-helper">
+            <div class="meta">
+              <span class="tag cat">repair</span>
+              <span class="tag">shell</span>
+              <span class="tag">check · fix</span>
+            </div>
+            <h3>Maid Helper</h3>
+            <p data-i18n="t.helper.body">
+              each module has two modes. <code>check</code> tells you whether it's healthy;
+              <code>fix</code> repairs what it safely can and verifies afterwards. exit 0
+              means healthy or fixed, exit 2 means it still needs a look.
+            </p>
+            <pre class="code-block"><span class="p">$</span> ./bin/mod-flatpak.sh check
+<span class="p">$</span> ./bin/mod-flatpak.sh fix
+
+<span class="c"># the four modules</span>
+mod-firmware.sh  <span class="c"># fwupd present? firmware updates possible?</span>
+mod-flatpak.sh   <span class="c"># flathub remote configured?</span>
+mod-gamepad.sh   <span class="c"># xbox/ps/switch/8bitdo pads missing a driver</span>
+mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span></pre>
+            <div class="callout">
+              <p data-i18n="t.helper.callout">
+                <strong>it will not install proprietary drivers. ever.</strong> no consent
+                flag, and it won't print the commands for you either. the gpu module only
+                unblacklists nouveau and rebuilds initrd. removing <code>nomodeset</code>
+                from your bootloader stays a manual step, printed out for you.
+              </p>
+            </div>
+            <p data-i18n="t.helper.root">root only where a fix genuinely needs it. the flathub remote runs at user level, no sudo involved.</p>
+            <p><a href="https://github.com/Maidware-Project/Maid-Helper" data-i18n="common.readme">full readme →</a></p>
+          </article>
+        </section>
+
+        <section id="distros">
+          <div class="divider"></div>
+          <h2 data-i18n="distros.title">what each tool needs</h2>
+          <p data-i18n="distros.intro">
+            everything optional is detected automatically. if a backend is missing the tool
+            says so and moves to the next one. it never installs anything you didn't ask
+            for.
+          </p>
+
+          <div class="req-group">
+            <h3>MaidShare</h3>
+            <dl class="reqs">
+              <div class="req">
+                <dt data-i18n="req.share.kde">kde connect backend</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>kdeconnect</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>kdeconnect</code></span>
+                  <span class="pkg"><b>fedora</b><code>kdeconnect</code></span>
+                  <span class="pkg"><b>opensuse</b><code>kdeconnect-kde</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.share.adb">usb/adb backend</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>android-tools</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>adb</code></span>
+                  <span class="pkg"><b>fedora</b><code>android-tools</code></span>
+                  <span class="pkg"><b>opensuse</b><code>android-tools</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.share.http">qr wifi page</dt>
+                <dd>
+                  <span class="pkg"><b data-i18n="distros.all">all four</b><code>python3</code><code>openssl</code><em>+ qrencode</em></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.share.popups">popups and pickers</dt>
+                <dd>
+                  <span class="pkg"><b data-i18n="distros.all">all four</b><code>kdialog</code> <em>or</em> <code>zenity</code></span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="req-group">
+            <h3>Maid Runner</h3>
+            <dl class="reqs">
+              <div class="req">
+                <dt data-i18n="req.runner.qt">full qt app</dt>
+                <dd>
+                  <span class="pkg"><b data-i18n="distros.all">all four</b><code>PyQt6</code></span>
+                </dd>
+              </div>
+            </dl>
+            <p class="note" data-i18n="req.runner.note">the six maid scroll palettes and the <code>maid-scroll</code> command come with the app; there is nothing else to install.</p>
+          </div>
+
+          <div class="req-group">
+            <h3>Maid AU</h3>
+            <dl class="reqs">
+              <div class="req">
+                <dt data-i18n="req.au.core">packages, firmware, notifications</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>flatpak</code><code>fwupd</code><code>libnotify</code><em>+ pacman-contrib</em></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>flatpak</code><code>fwupd</code><code>libnotify-bin</code></span>
+                  <span class="pkg"><b>fedora</b><code>flatpak</code><code>fwupd</code><code>libnotify</code></span>
+                  <span class="pkg"><b>opensuse</b><code>flatpak</code><code>fwupd</code><code>libnotify-tools</code></span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="req-group">
+            <h3>Maid BT</h3>
+            <dl class="reqs">
+              <div class="req">
+                <dt data-i18n="req.bt.bluetooth">bluetooth</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>bluez</code><code>bluez-utils</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>bluez</code><code>bluetooth</code></span>
+                  <span class="pkg"><b>fedora</b><code>bluez</code></span>
+                  <span class="pkg"><b>opensuse</b><code>bluez</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.bt.rfkill">rfkill</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>util-linux</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>rfkill</code></span>
+                  <span class="pkg"><b>fedora</b><code>rfkill</code></span>
+                  <span class="pkg"><b>opensuse</b><code>util-linux</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.bt.notify">notifications</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>libnotify</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>libnotify-bin</code></span>
+                  <span class="pkg"><b>fedora</b><code>libnotify</code></span>
+                  <span class="pkg"><b>opensuse</b><code>libnotify-tools</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.bt.audio">audio control</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>libpulse</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>pulseaudio-utils</code></span>
+                  <span class="pkg"><b>fedora</b><code>pulseaudio-utils</code></span>
+                  <span class="pkg"><b>opensuse</b><code>pulseaudio-utils</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.bt.python">python3</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>python</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>python3</code></span>
+                  <span class="pkg"><b>fedora</b><code>python3</code></span>
+                  <span class="pkg"><b>opensuse</b><code>python3</code></span>
+                </dd>
+              </div>
+              <div class="req">
+                <dt data-i18n="req.bt.pings">phone pings, optional</dt>
+                <dd>
+                  <span class="pkg"><b>arch</b><code>kdeconnect</code></span>
+                  <span class="pkg"><b>debian/ubuntu</b><code>kdeconnect</code></span>
+                  <span class="pkg"><b>fedora</b><code>kdeconnect</code></span>
+                  <span class="pkg"><b>opensuse</b><code>kdeconnect-kde</code></span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="req-group">
+            <h3>Maid Helper</h3>
+            <p data-i18n="req.helper.note">fwupd for the firmware module, flatpak for the flathub check, pciutils so gpus are visible. the opensuse controller packages come from the updater.</p>
+          </div>
+
+          <p class="note" data-i18n="distros.note">
+            arch: add <code>pacman-contrib</code> if you want <code>checkupdates</code> in
+            Maid AU - it checks for updates without touching your local database.
+          </p>
+        </section>
+
+        <section id="safety">
+          <div class="divider"></div>
+          <h2 data-i18n="safety.title">backups and dry runs</h2>
+          <p data-i18n="safety.intro">why you can leave these running without watching them.</p>
+
+          <h3 data-i18n="safety.dry.title">dry run first</h3>
+          <p data-i18n="safety.dry.body">almost everything takes <code>--check</code>. it prints what it would do and exits without touching a file.</p>
+          <pre class="code-block"><span class="p">$</span> bash install.sh --check
+<span class="p">$</span> update-all.sh --check</pre>
+
+          <h3 data-i18n="safety.backup.title">timestamped backups</h3>
+          <p data-i18n="safety.backup.body">
+            a file an installer is about to overwrite becomes
+            <code>&lt;name&gt;.bak-&lt;timestamp&gt;</code> first - but only if the contents
+            actually differ, so reinstalling doesn't fill your home directory with copies.
+          </p>
+
+          <h3 data-i18n="safety.snap.title">snapshots around updates</h3>
+          <p data-i18n="safety.snap.body">Maid AU takes one before and after a real run. between that and the dry run you can see the whole update coming, and roll back if the summary ends up PARTIAL.</p>
+
+          <h3 data-i18n="safety.manual.title">manual stays manual</h3>
+          <ul>
+            <li data-i18n="safety.manual.li1">reboot warnings - printed, never performed</li>
+            <li data-i18n="safety.manual.li2">bootloader edits - printed exactly, run by you</li>
+            <li data-i18n="safety.manual.li3">firmware updates - need root and a reboot, so they're described, not run</li>
+            <li data-i18n="safety.manual.li4">proprietary drivers - not offered at all</li>
+          </ul>
+
+          <h3 data-i18n="safety.dl.title">no downloads, ever</h3>
+          <p data-i18n="safety.dl.body">the installers fetch nothing. dependencies come from your own package manager. no piping a script from some server into bash.</p>
+        </section>
+
+        <section id="faq">
+          <div class="divider"></div>
+          <h2 data-i18n="faq.title">troubleshooting</h2>
+
+          <h3 data-i18n="faq.logs.title">where are the logs?</h3>
+          <ul>
+            <li data-i18n="faq.logs.li1">Maid AU → <code>~/.local/share/update-all.log</code></li>
+            <li data-i18n="faq.logs.li2">MaidShare → force a backend so you see its output directly</li>
+            <li data-i18n="faq.logs.li3">the Maid BT watcher → journalctl, or the tray widget if you started it that way</li>
+          </ul>
+
+          <h3 data-i18n="faq.services.title">do these install background services?</h3>
+          <p data-i18n="faq.services.body">
+            MaidShare, Maid Runner, Maid AU and Maid Helper don't - they run when you call
+            them and exit. Maid BT ships optional systemd units for its watcher and phone
+            listener. maid watcher runs as a normal user process through xdg autostart, so
+            it doesn't care which init you use.
+          </p>
+
+          <h3 data-i18n="faq.test.title">how do i test a change safely?</h3>
+          <p data-i18n="faq.test.body">each repo carries a suite, run from the repo root:</p>
+          <pre class="code-block"><span class="p">$</span> bash tests/run.sh</pre>
+          <p data-i18n="faq.test.after">
+            they use stub farms and overridable test seams, so nothing on your real system
+            is touched unless you say so. ci runs the same suites.
+          </p>
+
+          <h3 data-i18n="faq.broken.title">something didn't work</h3>
+          <ol>
+            <li data-i18n="faq.broken.li1">re-run the installer with <code>--check</code> and read the backend report</li>
+            <li data-i18n="faq.broken.li2">run the module in <code>check</code> mode - exit 2 means it still needs attention</li>
+            <li data-i18n="faq.broken.li3">open an issue with that output. every script prints plain english lines for exactly this</li>
+          </ol>
+
+          <h3 data-i18n="faq.alone.title">can i use one without the others?</h3>
+          <p data-i18n="faq.alone.body">
+            yes. they're separate packages with separate installers. the parts that reach
+            across the suite - the runner's maid tab, the helper handing gamepad work to
+            Maid AU on opensuse - just quietly do less when something's missing.
+          </p>
+
+          <div class="callout">
+            <p data-i18n="faq.callout">
+              <strong>still stuck?</strong> open an issue. links are on each tool on the
+              <a href="../#suite">tools page</a>.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div class="cta">
+            <h2 data-i18n="end.title">that's it</h2>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#quick-start" data-i18n="end.btn1">back to quick start</a>
+              <a class="btn" href="https://github.com/Maidware-Project">github</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>maidware project</h4>
+        <p data-i18n="footer.about">serving you small forkable linux tools that help.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.tools">tools</h4>
+        <ul>
+          <li><a href="../guides/#guide-maidshare">MaidShare</a></li>
+          <li><a href="../guides/#guide-maid-runner">Maid Runner</a></li>
+          <li><a href="../guides/#guide-maid-au">Maid AU</a></li>
+          <li><a href="../guides/#guide-maid-bt">Maid BT</a></li>
+          <li><a href="../guides/#guide-maid-helper">Maid Helper</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.elsewhere">elsewhere</h4>
+        <ul>
+          <li><a href="../guides/" data-i18n="nav.guides">guides</a></li>
+          <li><a href="../performance/" data-i18n="nav.performance">performance</a></li>
+          <li><a href="../faq/" data-i18n="nav.faq">faq</a></li>
+          <li><a href="../contributions/">contributions</a></li>
+          <li><a href="../conduct/" data-i18n="footer.conduct">code of conduct</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.social">social</h4>
+        <ul>
+          <li><a href="https://bsky.app/profile/maidwareproject.bsky.social" data-i18n="footer.bluesky">bluesky</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Maidware Project</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
+</html>

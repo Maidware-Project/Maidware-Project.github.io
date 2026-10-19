@@ -27,9 +27,9 @@ pages and in the docs.
 
 ## Layout
 
-- `index.html` home, `guides.html` the per-tool guides,
-  `performance.html` what the tools cost to run, `faq.html` short answers,
-  `contributions.html` how to help, `conduct.html` how the project is run
+- `index.html` home, `guides/index.html` the per-tool guides,
+  `performance/index.html` what the tools cost to run, `faq/index.html` short answers,
+  `contributions/index.html` how to help, `conduct/index.html` how the project is run
 - `css/style.css` the whole layout and every theme, as css variables
 - `js/main.js` theme menu, mobile nav, copy buttons, toc
 - `js/theme-boot.js` stored theme and settings, loaded in every page's head

@@ -51,7 +51,13 @@ class Page(HTMLParser):
 
 
 def main():
-    pages = sorted(f for f in os.listdir(".") if f.endswith(".html"))
+    pages = []
+    for root, dirs, files in os.walk("."):
+        dirs[:] = [d for d in dirs if not d.startswith(".")]
+        for f in files:
+            if f.endswith(".html"):
+                pages.append(os.path.normpath(os.path.join(root, f)))
+    pages.sort()
     if not pages:
         print("no html files here - run from the repo root")
         return 1
@@ -68,14 +74,22 @@ def main():
         parsed[name] = page
 
     for name, page in parsed.items():
+        base = os.path.dirname(name)
         for ref in page.refs:
             if ref.startswith(SKIP):
                 continue
             path, _, frag = ref.partition("#")
-            target = path or name
-            if path and not os.path.exists(path):
-                problems.append("%s: missing file %s" % (name, ref))
-                continue
+            if path:
+                # links resolve against the page's own folder, and a folder
+                # link points at the index.html inside it
+                target = os.path.normpath(os.path.join(base, path))
+                if os.path.isdir(target):
+                    target = os.path.join(target, "index.html")
+                if not os.path.exists(target):
+                    problems.append("%s: missing file %s" % (name, ref))
+                    continue
+            else:
+                target = name
             if frag and target in parsed and frag not in parsed[target].ids:
                 problems.append("%s: dead anchor %s" % (name, ref))
 

@@ -19,7 +19,7 @@ REPOS = [
 ]
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 BASE = os.path.abspath(os.path.join(ROOT, ".."))
-PAGE = os.path.join(ROOT, "changelog.html")
+PAGE = os.path.join(ROOT, "changelog", "index.html")
 
 def run_git(cwd, *args):
     try:
@@ -96,6 +96,7 @@ def render():
     return "\n".join(parts)
 
 def main():
+    os.makedirs(os.path.dirname(PAGE), exist_ok=True)
     entries = render()
     with open(PAGE, encoding="utf-8") as f:
         page = f.read()

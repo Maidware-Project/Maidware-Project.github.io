@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="maidware">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="same-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="doc.title.changelog">Changelog - Maidware Project</title>
+<meta name="description" content="changelogs for the five maid tools: dates and entries, kept in sync with each repo." data-i18n-attr="content:doc.description.changelog">
+<link rel="canonical" href="https://maidware-project.github.io/changelog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Changelog - Maidware Project" data-i18n-attr="content:doc.title.changelog">
+<meta property="og:description" content="changelogs for the five maid tools: dates and entries, kept in sync with each repo." data-i18n-attr="content:doc.description.changelog">
+<meta property="og:url" content="https://maidware-project.github.io/changelog/">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/theme-boot.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+<div class="sr-only" id="sr-status" role="status"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../">maidware<span class="sub">project</span></a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="../" data-i18n="nav.home">home</a>
+      <a href="../guides/" data-i18n="nav.guides">guides</a>
+      <a href="../performance/" data-i18n="nav.performance">performance</a>
+      <a href="../changelog/" aria-current="page" data-i18n="nav.changelog">changelog</a>
+      <a href="../faq/" data-i18n="nav.faq">faq</a>
+      <a href="../contributions/" data-i18n="nav.contributions">contributions</a>
+      <a href="https://github.com/Maidware-Project">github</a>
+    </nav>
+    <div class="header-tools">
+      <div class="menu-wrap" hidden>
+        <button class="tool-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+          <span id="lang-label">english</span>
+        </button>
+        <div class="theme-menu" id="lang-menu" role="menu" aria-label="Language" hidden></div>
+      </div>
+      <div class="menu-wrap">
+        <button class="tool-btn" id="theme-btn" type="button" aria-expanded="false" aria-controls="theme-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+          <span data-i18n="theme.button">theme</span>
+        </button>
+        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
+          <p data-i18n="theme.dark">dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
+          <button class="theme-option" role="menuitemradio" data-theme="nightshift" type="button"><span class="swatches"><i class="sw" style="background:#15171b"></i><i class="sw" style="background:#8aa9c9"></i></span>nightshift</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lampblack" type="button"><span class="swatches"><i class="sw" style="background:#1c1815"></i><i class="sw" style="background:#d3a05f"></i></span>lampblack</button>
+          <button class="theme-option" role="menuitemradio" data-theme="rinse" type="button"><span class="swatches"><i class="sw" style="background:#101a24"></i><i class="sw" style="background:#63a8cf"></i></span>rinse</button>
+          <button class="theme-option" role="menuitemradio" data-theme="scrub" type="button"><span class="swatches"><i class="sw" style="background:#101712"></i><i class="sw" style="background:#5cb583"></i></span>scrub</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lavender" type="button"><span class="swatches"><i class="sw" style="background:#1d1a23"></i><i class="sw" style="background:#a98cc7"></i></span>lavender</button>
+          <button class="theme-option" role="menuitemradio" data-theme="starch" type="button"><span class="swatches"><i class="sw" style="background:#161927"></i><i class="sw" style="background:#8f9ede"></i></span>starch</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mop" type="button"><span class="swatches"><i class="sw" style="background:#1a1621"></i><i class="sw" style="background:#b08ed2"></i></span>mop</button>
+          <p data-i18n="theme.puredark">pure dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="blackout" type="button"><span class="swatches"><i class="sw" style="background:#000000"></i><i class="sw" style="background:#5cb9ae"></i></span>blackout</button>
+          <p data-i18n="theme.light">light</p>
+          <button class="theme-option" role="menuitemradio" data-theme="spotless" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#39424e"></i></span>spotless</button>
+          <button class="theme-option" role="menuitemradio" data-theme="apron" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>apron</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lace" type="button"><span class="swatches"><i class="sw" style="background:#fdf6f8"></i><i class="sw" style="background:#9a4c73"></i></span>lace</button>
+          <button class="theme-option" role="menuitemradio" data-theme="suds" type="button"><span class="swatches"><i class="sw" style="background:#f4f9f5"></i><i class="sw" style="background:#3a7154"></i></span>suds</button>
+          <button class="theme-option" role="menuitemradio" data-theme="linen" type="button"><span class="swatches"><i class="sw" style="background:#fbfcfe"></i><i class="sw" style="background:#34618f"></i></span>linen</button>
+          <button class="theme-option" role="menuitemradio" data-theme="pail" type="button"><span class="swatches"><i class="sw" style="background:#f2f6f8"></i><i class="sw" style="background:#2f6a80"></i></span>pail</button>
+          <button class="theme-option" role="menuitemradio" data-theme="sachet" type="button"><span class="swatches"><i class="sw" style="background:#f8f6fc"></i><i class="sw" style="background:#5f4a9c"></i></span>sachet</button>
+        </div>
+      </div>
+      <div class="menu-wrap">
+        <button class="tool-btn" id="access-btn" type="button" aria-expanded="false" aria-controls="access-menu" data-i18n-attr="aria-label:access.button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.9"/><path d="M12 7.4v5.4"/><path d="M5.2 9.4h13.6"/><path d="M12 12.8 9.2 18"/><path d="M12 12.8 14.8 18"/></svg>
+          <span data-i18n="access.button">accessibility</span>
+        </button>
+        <div class="theme-menu" id="access-menu" role="menu" aria-label="accessibility" hidden>
+          <p data-i18n="access.text">text size</p>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="normal" type="button" aria-checked="true"><span data-i18n="access.text.normal">normal</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="large" type="button" aria-checked="false"><span data-i18n="access.text.large">large</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="larger" type="button" aria-checked="false"><span data-i18n="access.text.larger">larger</span></button>
+          <p data-i18n="access.reading">reading</p>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="font" data-value="plain" type="button" aria-checked="false"><span data-i18n="access.font">plain font</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="space" data-value="more" type="button" aria-checked="false"><span data-i18n="access.space">more space</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="links" data-value="underline" type="button" aria-checked="false"><span data-i18n="access.links">underline links</span></button>
+        </div>
+      </div>
+      <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="container">
+    <p class="breadcrumb"><a href="../" data-i18n="nav.home">home</a> / <span class="here" data-i18n="nav.changelog">changelog</span></p>
+    <div class="guide-content page-narrow">
+      <h1 data-i18n="changelog.title">changelog</h1>
+      <div class="divider"></div>
+      <p data-i18n="changelog.intro">
+        dates and entries, read from each tool's <code>CHANGELOG.md</code> with headings dated from the commit that introduced them.
+        where no changelog exists, recent commits are listed instead.
+      </p>
+
+      <!-- changelog:start -->
+<h2><a href="https://github.com/Maidware-Project/Maidshare">Maidshare</a></h2>
+<div class="rule"><h3>stronger send-side token <small style="font-weight:normal;">2026-10-17</small></h3>
+<p>- the http send backend&#x27;s secret path now uses the same 128-bit<br>  url-safe token as receive (`secrets.token_urlsafe(16)`), replacing<br>  six random bytes (48 bits). same flow and expiry, just harder to<br>  guess on a busy lan.</p>
+</div>
+<div class="rule"><h3>receive: uploads go straight to disk <small style="font-weight:normal;">2026-10-17</small></h3>
+<p>- the receive server no longer collects the request body in memory:<br>  multipart parts are written to their final file as they arrive in<br>  bounded chunks, so a huge upload costs kilobytes of RAM, not<br>  gigabytes. the declared size is checked against free disk space<br>  first, a new `MAID_MAX_FILE_MB` cap bounds each single file<br>  (default: the request cap), and a rejected or broken upload leaves<br>  no partial file behind.</p>
+</div>
+<div class="rule"><h3>receive resource bounds <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- uploads stream in 64 KiB chunks straight to disk (RAM stays flat), capped at<br>  `MAID_MAX_MB` (default keeps the old 500), at most 4 concurrent<br>  uploads (rest get 503), 60 s per-connection socket timeout, and<br>  the server still auto-expires. plaintext answers nothing.</p>
+</div>
+<div class="rule"><h3>encrypted browser directions (https + TOFU) <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- send (http backend) and receive now serve https only, with a<br>  throwaway per-run cert (openssl, 1-day validity, deleted after).<br>  the terminal prints the sha256 fingerprint - compare it with the<br>  browser&#x27;s certificate warning before proceeding (trust on first<br>  use). token gate + auto-expiry still apply on top.<br>- plaintext answers nothing on those ports anymore (tested).<br>- needs the openssl CLI now; without it the http backend stays off<br>  with a plain error instead of falling back to http.</p>
+</div>
+<div class="rule"><h3>dispatcher fix <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- parallel sends no longer join backend and filename with `|`; filenames<br>  containing a literal pipe now send to the right backend intact.</p>
+</div>
+<div class="rule"><h3>receive hardening + concurrency <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- uploads save atomically (O_EXCL, concurrent same-name uploads can&#x27;t<br>  clobber), hostile filenames get basename-stripped, control chars<br>  stripped from logs, oversize rejected by header before reading a byte,<br>  planted symlinks dodged, tracebacks never leak.<br>- http send dir is token-gated like receive (no open listing).<br>- multi-file sends run concurrently (one job each); http files share one<br>  server since the port is fixed for firewall sanity.<br>- firewall hint suggests runtime-only rules and runs backgrounded so a<br>  slow firewalld never blocks a send.<br>- tests/: full localhost suite (serve, upload, traversal, symlink plant,<br>  dupes, size cap) + CI. installer downloads nothing.</p>
+</div>
+<h2><a href="https://github.com/Maidware-Project/Maid-Runner">Maid Runner</a></h2>
+<div class="rule"><h3>recent commits</h3><ul>
+<li>2026-10-18: Maid Runner v0.5</li>
+<li>2026-10-18: docs: catch the readme up with the tabs, resident mode and weight</li>
+<li>2026-10-18: feat: fade in and out at the desktop&#x27;s animation speed</li>
+<li>2026-10-18: Maid runner update</li>
+<li>2026-10-18: Maid Runner Native Update</li>
+<li>2026-10-17: feat: build deb, rpm and arch packages on a tag</li>
+<li>2026-10-17: fix: system install writes a bare command in the desktop entry</li>
+<li>2026-10-17: fix: make terminal choice and leak guard machine-neutral</li>
+<li>2026-10-17: fix: keep the machine&#x27;s home path out of the repo</li>
+<li>2026-10-17: docs: add the project principles</li>
+</ul></div>
+<h2><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></h2>
+<div class="rule"><h3>controller kmps follow the running kernel <small style="font-weight:normal;">2026-10-18</small></h3>
+<p>- the openSUSE controller stack no longer assumes the `-default`<br>  kernel: it takes the flavor from the running kernel&#x27;s release suffix<br>  (`uname -r` &quot;7.2.10-1-default&quot; -&gt; default, the same convention the<br>  kmp names use) and installs the xone/xpadneo/hid-tmff2 kmps built<br>  for it, so a longterm (or other) kernel gets its own builds.<br>- a flavor the repos publish no build for is skipped with a plain line<br>  in the log; the rest of the controller stack still installs.<br>- the controller health check and the updater&#x27;s count of missing kmps<br>  resolve the same flavor, so both speak about the packages the<br>  machine really needs.</p>
+</div>
+<div class="rule"><h3>maid suite finds and clones from github <small style="font-weight:normal;">2026-10-17</small></h3>
+<p>- the maid suite no longer guesses by folder name: each family repo is<br>  matched by its github origin (so a checkout anywhere counts, e.g.<br>  Maid Helper under `MHE/`), and one that is not on disk yet is cloned<br>  from its github url into `~/.local/share/maid-au/suite`.<br>- the status line reads &quot;maid suite: enabled - pulling from github Maid<br>  BT, Maidshare, Maid Watcher, Maid Helper, Maid Runner&quot;. Maid Watcher<br>  has no repo of its own - it ships inside Maid BT - so pulling Maid BT<br>  covers it.<br>- tests point the suite at a local fixture origin (`MAID_SUITE_LIST`) so<br>  the suite is exercised with no network; a new test covers the clone.</p>
+</div>
+<div class="rule"><h3>snapshot honesty + maid suite visibility <small style="font-weight:normal;">2026-10-17</small></h3>
+<p>- a failed pre-update snapshot is now said loudly (console + log) on<br>  pacman, dnf and apt instead of continuing silently, and zypper got<br>  the strict `--require-snapshot` check the others already had: no<br>  snapshot before the upgrade now aborts when the flag is set, and<br>  says so loudly when it is not.<br>- maid suite pulls list the incoming commits and changed files in the<br>  log, and `UPDATE_MAID_DEPLOY=1` states it is rerunning installers on<br>  exactly those commits.</p>
+</div>
+<div class="rule"><h3>controllers via helper off-suse <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- non-openSUSE distros drive Maid Helper&#x27;s gamepad doctor when it is<br>  installed (same `UPDATE_CONTROLLERS=1` opt-in, same logging); without<br>  Helper the old guidance stands.</p>
+</div>
+<div class="rule"><h3>appimage integrity <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- direct links (`Name|URL`) fetch https-only now (plaintext refused,<br>  redirects can&#x27;t downgrade via `--proto &#x27;=https&#x27;`); optional third<br>  field pins the expected SHA-256 (`Name|URL|SHA256`), verified before<br>  anything is replaced - mismatch or malformed pin leaves the old<br>  file alone and marks the run partial.</p>
+</div>
+<div class="rule"><h3>installer + updater fixes <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- backups only on real change: the compare now runs against the<br>  rewritten file content, so reinstalls no longer pile up<br>  `.bak-&lt;timestamp&gt;` copies of the desktop file.<br>- install and `--uninstall` both honor `--prefix`/`DESTDIR` (program<br>  files use the same `BINDIR`/`SHAREDIR` either way).<br>- controller zypper log uses `mktemp` instead of a fixed `/tmp` path.<br>- `--require-snapshot` flag parsing keeps arguments intact (array,<br>  no word-splitting rebuild).</p>
+</div>
+<div class="rule"><h3>maid suite awareness <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- the updater knows its own family (Maid BT, Maidshare, watcher,<br>  Maid Helper, Maid Runner): `--check` reports behind checkouts,<br>  full runs pull `--ff-only`, diverged trees are left alone and flagged.<br>  `UPDATE_MAID_DEPLOY=1` also reruns each installer; default only pulls<br>  code and tells you to deploy. `MAID_SUITE=0` opts out entirely.</p>
+</div>
+<div class="rule"><h3>appimages <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- `~/AppImages` / `~/Applications` `*.AppImage` files update through<br>  embedded info when `appimageupdatetool` exists, plus user direct links<br>  (`~/.config/maidau-appimages.conf`, `Name|URL` per line) that only<br>  download on change (etag cache) with backup-before-replace. failures<br>  mark the run partial, never failed.</p>
+</div>
+<div class="rule"><h3>controllers are opt-in <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- Bazzite KMP stack only runs with `UPDATE_CONTROLLERS=1`. don&#x27;t want<br>  it? just never opt in.</p>
+</div>
+<div class="rule"><h3>faster runs: stop re-downloading metadata <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- zypper backend refreshes once; later installs in the same run pass<br>  `--no-refresh` (grub plugin ensure, controller installs via<br>  `ZYPPER_NO_REFRESH`). was 3-4 metadata downloads per run.<br>- fwupd skips its refresh when metadata is fresher than 24h<br>  (override: `FWUPD_CACHE`). still always checks for actual updates.<br>- what still takes time is downloads + installs themselves - that part<br>  is the distro&#x27;s work, no script can skip it.</p>
+</div>
+<div class="rule"><h3>snapshot honesty + failure policy <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- snapshots are best-effort by default and say so; `--require-snapshot`<br>  aborts the upgrade when no snapshot tooling works.<br>- new PARTIAL state: failed AUR builds (opt-in via `UPDATE_AUR=1`, was<br>  always-on before) report partial instead of hiding.<br>- reboot hints use authoritative signals where they exist<br>  (`/var/run/reboot-required` on apt, `needs-restarting -r` on dnf,<br>  staged kernel vs boot time on pacman), name patterns only as backup.<br>- zypper dup documents why `--allow-vendor-change` is there.<br>- sudoers guidance rewritten: risk stated plainly, validate-then-install<br>  flow (`visudo -c -f` first, mode 0440).<br>- arch installs with full `-Syu` (partial upgrades unsupported).<br>- log keeps 1000 lines; controllers wording fixed (health check never<br>  fails the run, failed updates do).<br>- tests/: fixture-driven suite covers all four backends, strict abort,<br>  partial state (11 checks, runs in CI).</p>
+</div>
+<h2><a href="https://github.com/Maidware-Project/Maid-BT">Maid BT</a></h2>
+<div class="rule"><h3>fallback sink honesty <small style="font-weight:normal;">2026-10-18</small></h3>
+<p>- the fallback sink is stored as a name, never a pulse index: indexes<br>  are assigned per session and go stale, which used to make the park<br>  fail silently (audio just stopped). the daemon now warns at start<br>  when the config holds a bare number, checks the sink is really there<br>  before parking, and logs it when it can&#x27;t. the installer resolves a<br>  typed index to the current name instead of writing it down.<br>- the systemd units carve out `~/MaidLogs` for the audit trail: it was<br>  silently dead inside their read-only sandbox (daemon and notification<br>  menu both).</p>
+</div>
+<div class="rule"><h3>intent listener audit <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- full auth review of the port 8899 listener: token required on every<br>  endpoint (header preferred, query legacy), constant-time compare,<br>  fail-closed with no token file, fixed action allowlist, no shell,<br>  no query in logs, sandboxed unit. added a 60 s per-connection<br>  socket cap and a `MAID_INTENT_PORT` override so the suite tests<br>  auth live (bad token 403, both token paths, unknown 404, no leaks).<br>- installer only mints the token when missing, so a running daemon<br>  never goes stale.</p>
+</div>
+<div class="rule"><h3>dual-connection buds <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- opt-in `MULTIPOINT=1` in `bluetooth-buds.conf`: `release` (and the<br>  phone intents behind it) parks the PC for 8h instead of 20 min, so<br>  dual-link buds share phone+PC all day without the daemon fighting<br>  the phone. explicit `on` cancels anytime. single-link behavior<br>  unchanged. (Bluetooth can&#x27;t see the phone-side link, so this is a<br>  tell-it-once flag, not auto-detection.)</p>
+</div>
+<div class="rule"><h3>max-quality audio <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- opt-in `52-bt-max-quality.conf` (installer offers it): pins the A2DP<br>  codec ladder LDAC &gt; AAC &gt; SBC-XQ &gt; SBC and unlocks high-bitpool<br>  SBC-XQ, so fallbacks land closer to LDAC than stock SBC.<br>- opt-in `QUALITY_LOCK=1` in `bluetooth-buds.conf`: the switcher and<br>  the fallback daemon pin LDAC (`a2dp-sink`) after every switch and<br>  restore it on mid-session downgrades. never touches HSP/HFP calls.<br>- the lock also rescues HSP stuck states with a free mic (post-restart<br>  silence): switches to LDAC only when no app captures the BT mic.<br>- fixed: `BATTERY_BOOST=1` from the conf is honored again (the default<br>  assignment used to clobber it, so the opt-in never took effect).</p>
+</div>
+<div class="rule"><h3>installer fixes <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- backups only on real change: the compare now runs against the<br>  rewritten file content, so reinstalls no longer pile up<br>  `.bak-&lt;timestamp&gt;` copies of every desktop file.<br>- `--uninstall` honors `--prefix`/`DESTDIR`: program files come out of<br>  the same `BINDIR`/`SHAREDIR`/`SYSDDIR` the install used.<br>- shipped example config is placeholder-only again (`Buds 1`, no real<br>  product names); the personal-data test is now case-insensitive so<br>  variants can&#x27;t slip through.</p>
+</div>
+<div class="rule"><h3>Linux Mint support <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- PulseAudio fallbacks across the audio layer (card lookup, profiles,<br>  streams, mute, activity detect) for Mint / older stacks without<br>  PipeWire tools.<br>- older BlueZ tolerated: missing battery/HFP-wideband degrades<br>  silently, SBC always available as the mandatory codec.</p>
+</div>
+<div class="rule"><h3>wifi-to-bluetooth phone fallback <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- opt-in `bt_fallback`: when no paired phone is reachable over wifi,<br>  the watcher offers the Bluetooth-tethering path (Retry /<br>  Bluetooth-instead actions) and, once a bnep link appears, refreshes<br>  KDE Connect so calls, intents and sharing resume over Bluetooth.<br>  needs KDE Connect to know the phone is gone; never grabs blindly.</p>
+</div>
+<div class="rule"><h3>chat routing fix <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- Discord/Vesktop playback stranded off the default sink gets moved<br>  back automatically (on connect + every cycle). microphone routing is<br>  never touched. `route_comms.enabled` (default on) opts out.</p>
+</div>
+<div class="rule"><h3>phone-down fallback <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- opt-in `fallback_grab`: when no paired phone is reachable and a<br>  managed device sits disconnected, the watcher grabs it back instead<br>  of waiting for a manual switch. off by default; needs KDE Connect<br>  to know the phone is actually gone (no kdeconnect = never grabs<br>  blindly).</p>
+</div>
+<div class="rule"><h3>systemd-native watcher + actionable notifications <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- Maid Watcher installs as a supervised systemd user unit<br>  (`maid-watcher.service`: Restart=on-failure, journal logging,<br>  hardened like the other units) when systemd is present; XDG<br>  autostart remains the fallback on OpenRC/runit.<br>- the &quot;giving up reconnect&quot; notification now has a Reconnect-now<br>  action button instead of being a dead end.</p>
+</div>
+<div class="rule"><h3>laptop mode + reconnect safety <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- Maid Watcher detects laptop chassis over DMI and uses gentler radio<br>  timing there (longer backoff, fewer attempts); `laptop.mode` forces<br>  `auto`/`on`/`off`. `maid-watcher status` shows chassis + mode.<br>- documented: reconnect &quot;give up&quot; is a safety valve (stops hammering<br>  BlueZ/the phone, notifies, restarts on the next disconnect event).</p>
+</div>
+<div class="rule"><h3>audio delay tuning <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- new opt-in `wireplumber/51-bt-no-suspend.conf`: kills the ~1s<br>  late-start after silence by never suspending BT nodes (costs earbud<br>  battery, hence opt-in). installer offers it, removes it on uninstall.<br>- `maid-watcher status` now shows the live A2DP profile (codec) so<br>  lip-sync lag can be matched to a player-side A/V offset.<br>- profile enforcement retries twice on slow card appearance, shrinking<br>  the switch gap.</p>
+</div>
+<div class="rule"><h3>Maid Watcher update <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- new optional `watcher/` daemon (`maid-watcher`, XDG-autostarted,<br>  init-independent): KDE Connect call handling (pause media, mute<br>  Discord/Vesktop, restore on hangup + safety timeout), up to 2<br>  prioritized devices with backoff reconnect, BlueZ battery<br>  low/critical notifications, opt-in idle saver.<br>- installer offers Maid Watcher autostart (default off), installs its<br>  python dbus/gi deps, writes `~/.config/maid-watcher/config.json`<br>  once, and removes all of it on `--uninstall`.<br>- plays nice with warm-link: acts only on real disconnects, A2DP<br>  enforcement is a no-op when the profile already matches.</p>
+</div>
+<div class="rule"><h3>systemd only for now <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- installer skips service setup on non-systemd init with a warning<br>  instead of failing weirdly. fork it and wire your own init if you<br>  want - scripts don&#x27;t care, only autostart does.</p>
+</div>
+<div class="rule"><h3>any headset grabs audio <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- any newly connected bluetooth headset takes the audio, not just<br>  yours - no manual switching. yours connect first, other paired<br>  headsets get priority connects when yours are down (radio on,<br>  hands-off off). yours still win when they show up, hands-off silences<br>  all of it, yanked devices park on fallback, and the buds timer pauses<br>  while a foreign headset owns it so fallback never steals mid-listen.</p>
+</div>
+<div class="rule"><h3>radio mode + app pause/resume cycle <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- new `radio` action: powers the radio for other devices, grabs nothing,<br>  moves no audio, daemon stays hands-off 8h. `on` cancels. widget button<br>  + phone-button row included.<br>- switches now pause Playing chromium/electron apps over MPRIS and<br>  resume only those after the move (their web-audio stalls across BT<br>  renegotiation otherwise). opt out with `APP_CYCLE=0`. never pauses on<br>  fallback/lock parks - music keeps flowing to speakers.</p>
+</div>
+<div class="rule"><h3>intent + installer hardening <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- intent server never logs query strings anymore, so a `?token=` can<br>  never land in the journal. new preferred auth: `X-Token` header<br>  (query still works for old macros).<br>- installer no longer enables bt-intent by default - opt-in prompt,<br>  off for non-interactive runs. core switching never touches network.<br>- token file created with umask 077 (never 644, even briefly); warns<br>  instead of silently failing without python3.<br>- kdeconnect moved to optional (best-effort, tolerated if missing).<br>- `install.sh --uninstall` actually exists now (was header-only).<br>- sink values validated before writing the conf (no code injection<br>  through a crafted FALLBACK_SINK).<br>- `sed` home rewrite survives `&amp;` in $HOME.<br>- systemd units hardened (NoNewPrivileges, ProtectSystem=strict,<br>  ProtectHome read-only, PrivateTmp, address families) - verified live,<br>  watcher + intent server both healthy after.</p>
+</div>
+<div class="rule"><h3>phone integration hardening <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- intent server no longer logs query strings, so a legacy `?token=`<br>  can never land in the journal. new preferred auth: `X-Token` header<br>  (never logged); query auth still accepted for old macros.<br>- installer no longer enables `bt-intent.service` by default - opt-in<br>  prompt at install, off for non-interactive runs. core switching is<br>  fully local and unaffected.</p>
+</div>
+<div class="rule"><h3>battery boost (buds-fallback.sh) <small style="font-weight:normal;">2026-10-14</small></h3>
+<p>- watcher reads earbuds battery over BlueZ (`Battery Percentage`) and<br>  matches the A2DP codec to it: 75%+ LDAC, 45%+ AAC, 15%+ SBC-XQ,<br>  below that SBC. check every 60s, at most one switch per 3 min,<br>  never touches the profile mid-call (HSP/HFP left alone).<br>- **off by default** (`BATTERY_BOOST=0`). turning it on means transport<br>  teardowns on purpose, and on some plasmashell builds any A2DP<br>  teardown segfaults the audio thread (`spa.bluez5: Failure ...` →<br>  `QAudioContext` SIGSEGV - seen live here). flip it to 1 only if your<br>  desktop survives a manual profile switch:<br>  `pactl set-card-profile bluez_card.&lt;AA_BB_CC_DD_EE_FF&gt; a2dp-sink-aac`<br>  then back, with no crash. if it crashes, leave it 0 - warm link +<br>  no teardowns is the whole crash strategy of this package.</p>
+</div>
+<h2><a href="https://github.com/Maidware-Project/Maid-Helper">MHE/Maid-Helper</a></h2>
+<div class="rule"><h3>fixes: an honest codecs check, a window you can read <small style="font-weight:normal;">2026-10-18</small></h3>
+<p>- codecs: the check asked ffmpeg&#x27;s *decoder* list for libmp3lame — an<br>  encoder only — so healthy systems were told &quot;NEEDS FIX - videos/music<br>  may not play&quot;. it now checks the decoders that matter (mp3/aac/h264),<br>  and the stub farm fakes real ffmpeg output so the old bug can&#x27;t hide<br>  behind the test again.<br>- launcher: the terminal window no longer vanishes the moment the report<br>  ends — it waits for enter, and when the check found trouble it offers<br>  to apply the safe fixes right there (sudo asks inside). a desktop<br>  default terminal that is no longer installed now falls back instead of<br>  failing silently.<br>- dispatcher: the run log the readme and uninstaller promise<br>  (`~/.local/share/maid-helper.log`) is finally written — run header,<br>  every module&#x27;s output, result line.<br>- print: &quot;no system default destination&quot; is said in words instead of<br>  leaking raw lpstat output; the Maidshare backend list loses its stray<br>  trailing space.</p>
+</div>
+<div class="rule"><h3>more doctors: gamepad, flatpak, firmware, AMD <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- new modules: gamepads (USB + bluetooth detect, Steam Input noted<br>  first, delegates to Maid AU&#x27;s stack on openSUSE), flathub remote,<br>  fwupd presence — same check/fix contract as the rest.<br>- gpu covers AMD now (amdgpu + firmware + Vulkan verified, legacy<br>  radeon gets printed kernel flags); NVIDIA stays Nouveau-only,<br>  nothing proprietary anywhere.<br>- distros: derivatives ride their family (manjaro, mint, pop, rocky);<br>  unknown distros get manual commands, tested via fixtures.</p>
+</div>
+<div class="rule"><h3>first release <small style="font-weight:normal;">2026-10-15</small></h3>
+<p>- five doctor modules (codecs, gpu, print, fonts, suite) behind one<br>  dispatcher: `--check` reports, `--fix` applies, `--only` selects.<br>  exit codes 0 healthy / 2 needs attention / else failed.<br>- codecs: ffmpeg decoder check + per-distro codec packs (Packman,<br>  RPM Fusion, Arch, apt) plus a live-card bluetooth ladder check<br>  (LDAC/AAC for Maid BT), with pipewire-restart guidance.<br>- gpu: NVIDIA detect, proprietary driver only with explicit consent,<br>  reboot + Secure Boot MOK stay manual and printed.<br>- print: CUPS + avahi enablement, HP note, test page printed as a<br>  command, never auto-printed.<br>- fonts: Noto emoji/CJK by default; MS fonts only with consent.<br>- suite: sibling wholeness check that never installs, only points.<br>- stub-farm test suite (9 checks), fake-HOME installer contract.</p>
+</div>
+    <!-- changelog:end -->
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>maidware project</h4>
+        <p data-i18n="footer.about">serving you small forkable linux tools that help.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.tools">tools</h4>
+        <ul>
+          <li><a href="../guides/#guide-maidshare">MaidShare</a></li>
+          <li><a href="../guides/#guide-maid-runner">Maid Runner</a></li>
+          <li><a href="../guides/#guide-maid-au">Maid AU</a></li>
+          <li><a href="../guides/#guide-maid-bt">Maid BT</a></li>
+          <li><a href="../guides/#guide-maid-helper">Maid Helper</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.elsewhere">elsewhere</h4>
+        <ul>
+          <li><a href="../guides/" data-i18n="nav.guides">guides</a></li>
+          <li><a href="../performance/" data-i18n="nav.performance">performance</a></li>
+          <li><a href="../changelog/" data-i18n="nav.changelog">changelog</a></li>
+          <li><a href="../faq/" data-i18n="nav.faq">faq</a></li>
+          <li><a href="../contributions/">contributions</a></li>
+          <li><a href="../conduct/" data-i18n="footer.conduct">code of conduct</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.social">social</h4>
+        <ul>
+          <li><a href="https://bsky.app/profile/maidwareproject.bsky.social" data-i18n="footer.bluesky">bluesky</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Maidware Project</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
+</html>

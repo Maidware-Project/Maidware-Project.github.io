@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="maidware">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="same-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="doc.title.perf">Performance - Maidware Project</title>
+<meta name="description" content="what each Maid tool costs to run: idle and working memory, measured, and the reasons the suite stays small." data-i18n-attr="content:doc.description.perf">
+<link rel="canonical" href="https://maidware-project.github.io/performance/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Performance - Maidware Project" data-i18n-attr="content:doc.title.perf">
+<meta property="og:description" content="what each Maid tool costs to run: idle and working memory, measured, and the reasons the suite stays small." data-i18n-attr="content:doc.description.perf">
+<meta property="og:url" content="https://maidware-project.github.io/performance/">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/theme-boot.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+<div class="sr-only" id="sr-status" role="status"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../">maidware<span class="sub">project</span></a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="../" data-i18n="nav.home">home</a>
+      <a href="../guides/" data-i18n="nav.guides">guides</a>
+      <a href="../performance/" aria-current="page" data-i18n="nav.performance">performance</a>
+      <a href="../faq/" data-i18n="nav.faq">faq</a>
+      <a href="../contributions/" data-i18n="nav.contributions">contributions</a>
+      <a href="https://github.com/Maidware-Project">github</a>
+    </nav>
+
+    <div class="header-tools">
+      <div class="menu-wrap" hidden>
+        <button class="tool-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+          <span id="lang-label">english</span>
+        </button>
+        <div class="theme-menu" id="lang-menu" role="menu" aria-label="Language" hidden></div>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="tool-btn" id="theme-btn" type="button" aria-expanded="false" aria-controls="theme-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+          <span data-i18n="theme.button">theme</span>
+        </button>
+                        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme" hidden>
+          <p data-i18n="theme.dark">dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="maidware" type="button"><span class="swatches"><i class="sw" style="background:#1a1b26"></i><i class="sw" style="background:#5cb9ae"></i></span>maidware</button>
+          <button class="theme-option" role="menuitemradio" data-theme="nightshift" type="button"><span class="swatches"><i class="sw" style="background:#15171b"></i><i class="sw" style="background:#8aa9c9"></i></span>nightshift</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lampblack" type="button"><span class="swatches"><i class="sw" style="background:#1c1815"></i><i class="sw" style="background:#d3a05f"></i></span>lampblack</button>
+          <button class="theme-option" role="menuitemradio" data-theme="rinse" type="button"><span class="swatches"><i class="sw" style="background:#101a24"></i><i class="sw" style="background:#63a8cf"></i></span>rinse</button>
+          <button class="theme-option" role="menuitemradio" data-theme="scrub" type="button"><span class="swatches"><i class="sw" style="background:#101712"></i><i class="sw" style="background:#5cb583"></i></span>scrub</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lavender" type="button"><span class="swatches"><i class="sw" style="background:#1d1a23"></i><i class="sw" style="background:#a98cc7"></i></span>lavender</button>
+          <button class="theme-option" role="menuitemradio" data-theme="starch" type="button"><span class="swatches"><i class="sw" style="background:#161927"></i><i class="sw" style="background:#8f9ede"></i></span>starch</button>
+          <button class="theme-option" role="menuitemradio" data-theme="mop" type="button"><span class="swatches"><i class="sw" style="background:#1a1621"></i><i class="sw" style="background:#b08ed2"></i></span>mop</button>
+          <p data-i18n="theme.puredark">pure dark</p>
+          <button class="theme-option" role="menuitemradio" data-theme="blackout" type="button"><span class="swatches"><i class="sw" style="background:#000000"></i><i class="sw" style="background:#5cb9ae"></i></span>blackout</button>
+          <p data-i18n="theme.light">light</p>
+          <button class="theme-option" role="menuitemradio" data-theme="spotless" type="button"><span class="swatches"><i class="sw" style="background:#ffffff"></i><i class="sw" style="background:#39424e"></i></span>spotless</button>
+          <button class="theme-option" role="menuitemradio" data-theme="apron" type="button"><span class="swatches"><i class="sw" style="background:#faf7f2"></i><i class="sw" style="background:#a55d3d"></i></span>apron</button>
+          <button class="theme-option" role="menuitemradio" data-theme="lace" type="button"><span class="swatches"><i class="sw" style="background:#fdf6f8"></i><i class="sw" style="background:#9a4c73"></i></span>lace</button>
+          <button class="theme-option" role="menuitemradio" data-theme="suds" type="button"><span class="swatches"><i class="sw" style="background:#f4f9f5"></i><i class="sw" style="background:#3a7154"></i></span>suds</button>
+          <button class="theme-option" role="menuitemradio" data-theme="linen" type="button"><span class="swatches"><i class="sw" style="background:#fbfcfe"></i><i class="sw" style="background:#34618f"></i></span>linen</button>
+          <button class="theme-option" role="menuitemradio" data-theme="pail" type="button"><span class="swatches"><i class="sw" style="background:#f2f6f8"></i><i class="sw" style="background:#2f6a80"></i></span>pail</button>
+          <button class="theme-option" role="menuitemradio" data-theme="sachet" type="button"><span class="swatches"><i class="sw" style="background:#f8f6fc"></i><i class="sw" style="background:#5f4a9c"></i></span>sachet</button>
+        </div>
+      </div>
+
+      <div class="menu-wrap">
+        <button class="tool-btn" id="access-btn" type="button" aria-expanded="false" aria-controls="access-menu" data-i18n-attr="aria-label:access.button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.9"/><path d="M12 7.4v5.4"/><path d="M5.2 9.4h13.6"/><path d="M12 12.8 9.2 18"/><path d="M12 12.8 14.8 18"/></svg>
+          <span data-i18n="access.button">accessibility</span>
+        </button>
+        <div class="theme-menu" id="access-menu" role="menu" aria-label="accessibility" hidden>
+          <p data-i18n="access.text">text size</p>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="normal" type="button" aria-checked="true"><span data-i18n="access.text.normal">normal</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="large" type="button" aria-checked="false"><span data-i18n="access.text.large">large</span></button>
+          <button class="theme-option access-option" role="menuitemradio" data-access="text" data-value="larger" type="button" aria-checked="false"><span data-i18n="access.text.larger">larger</span></button>
+          <p data-i18n="access.reading">reading</p>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="font" data-value="plain" type="button" aria-checked="false"><span data-i18n="access.font">plain font</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="space" data-value="more" type="button" aria-checked="false"><span data-i18n="access.space">more space</span></button>
+          <button class="theme-option access-option" role="menuitemcheckbox" data-access="links" data-value="underline" type="button" aria-checked="false"><span data-i18n="access.links">underline links</span></button>
+        </div>
+      </div>
+      <button class="tool-btn nav-toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="container">
+
+    <p class="breadcrumb"><a href="../" data-i18n="nav.home">home</a> / <span class="here" data-i18n="nav.performance">performance</span></p>
+
+    <div class="guide-content page-narrow">
+      <h1 data-i18n="perf.title">what it costs to run</h1>
+      <div class="divider"></div>
+
+      <p data-i18n="perf.intro">
+        most of these run and exit, so idle costs nothing. two can stay in memory when you
+        use them: the bluetooth fallback loop, and maid runner after you open it - it waits
+        so the next open is instant, and <code>--quit</code> stops it.
+      </p>
+
+      <h2 data-i18n="perf.memory.title">memory</h2>
+
+      <div class="perf-wrap">
+        <table class="perf">
+          <thead>
+            <tr>
+              <th data-i18n="perf.th.piece">piece</th>
+              <th data-i18n="perf.th.idle">idle</th>
+              <th data-i18n="perf.th.work">while working</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">MaidShare</th>
+              <td class="idle" data-i18n="perf.share.idle">nothing</td>
+              <td data-i18n="perf.share.work">~25 MB during a transfer, one python thread, gone the moment it ends</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid Runner</th>
+              <td class="idle" data-i18n="perf.runner.idle">~40 MB after first open</td>
+              <td data-i18n="perf.runner.work">~75 MB with the window built; the qt6 toolkit is most of it, shared with the rest of the desktop</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid AU</th>
+              <td class="idle" data-i18n="perf.au.idle">nothing</td>
+              <td data-i18n="perf.au.work">a script that exits. the peak belongs to your package manager, not the tool</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid BT</th>
+              <td class="idle" data-i18n="perf.bt.idle">~4 MB</td>
+              <td data-i18n="perf.bt.work">+~29 MB for the call watcher, +~24 MB for phone remote, both off until you ask</td>
+            </tr>
+            <tr>
+              <th scope="row">Maid Helper</th>
+              <td class="idle" data-i18n="perf.helper.idle">nothing</td>
+              <td data-i18n="perf.helper.work">one script per module, exits when the module is done</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="perf-note" data-i18n="perf.note">idle is what stays in ram between uses; the working figures are one short-lived process each. the runner figures are its own share of what it loads, so the shared qt6 toolkit is not counted twice. measured on a normal desktop, so yours will differ a little.</p>
+
+      <h2 data-i18n="perf.why.title">why it stays small</h2>
+
+      <p data-i18n="perf.why.lead">the low overhead is on purpose. each tool is optimized to do one job and get out of the way:</p>
+
+      <ul class="perf-why">
+        <li data-i18n="perf.why1">small scripts, not big apps. no electron and no bundled browser - the heavy engines many desktop apps carry. that is the difference between tens of megabytes and hundreds.</li>
+        <li data-i18n="perf.why2">nothing starts by itself. install all five and nothing runs until you ask; maid runner waits only after you first open it, and <code>--quit</code> ends that wait.</li>
+        <li data-i18n="perf.why3">the bluetooth helper wakes on system events instead of checking over and over, so it barely touches the cpu.</li>
+        <li data-i18n="perf.why4">nothing is compiled. there is no build step - the installer just copies files into your home directory.</li>
+        <li data-i18n="perf.why5">the same goes for this site: plain html and css, so it opens instantly.</li>
+      </ul>
+
+      <p data-i18n="perf.plain">if you are new to linux: none of this is a heavy app that sits in your tray. you run a command, it does its job, and it is gone.</p>
+
+      <div class="callout">
+        <p data-i18n="perf.more">
+          the <a href="../guides/#quick-start">guides</a> cover setup tool by tool, and the
+          <a href="../faq/">faq</a> answers the rest.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>maidware project</h4>
+        <p data-i18n="footer.about">serving you small forkable linux tools that help.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.tools">tools</h4>
+        <ul>
+          <li><a href="../guides/#guide-maidshare">MaidShare</a></li>
+          <li><a href="../guides/#guide-maid-runner">Maid Runner</a></li>
+          <li><a href="../guides/#guide-maid-au">Maid AU</a></li>
+          <li><a href="../guides/#guide-maid-bt">Maid BT</a></li>
+          <li><a href="../guides/#guide-maid-helper">Maid Helper</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.elsewhere">elsewhere</h4>
+        <ul>
+          <li><a href="../guides/" data-i18n="nav.guides">guides</a></li>
+          <li><a href="../performance/" data-i18n="nav.performance">performance</a></li>
+          <li><a href="../faq/" data-i18n="nav.faq">faq</a></li>
+          <li><a href="../contributions/">contributions</a></li>
+          <li><a href="../conduct/" data-i18n="footer.conduct">code of conduct</a></li>
+          <li><a href="https://github.com/Maidware-Project/Maidshare/issues" data-i18n="footer.issues">issues</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.social">social</h4>
+        <ul>
+          <li><a href="https://bsky.app/profile/maidwareproject.bsky.social" data-i18n="footer.bluesky">bluesky</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Maidware Project</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/i18n.js"></script>
+</body>
+</html>

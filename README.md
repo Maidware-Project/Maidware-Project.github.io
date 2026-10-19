@@ -22,12 +22,12 @@ edit a file, refresh the page. that's the whole workflow.
 ## layout
 
 ```
-index.html          home: the rules, the five tools, the guide links
-guides.html         per-tool setup, requirements per distro, troubleshooting
-performance.html    what each tool costs to run - memory, cpu, startup
-faq.html            short answers to the common questions
-contributions.html  patches over donations: stats, recent, how to help
-conduct.html        how the project is run (mirrors CODE_OF_CONDUCT.md)
+index.html              home: the rules, the five tools, the guide links
+guides/index.html       per-tool setup, requirements per distro, troubleshooting
+performance/index.html  what each tool costs to run - memory, cpu, startup
+faq/index.html          short answers to the common questions
+contributions/index.html  patches over donations: stats, recent, how to help
+conduct/index.html      how the project is run (mirrors CODE_OF_CONDUCT.md)
 css/style.css       the layout and every theme, as css variables
 js/main.js          theme menu, mobile nav, copy buttons, toc
 js/theme-boot.js    stored theme and settings, applied before first paint
@@ -35,6 +35,10 @@ js/i18n.js          english-only scaffolding for adding a translation
 tests/check.py      tag, asset and anchor checker
 SECURITY.md         what the site does not do, and how to report issues
 ```
+
+the old one-file addresses (`guides.html` and the rest) still work - each
+is a one-line redirect to its folder, so links written before the move
+keep working.
 
 ## themes
 
@@ -53,7 +57,7 @@ in its head and which checks the list before it applies a stored theme.
 
 ## adding a guide
 
-a guide is a plain section in `guides.html` with an `id`. add a link to it
+a guide is a plain section in `guides/index.html` with an `id`. add a link to it
 in the toc list at the top and the scroll highlight in `js/main.js` picks
 it up on its own. command samples use `<pre class="code-block">`, with
 `<span class="p">` for the prompt and `<span class="c">` for a comment.
