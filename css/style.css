@@ -1129,6 +1129,9 @@ pre.code-block .p { color: var(--prompt); }
 }
 
 /* the home hero stays one column. the example run under the lede is a
-   plain pre.code-block, the same kind the guides use - no extra chrome. */
+   plain pre.code-block, the same kind the guides use - no extra chrome,
+   and it hugs its content instead of spanning the page. */
+
+.hero .code-block { width: fit-content; max-width: 100%; }
 
 .credit { font-size: 0.82rem; color: var(--muted); margin: -24px 0 0; }
