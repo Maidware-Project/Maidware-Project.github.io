@@ -1128,8 +1128,20 @@ pre.code-block .p { color: var(--prompt); }
   [dir="rtl"] .theme-menu { left: clamp(18px, 4.5vw, 32px); right: clamp(18px, 4.5vw, 32px); }
 }
 
-/* the home hero stays one column. the example run under the lede is a
-   plain pre.code-block, the same kind the guides use - no extra chrome,
-   and it hugs its content instead of spanning the page. */
+/* the home hero: copy on the left, one plain example run on the right,
+   centered against the copy. under 900px it folds back into one column,
+   example last. */
+
+@media (min-width: 900px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.85fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+}
+
+.hero-copy,
+.hero-grid .code-block { min-width: 0; }
 
 .hero .code-block { width: fit-content; max-width: 100%; }

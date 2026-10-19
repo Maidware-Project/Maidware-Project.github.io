@@ -96,11 +96,19 @@
 <main id="main-content">
 
   <section class="hero">
-    <div class="container">
-      <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
-      <p class="lede" data-i18n="hero.lede">
-        small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
-      </p>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
+        <p class="lede" data-i18n="hero.lede">
+          small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="guides/" data-i18n="hero.cta1">read the guides</a>
+          <a class="btn" href="https://github.com/Maidware-Project">github</a>
+        </div>
+        <p class="lang-note" data-i18n="lang.note">we need coders - <a href="contributions/">help out</a><br>we need translators - <a href="contributions/#translations">help us do translations</a>.</p>
+      </div>
+
       <pre class="code-block"><span class="p">$</span> update-all.sh --check
 backend: zypper (from /etc/os-release)
 packages: 14 updates
@@ -108,11 +116,6 @@ flatpak: 3 apps
 firmware: 1 device
 snapshot: snapper found
 <span class="c"># dry run - nothing was changed</span></pre>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="guides/" data-i18n="hero.cta1">read the guides</a>
-        <a class="btn" href="https://github.com/Maidware-Project">github</a>
-      </div>
-      <p class="lang-note" data-i18n="lang.note">we need coders - <a href="contributions/">help out</a><br>we need translators - <a href="contributions/#translations">help us do translations</a>.</p>
     </div>
   </section>
 
