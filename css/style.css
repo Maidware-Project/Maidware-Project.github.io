@@ -342,14 +342,15 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-wrap: break-word;
   -webkit-tap-highlight-color: transparent;
-  transition: background 0.25s ease, color 0.25s ease;
+  /* no background transition here: a theme switch flips every colour at
+     once, and a half-tweened body next to instant cards reads as lag */
 }
 
 ::selection { background: var(--accent); color: var(--bg); }
 
 img, svg { max-width: 100%; }
 
-a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-bottom-color 0.12s ease-out; }
 a:hover { border-bottom-color: var(--accent); }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
@@ -396,7 +397,7 @@ p { margin: 0 0 16px; }
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
-  transition: transform 0.18s ease;
+  transition: transform 0.18s ease-out;
 }
 
 /* reading down tucks the header out of the way; scrolling up, coming back
@@ -581,7 +582,7 @@ p { margin: 0 0 16px; }
   font-family: inherit;
   text-decoration: none;
   box-shadow: 0 1px 2px var(--shadow);
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 .btn:hover { border-color: var(--accent); box-shadow: 0 3px 10px var(--shadow); }
 .btn:active { transform: none; }
@@ -627,24 +628,37 @@ p { margin: 0 0 16px; }
 .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 18px; }
 
 .rule {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   padding: 20px 22px;
   box-shadow: 0 1px 2px var(--shadow), 0 6px 18px var(--shadow);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease-out;
+}
+/* the hover shadow crossfades on a layer of its own instead of animating
+   box-shadow - opacity is compositor work, so the lift stays smooth */
+.rule::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 2px 4px var(--shadow), 0 14px 30px var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease-out;
 }
 .rule:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 4px var(--shadow), 0 14px 30px var(--shadow);
 }
+.rule:hover::after { opacity: 1; }
 .rule .glyph { color: var(--accent); display: block; margin-bottom: 10px; }
 .rule h3 { font-size: 1.03rem; margin-bottom: 6px; }
 .rule p { margin: 0; color: var(--muted); font-size: 0.93rem; }
 
 /* projects - open, no frames */
 
-.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px 48px; }
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px 48px; align-items: start; }
 
 .project { display: flex; flex-direction: column; }
 
