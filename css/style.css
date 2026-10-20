@@ -662,12 +662,31 @@ p { margin: 0 0 16px; }
 .projects { display: grid; grid-template-columns: 1fr; gap: 88px; }
 
 .project {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
   column-gap: 56px;
   row-gap: 4px;
   align-items: start;
   scroll-margin-top: 5.25rem;
+  padding-left: 22px;
+}
+/* the maidware rune-edge: quiet accent marker, like a margin note */
+.project::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 3px;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--accent) 45%, transparent);
+}
+.project:not(:has(.project-shot)) { grid-template-columns: minmax(0, 56rem); }
+
+@media (max-width: 940px) {
+  .project { grid-template-columns: 1fr; padding-left: 16px; }
+  .project-shot { grid-column: 1; grid-row: auto; margin: 6px 0 10px; }
 }
 /* entries without a screenshot take the full row */
 .project:not(:has(.project-shot)) { grid-template-columns: minmax(0, 56rem); }
@@ -1135,20 +1154,4 @@ pre.code-block .p { color: var(--prompt); }
   [dir="rtl"] .theme-menu { left: clamp(18px, 4.5vw, 32px); right: clamp(18px, 4.5vw, 32px); }
 }
 
-/* the home hero: copy on the left, one plain example run on the right,
-   centered against the copy. under 900px it folds back into one column,
-   example last. */
-
-@media (min-width: 900px) {
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.85fr);
-    gap: clamp(28px, 5vw, 64px);
-    align-items: center;
-  }
-}
-
-.hero-copy,
-.hero-grid .code-block { min-width: 0; }
-
-.hero .code-block { width: fit-content; max-width: 100%; }
+.hero-copy { min-width: 0; }
