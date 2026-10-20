@@ -996,6 +996,21 @@ pre.code-block .p { color: var(--prompt); }
 }
 .steps li strong { display: block; }
 
+/* guide sections use the homepage's editorial row grammar */
+#the-suite { display: grid; gap: 64px; }
+.guide-content .kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+.guide-content .project { grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); }
+.guide-content .project ul { padding-left: 0; margin: 0 0 16px; }
+.guide-content .project-shot { align-self: center; }
+
 .tool-block { padding: 6px 0; margin-bottom: 30px; scroll-margin-top: 5.375rem; }
 .tool-block h3 { margin-bottom: 10px; }
 .tool-block .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }

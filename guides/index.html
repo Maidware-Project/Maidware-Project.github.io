@@ -118,6 +118,7 @@
       <div class="guide-content">
 
         <section id="quick-start">
+          <span class="kicker">getting started</span>
           <h1 data-i18n="qs.title">guides</h1>
           <p class="lead" data-i18n="qs.lead">
             every tool ships an <code>install.sh</code> that copies files into your home
@@ -168,15 +169,17 @@
 
         <section id="the-suite">
           <div class="divider"></div>
+          <span class="kicker">tool by tool</span>
           <h2 data-i18n="suite.title">tool by tool</h2>
 
-          <article class="tool-block" id="guide-maidshare">
-            <div class="meta">
-              <span class="tag cat">files &amp; sharing</span>
-              <span class="tag">shell</span>
-              <span class="tag">kde connect · adb · qr</span>
-            </div>
+          <article class="tool-block project" id="guide-maidshare">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="14" height="12" rx="2"/><path d="M8 8V6a5 5 0 0 1 10 0v6"/><path d="M18 14h4M20 12l2 2-2 2"/></svg></span>
             <h3>MaidShare</h3>
+            <span class="tag cat">files &amp; sharing</span>
+            <span class="tag">shell</span>
+              <span class="tag">kde connect · adb · qr</span>
+          </div>
             <p data-i18n="t.share.body">
               it tries the backends in order and takes the first one that works. kde connect
               is best, if the phone is paired on the same wifi; usb/adb needs no network at
@@ -196,13 +199,15 @@
             <p><a href="https://github.com/Maidware-Project/Maidshare" data-i18n="common.readme">full readme →</a></p>
           </article>
 
-          <article class="tool-block" id="guide-maid-runner">
-            <div class="meta">
-              <span class="tag cat">launcher</span>
-              <span class="tag">python · qt</span>
-              <span class="tag">maid scroll</span>
-            </div>
+          <article class="tool-block project" id="guide-maid-runner">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
             <h3>Maid Runner</h3>
+            <span class="tag cat">launcher</span>
+            <span class="tag">python · qt</span>
+              <span class="tag">maid scroll</span>
+          </div>
+          <img class="project-shot" src="../img/maid-runner.png" alt="Maid Runner: the search card over a dimmed desktop" loading="lazy">
             <p data-i18n="t.runner.body">
               type, enter. typing searches every source at once - all applications, files,
               run, calculator, web and the maid suite - so nothing needs a tab switch.
@@ -248,13 +253,15 @@
             <p><a href="https://github.com/Maidware-Project/Maid-Runner" data-i18n="common.readme">full readme →</a></p>
           </article>
 
-          <article class="tool-block" id="guide-maid-au">
-            <div class="meta">
-              <span class="tag cat">system updates</span>
-              <span class="tag">shell</span>
-              <span class="tag">zypper · dnf · pacman · apt</span>
-            </div>
+          <article class="tool-block project" id="guide-maid-au">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></span>
             <h3>Maid AU</h3>
+            <span class="tag cat">system updates</span>
+            <span class="tag">shell</span>
+              <span class="tag">zypper · dnf · pacman · apt</span>
+          </div>
+          <img class="project-shot" src="../img/maid-au.png" alt="Maid AU: the themed updater window" loading="lazy">
             <p data-i18n="t.au.body">
               system packages, flatpak and firmware in one run. the backend comes from
               <code>/etc/os-release</code>, so it just works on your distro; set
@@ -281,13 +288,15 @@
             <p><a href="https://github.com/Maidware-Project/Maid-AU" data-i18n="common.readme">full readme →</a></p>
           </article>
 
-          <article class="tool-block" id="guide-maid-bt">
-            <div class="meta">
-              <span class="tag cat">audio</span>
-              <span class="tag">shell</span>
-              <span class="tag">pipewire · bluez</span>
-            </div>
+          <article class="tool-block project" id="guide-maid-bt">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 4V3l5 4L7 17"/></svg></span>
             <h3>Maid BT</h3>
+            <span class="tag cat">audio</span>
+            <span class="tag">shell</span>
+              <span class="tag">pipewire · bluez</span>
+          </div>
+          <img class="project-shot" src="../img/maid-bt.png" alt="Maid BT: plasma desktop with the earbuds applet open" loading="lazy">
             <p data-i18n="t.bt.body">
               keep your normal bluetooth tool for pairing mice and keyboards. this one
               handles the earbuds routine: where the sound is right now, and moving it
@@ -312,13 +321,15 @@
             <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a></p>
           </article>
 
-          <article class="tool-block" id="guide-maid-helper">
-            <div class="meta">
-              <span class="tag cat">repair</span>
-              <span class="tag">shell</span>
-              <span class="tag">check · fix</span>
-            </div>
+          <article class="tool-block project" id="guide-maid-helper">
+          <div class="project-top">
+            <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg></span>
             <h3>Maid Helper</h3>
+            <span class="tag cat">repair</span>
+            <span class="tag">shell</span>
+              <span class="tag">check · fix</span>
+          </div>
+          <img class="project-shot" src="../img/maid-helper.png" alt="Maid Helper: the first-aid window with the report" loading="lazy">
             <p data-i18n="t.helper.body">
               each module has two modes. <code>check</code> tells you whether it's healthy;
               <code>fix</code> repairs what it safely can and verifies afterwards. exit 0
@@ -347,6 +358,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
         <section id="distros">
           <div class="divider"></div>
+          <span class="kicker">requirements</span>
           <h2 data-i18n="distros.title">what each tool needs</h2>
           <p data-i18n="distros.intro">
             everything optional is detected automatically. if a backend is missing the tool
@@ -491,6 +503,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
         <section id="safety">
           <div class="divider"></div>
+          <span class="kicker">safety</span>
           <h2 data-i18n="safety.title">backups and dry runs</h2>
           <p data-i18n="safety.intro">why you can leave these running without watching them.</p>
 
@@ -523,6 +536,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
         <section id="faq">
           <div class="divider"></div>
+          <span class="kicker">troubleshooting</span>
           <h2 data-i18n="faq.title">troubleshooting</h2>
 
           <h3 data-i18n="faq.logs.title">where are the logs?</h3>
