@@ -676,6 +676,17 @@ p { margin: 0 0 16px; }
 }
 .tag.cat { color: var(--accent); }
 
+
+/* feature screenshots inside the project articles */
+.project-shot {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, currentColor 18%, transparent);
+  margin: 6px 0 14px;
+  display: block;
+}
+
 .project .tagline { color: var(--accent); font-size: 0.93rem; font-weight: 600; margin: 0 0 12px; }
 .project .blurb { color: var(--muted); font-size: 0.94rem; margin-bottom: 14px; }
 

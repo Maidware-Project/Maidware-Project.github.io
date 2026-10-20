@@ -287,6 +287,7 @@ snapshot: snapper found
             <span class="tag cat">launcher</span>
             <span class="tag">python · qt</span>
           </div>
+          <img class="project-shot" src="img/maid-runner.png" alt="Maid Runner: the search box over a dimmed desktop, matching every Maid action" loading="lazy">
           <p class="tagline" data-i18n="runner.tagline">search everything from one key</p>
           <p class="blurb" data-i18n="runner.blurb">
             a small qt search box for plasma, native on wayland. type, enter. typing
@@ -319,6 +320,7 @@ snapshot: snapper found
             <span class="tag cat">system updates</span>
             <span class="tag">shell</span>
           </div>
+          <img class="project-shot" src="img/maid-au.png" alt="Maid AU: themed updater window with a dry-run check and live output" loading="lazy">
           <p class="tagline" data-i18n="au.tagline">one updater for the whole system</p>
           <p class="blurb" data-i18n="au.blurb">
             system packages, flatpak apps and firmware in one run, with a snapshot before
@@ -345,6 +347,7 @@ snapshot: snapper found
             <span class="tag cat">audio</span>
             <span class="tag">shell</span>
           </div>
+          <img class="project-shot" src="img/maid-bt.png" alt="Maid BT: plasma applet showing the earbuds on this PC" loading="lazy">
           <p class="tagline" data-i18n="bt.tagline">bluetooth earbuds switching that doesn't fight you</p>
           <p class="blurb" data-i18n="bt.blurb">
             one command moves the sound from your pc to your phone and back, or turns the
@@ -353,8 +356,9 @@ snapshot: snapper found
           </p>
           <ul>
             <li data-i18n="bt.li1"><code>on</code>, <code>release</code> and <code>off</code>, each about a second</li>
-            <li data-i18n="bt.li2">a watcher connects the buds when they appear and parks the sound when they vanish</li>
-            <li data-i18n="bt.li3">tray widget, launcher entries, and an optional phone remote</li>
+            <li data-i18n="bt.li2">a watcher connects the buds when they appear, parks the sound when they vanish, and pauses players for calls</li>
+            <li data-i18n="bt.li3">a plasma applet that shows where the sound is, launcher entries, and an optional phone remote</li>
+            <li data-i18n="bt.li4">Maid BT Helper: a small GUI that checks the stack and pins LDAC with one click</li>
           </ul>
           <div class="cmd">
             <span class="code"><button class="copy-btn" type="button" aria-label="Copy command"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="code-text"><span class="prompt">$ </span>bluetooth-toggle.sh on</span></span>
@@ -372,16 +376,18 @@ snapshot: snapper found
             <span class="tag cat">repair</span>
             <span class="tag">shell</span>
           </div>
+          <img class="project-shot" src="img/maid-helper.png" alt="Maid Helper: themed first-aid window with module list and report" loading="lazy">
           <p class="tagline" data-i18n="helper.tagline">a first-aid kit for the usual breakage</p>
           <p class="blurb" data-i18n="helper.blurb">
             checks the things that quietly go wrong and fixes what it safely can: missing
             fwupd, an empty flathub remote, nouveau blacklisted, a gamepad with no driver
-            loaded.
+            loaded. it has a window now: the whole kit in one dark GUI.
           </p>
           <ul>
             <li data-i18n="helper.li1">every module runs <code>check</code> first and only changes things with <code>fix</code></li>
             <li data-i18n="helper.li2">it will not install proprietary drivers. not with a flag, not ever</li>
             <li data-i18n="helper.li3">bootloader edits get printed for you to run by hand</li>
+          <li data-i18n="helper.li4">Native Qt window - Maidware theme, Bluetooth module and a shareable report</li>
           </ul>
           <div class="cmd">
             <span class="code"><button class="copy-btn" type="button" aria-label="Copy command"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="code-text"><span class="prompt">$ </span>mod-flatpak.sh fix</span></span>
