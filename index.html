@@ -100,7 +100,7 @@
       <div class="hero-copy">
         <h1 data-i18n="hero.title">small forkable linux tools that help</h1>
         <p class="lede" data-i18n="hero.lede">
-          small, on-demand command-line helpers to make a few common linux tasks less annoying. simple commands you run when you need them - shows what it does, can preview with <code>--check</code>, and keeps backups when it changes files.
+          small, on-demand linux helpers for a few annoying jobs. run them in a terminal when you need them - some have a window now. they show what they plan to do, can preview with <code>--check</code>, and keep backups when they change files.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="guides/" data-i18n="hero.cta1">read the guides</a>
@@ -318,13 +318,14 @@ snapshot: snapper found
             <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></span>
             <h3><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></h3>
             <span class="tag cat">system updates</span>
-            <span class="tag">shell</span>
+            <span class="tag">shell · qt</span>
           </div>
           <img class="project-shot" src="img/maid-au.png" alt="Maid AU: themed updater window with a dry-run check and live output" loading="lazy">
           <p class="tagline" data-i18n="au.tagline">one updater for the whole system</p>
           <p class="blurb" data-i18n="au.blurb">
             system packages, flatpak apps and firmware in one run, with a snapshot before
             and after. it tells you when a reboot is needed. it doesn't reboot for you.
+            there's a window for it now, if you're not in the mood for a terminal.
           </p>
           <ul>
             <li data-i18n="au.li1">backend worked out from <code>/etc/os-release</code>: zypper, dnf, pacman or apt</li>
@@ -345,20 +346,20 @@ snapshot: snapper found
             <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 4V3l5 4L7 17"/></svg></span>
             <h3><a href="https://github.com/Maidware-Project/Maid-BT">Maid BT</a></h3>
             <span class="tag cat">audio</span>
-            <span class="tag">shell</span>
+            <span class="tag">shell · qt · plasma</span>
           </div>
           <img class="project-shot" src="img/maid-bt.png" alt="Maid BT: plasma applet showing the earbuds on this PC" loading="lazy">
           <p class="tagline" data-i18n="bt.tagline">bluetooth earbuds switching that doesn't fight you</p>
           <p class="blurb" data-i18n="bt.blurb">
             one command moves the sound from your pc to your phone and back, or turns the
-            radio off. dual-connection earbuds stop fighting the phone, and ldac stays on
-            instead of quietly dropping to sbc.
+            radio off. dual-connection earbuds stop fighting the phone. quality stays
+            whatever your buds shipped with - the ldac lock is optional, off by default.
           </p>
           <ul>
             <li data-i18n="bt.li1"><code>on</code>, <code>release</code> and <code>off</code>, each about a second</li>
             <li data-i18n="bt.li2">a watcher connects the buds when they appear, parks the sound when they vanish, and pauses players for calls</li>
-            <li data-i18n="bt.li3">a plasma applet that shows where the sound is, launcher entries, and an optional phone remote</li>
-            <li data-i18n="bt.li4">Maid BT Helper: a small GUI that checks the stack and pins LDAC with one click</li>
+            <li data-i18n="bt.li3">a tray applet that shows where the sound is, launcher entries, and an optional phone remote</li>
+            <li data-i18n="bt.li4">a helper window for the checks: safe fixes if you want them, and a report you can paste in a bug report</li>
           </ul>
           <div class="cmd">
             <span class="code"><button class="copy-btn" type="button" aria-label="Copy command"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="code-text"><span class="prompt">$ </span>bluetooth-toggle.sh on</span></span>
@@ -374,20 +375,20 @@ snapshot: snapper found
             <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg></span>
             <h3><a href="https://github.com/Maidware-Project/Maid-Helper">Maid Helper</a></h3>
             <span class="tag cat">repair</span>
-            <span class="tag">shell</span>
+            <span class="tag">shell · qt</span>
           </div>
           <img class="project-shot" src="img/maid-helper.png" alt="Maid Helper: themed first-aid window with module list and report" loading="lazy">
           <p class="tagline" data-i18n="helper.tagline">a first-aid kit for the usual breakage</p>
           <p class="blurb" data-i18n="helper.blurb">
             checks the things that quietly go wrong and fixes what it safely can: missing
             fwupd, an empty flathub remote, nouveau blacklisted, a gamepad with no driver
-            loaded. it has a window now: the whole kit in one dark GUI.
+            loaded. there's a window too - same checks and fixes, no terminal.
           </p>
           <ul>
             <li data-i18n="helper.li1">every module runs <code>check</code> first and only changes things with <code>fix</code></li>
             <li data-i18n="helper.li2">it will not install proprietary drivers. not with a flag, not ever</li>
             <li data-i18n="helper.li3">bootloader edits get printed for you to run by hand</li>
-          <li data-i18n="helper.li4">Native Qt window - Maidware theme, Bluetooth module and a shareable report</li>
+            <li data-i18n="helper.li4">a bluetooth module for earbuds: routing, suspend, and quality if you ask for it. your mic in a call is off limits</li>
           </ul>
           <div class="cmd">
             <span class="code"><button class="copy-btn" type="button" aria-label="Copy command"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="code-text"><span class="prompt">$ </span>mod-flatpak.sh fix</span></span>

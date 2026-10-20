@@ -659,11 +659,20 @@ p { margin: 0 0 16px; }
 
 /* projects - open, no frames */
 
-.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px 48px; align-items: start; }
+.projects { display: grid; grid-template-columns: 1fr; gap: 88px; }
 
-.project { display: flex; flex-direction: column; }
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+  column-gap: 56px;
+  row-gap: 4px;
+  align-items: start;
+  scroll-margin-top: 5.25rem;
+}
+/* entries without a screenshot take the full row */
+.project:not(:has(.project-shot)) { grid-template-columns: minmax(0, 56rem); }
 
-.project-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.project-top { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .project-icon { color: var(--accent); display: inline-flex; }
 .project h3 { font-size: 1.25rem; }
 .project h3 a { color: var(--text); }
@@ -677,14 +686,21 @@ p { margin: 0 0 16px; }
 .tag.cat { color: var(--accent); }
 
 
-/* feature screenshots inside the project articles */
+/* feature screenshots: right column, next to the words */
 .project-shot {
+  grid-column: 2;
+  grid-row: 2 / 7;
+  align-self: center;
   width: 100%;
   height: auto;
   border-radius: 12px;
   border: 1px solid color-mix(in oklab, currentColor 18%, transparent);
-  margin: 6px 0 14px;
+  margin: 0;
   display: block;
+}
+
+@media (max-width: 940px) {
+  .project-shot { grid-column: 1; grid-row: auto; margin: 6px 0 10px; }
 }
 
 .project .tagline { color: var(--accent); font-size: 0.93rem; font-weight: 600; margin: 0 0 12px; }
@@ -978,12 +994,11 @@ pre.code-block .p { color: var(--prompt); }
   .toc ul { display: flex; flex-wrap: wrap; gap: 6px; }
   .toc a { padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.83rem; }
   .toc a.sub { padding-left: 12px; }
-  .projects { gap: 34px 36px; }
+  .projects { gap: 64px; }
 }
 
 @media (max-width: 780px) {
   .header-inner { min-height: 3.375rem; }
-  .projects { grid-template-columns: 1fr; gap: 38px; }
   .section-head { margin-bottom: 30px; }
 }
 
@@ -1049,7 +1064,7 @@ pre.code-block .p { color: var(--prompt); }
   .hero-actions { gap: 8px; }
   .btn { flex: 1 1 auto; justify-content: center; }
   .rules, .day { grid-template-columns: 1fr; gap: 14px; }
-  .projects { gap: 34px; }
+  .projects { gap: 60px; }
   .project-top { flex-wrap: wrap; }
   .steps li { padding-left: 38px; }
   .steps li::before { width: 26px; height: 26px; }
