@@ -1007,7 +1007,11 @@ pre.code-block .p { color: var(--prompt); }
   color: var(--accent);
   margin: 0 0 8px;
 }
-.guide-content .project { grid-template-columns: minmax(0, 40rem) minmax(0, 1fr); }
+/* guide cards are linear documents. the homepage's editorial two-column
+   grammar needs a .project-shot to fill the right column; guide cards have
+   none, so every second element (code block, note) was auto-placed into a
+   near-zero-width right column and wrapped one character per line. */
+.guide-content .project { grid-template-columns: minmax(0, 56rem); }
 .guide-content .project ul { padding-left: 0; margin: 0 0 16px; }
 .guide-content .project-shot { align-self: center; }
 
