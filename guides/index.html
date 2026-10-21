@@ -304,13 +304,28 @@
 <span class="p">$</span> bluetoothctl pair &lt;MAC&gt;        <span class="c"># then: trust &lt;MAC&gt;</span>
 <span class="p">$</span> bluetooth-toggle.sh on         <span class="c"># sound moves to your earbuds</span>
 <span class="p">$</span> bluetooth-toggle.sh release    <span class="c"># hand buds to phone, back is instant</span>
+<span class="p">$</span> maid-switch phone              <span class="c"># the same handoff, single command</span>
+<span class="p">$</span> maid-soundcore info            <span class="c"># battery + anc + eq, straight from the buds</span>
 <span class="p">$</span> bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></pre>
             <ul>
               <li data-i18n="t.bt.li1"><code>release</code> is the everyday one - the buds stay half-connected so coming back is instant. set <code>MULTIPOINT=1</code> once if yours connect to two devices</li>
               <li data-i18n="t.bt.li2">the watcher connects the buds when they show up and parks the sound on your speakers when they disappear</li>
               <li data-i18n="t.bt.li3">optional maid watcher: on a call it pauses music, mutes discord, and puts both back when you hang up. warns at 25% and 12% battery</li>
-              <li data-i18n="t.bt.li4">a tray widget with pc / phone / off buttons, plus a helper window for the checks and safe fixes</li>
+              <li data-i18n="t.bt.li4">a tray widget with pc / phone / off buttons, a settings window with earbuds / behavior / equalizer pages, plus a helper window for the checks and safe fixes</li>
             </ul>
+            <p data-i18n="t.bt.v11">
+              1.1 adds soundcore device control on the equalizer page: noise modes, nc
+              strength and a 10-band eq write into the buds' own memory (it survives
+              undocking), and the sliders show what is actually on the buds. the wire
+              protocol was reverse engineered by the open source openscq30 project;
+              Maid BT ships its own clean-room python implementation so this repo
+              stays mit and openscq30 keeps the protocol credit. stereo quality
+              defaults to aac/sbc-xq now - ldac is opt-in again from the helper,
+              because several realtek adapters stall its packets. the paired phone
+              also gets three kde connect run commands ("earbuds: audio on pc",
+              "earbuds: audio on phone", "earbuds: who has audio") that wrap the same
+              switcher, and your own entries in that list are never touched.
+            </p>
             <p data-i18n="t.bt.extra">
               also optional, and off unless you turn them on: the phone remote
               (<code>phone/</code>, macrodroid or tasker), pausing ldac when the battery is

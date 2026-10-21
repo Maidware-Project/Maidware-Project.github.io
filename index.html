@@ -342,14 +342,18 @@
           <p class="tagline" data-i18n="bt.tagline">bluetooth earbuds switching that doesn't fight you</p>
           <p class="blurb" data-i18n="bt.blurb">
             one command moves the sound from your pc to your phone and back, or turns the
-            radio off. dual-connection earbuds stop fighting the phone. quality stays
-            whatever your buds shipped with - the ldac lock is optional, off by default.
+            radio off. dual-connection earbuds stop fighting the phone, dock-aware
+            fallback hands audio to your speakers when the buds go into their case, and
+            quality stays whatever your buds shipped with - the ldac lock is optional,
+            off by default.
           </p>
           <ul>
             <li data-i18n="bt.li1"><code>on</code>, <code>release</code> and <code>off</code>, each about a second</li>
             <li data-i18n="bt.li2">a watcher connects the buds when they appear, parks the sound when they vanish, and pauses players for calls</li>
             <li data-i18n="bt.li3">a tray applet that shows where the sound is, launcher entries, and an optional phone remote</li>
             <li data-i18n="bt.li4">a helper window for the checks: safe fixes if you want them, and a report you can paste in a bug report</li>
+            <li data-i18n="bt.li5">soundcore gear (liberty 5 family): battery, noise modes and a 10-band eq written into the buds' own memory, read back live in the eq page</li>
+            <li data-i18n="bt.li6">switch from the phone too: three kde connect run commands ("earbuds: audio on phone / on pc"), backed by <code>maid-switch</code></li>
           </ul>
           <div class="cmd">
             <span class="code"><button class="copy-btn" type="button" aria-label="Copy command"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="code-text"><span class="prompt">$ </span>bluetooth-toggle.sh on</span></span>
