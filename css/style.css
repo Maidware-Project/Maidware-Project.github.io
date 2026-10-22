@@ -624,35 +624,18 @@ p { margin: 0 0 16px; }
 .page-narrow p strong { color: var(--text); }
 .page-narrow .lead { font-size: 1.12rem; color: var(--text); margin-bottom: 22px; }
 
-/* principles - six small boxes, because they hold up on their own */
+/* principles - six small boxes, because they hold up on their own.
+   peer items: the five tools and the six principles carry equal weight,
+   so every card stays identical on purpose. the hero owns the focal point. */
 
 .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 18px; }
 
 .rule {
-  position: relative;
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   padding: 20px 22px;
-  box-shadow: 0 1px 2px var(--shadow), 0 6px 18px var(--shadow);
-  transition: transform 0.18s ease-out;
 }
-/* the hover shadow crossfades on a layer of its own instead of animating
-   box-shadow - opacity is compositor work, so the lift stays smooth */
-.rule::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: 0 2px 4px var(--shadow), 0 14px 30px var(--shadow);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease-out;
-}
-.rule:hover {
-  transform: translateY(-2px);
-}
-.rule:hover::after { opacity: 1; }
 .rule .glyph { color: var(--accent); display: block; margin-bottom: 10px; }
 .rule h3 { font-size: 1.03rem; margin-bottom: 6px; }
 .rule p { margin: 0; color: var(--muted); font-size: 0.93rem; }
@@ -807,7 +790,7 @@ pre.code-block .p { color: var(--prompt); }
 .perf th, .perf td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .perf thead th { color: var(--muted); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--border-strong); }
 .perf tbody th { font-weight: 600; white-space: nowrap; }
-.perf .idle { white-space: nowrap; color: var(--text); font-variant-numeric: tabular-nums; }
+.perf .idle { color: var(--text); }
 .perf tbody tr:last-child th, .perf tbody tr:last-child td { border-bottom: 0; }
 .perf-note { margin: 18px 0 0; color: var(--muted); font-size: 0.86rem; max-width: 70ch; }
 .perf-why { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; max-width: 70ch; }
@@ -930,7 +913,7 @@ pre.code-block .p { color: var(--prompt); }
   font-weight: 600;
 }
 .toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
-.toc a { display: block; padding: 4px 10px; color: var(--muted); font-size: 0.87rem; border-radius: 6px; }
+.toc a { display: flex; align-items: center; padding: 4px 10px; color: var(--muted); font-size: 0.87rem; border-radius: 6px; }
 .toc a:hover { color: var(--accent); text-decoration: none; }
 .toc a.sub { padding-left: 22px; font-size: 0.83rem; }
 .toc a.here { color: var(--accent); font-weight: 600; }
@@ -1030,7 +1013,7 @@ pre.code-block .p { color: var(--prompt); }
   .guide-layout { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-top: 18px; }
   .toc { position: static; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
   .toc ul { display: flex; flex-wrap: wrap; gap: 6px; }
-  .toc a { padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.83rem; }
+  .toc a { padding: 6px 12px; min-height: 2.75rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.83rem; }
   .toc a.sub { padding-left: 12px; }
   .projects { gap: 64px; }
 }
@@ -1084,10 +1067,16 @@ pre.code-block .p { color: var(--prompt); }
     top: calc(100% + 6px);
   }
   .menu-wrap { position: static; }
-  .theme-option { padding: 10px; }
+  .theme-option { padding: 10px; min-height: 2.75rem; }
+
+  /* 44px minimum tap targets on phones: the header tools, the copy
+     button, and the menu rows are all smaller by default. */
+  .tool-btn { min-height: 2.75rem; }
+  .nav-toggle { min-width: 2.75rem; }
+  .copy-btn { top: 4px; right: 4px; width: 2.75rem; height: 2.75rem; }
 
   pre.code-block, .code { font-size: 0.79rem; }
-  .code { padding-right: 42px; }
+  .code { padding-right: 56px; }
 
   .req { grid-template-columns: 1fr; gap: 4px; }
 
@@ -1100,7 +1089,7 @@ pre.code-block .p { color: var(--prompt); }
 @media (max-width: 520px) {
   .brand .sub { display: none; }
   .hero-actions { gap: 8px; }
-  .btn { flex: 1 1 auto; justify-content: center; }
+  .btn { flex: 1 1 auto; justify-content: center; min-height: 2.75rem; }
   .rules, .day { grid-template-columns: 1fr; gap: 14px; }
   .projects { gap: 60px; }
   .project-top { flex-wrap: wrap; }
@@ -1137,10 +1126,13 @@ pre.code-block .p { color: var(--prompt); }
   :root { --maxw: 65rem; }
 }
 
-/* only lift boxes where a pointer can hover */
+/* touch screens wider than a phone get the same 44px targets */
 
-@media (hover: none) {
-  .rule:hover { transform: none; box-shadow: 0 1px 2px var(--shadow), 0 6px 18px var(--shadow); }
+@media (pointer: coarse) {
+  .tool-btn, .theme-option, .toc a { min-height: 2.75rem; }
+  .nav-toggle, .copy-btn { min-width: 2.75rem; }
+  .copy-btn { top: 4px; right: 4px; width: 2.75rem; height: 2.75rem; }
+  .code { padding-right: 56px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

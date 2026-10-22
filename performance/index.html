@@ -6,11 +6,11 @@
 <meta name="referrer" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="doc.title.perf">Performance - Maidware Project</title>
-<meta name="description" content="what each Maid tool costs to run: idle and working memory, measured, and the reasons the suite stays small." data-i18n-attr="content:doc.description.perf">
+<meta name="description" content="what each Maid tool costs to run, and the reasons the suite stays small." data-i18n-attr="content:doc.description.perf">
 <link rel="canonical" href="https://maidware-project.github.io/performance/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Performance - Maidware Project" data-i18n-attr="content:doc.title.perf">
-<meta property="og:description" content="what each Maid tool costs to run: idle and working memory, measured, and the reasons the suite stays small." data-i18n-attr="content:doc.description.perf">
+<meta property="og:description" content="what each Maid tool costs to run, and the reasons the suite stays small." data-i18n-attr="content:doc.description.perf">
 <meta property="og:url" content="https://maidware-project.github.io/performance/">
 <meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="../css/style.css">
@@ -123,12 +123,12 @@
             <tr>
               <th scope="row">MaidShare</th>
               <td class="idle" data-i18n="perf.share.idle">nothing</td>
-              <td data-i18n="perf.share.work">~25 MB during a transfer, one python thread, gone the moment it ends</td>
+              <td data-i18n="perf.share.work">a short-lived python process: one thread, gone the moment the transfer ends</td>
             </tr>
             <tr>
               <th scope="row">Maid Runner</th>
-              <td class="idle" data-i18n="perf.runner.idle">~40 MB after first open</td>
-              <td data-i18n="perf.runner.work">~75 MB with the window built; the qt6 toolkit is most of it, shared with the rest of the desktop</td>
+              <td class="idle" data-i18n="perf.runner.idle">waits after first open so the next launch is instant; <code>--quit</code> ends it</td>
+              <td data-i18n="perf.runner.work">the window plus the qt6 toolkit it shares with the rest of the desktop</td>
             </tr>
             <tr>
               <th scope="row">Maid AU</th>
@@ -137,8 +137,8 @@
             </tr>
             <tr>
               <th scope="row">Maid BT</th>
-              <td class="idle" data-i18n="perf.bt.idle">~4 MB</td>
-              <td data-i18n="perf.bt.work">+~29 MB for the call watcher, +~24 MB for phone remote, both off until you ask</td>
+              <td class="idle" data-i18n="perf.bt.idle">a small tray applet</td>
+              <td data-i18n="perf.bt.work">the call watcher and phone remote start only when you ask</td>
             </tr>
             <tr>
               <th scope="row">Maid Helper</th>
@@ -149,7 +149,7 @@
         </table>
       </div>
 
-      <p class="perf-note" data-i18n="perf.note">idle is what stays in ram between uses; the working figures are one short-lived process each. the runner figures are its own share of what it loads, so the shared qt6 toolkit is not counted twice. measured on a normal desktop, so yours will differ a little.</p>
+      <p class="perf-note" data-i18n="perf.note">we do not publish benchmark numbers here: memory depends on your distro, desktop, and qt build. the shape is what matters. most tools run and exit, the long-lived pieces are small, and nothing starts until you ask. the runner's cost is its own share of what it loads, so the shared qt6 toolkit is not counted twice.</p>
 
       <h2 data-i18n="perf.why.title">why it stays small</h2>
 
