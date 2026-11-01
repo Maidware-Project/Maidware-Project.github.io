@@ -35,8 +35,8 @@ owner.
   adjectives.
 - The brand is text, not a logo. The name is set in the site's sans stack,
   with a small "project" suffix.
-- The recurring gesture is the quiet accent marker at the edge of a project
-  row, like a margin note.
+- Projects are framed by whitespace, not boxes; visual grouping is done
+  with spacing, headings and kickers alone.
 - The theme family is a first-class feature, not decoration. The default is
   `maidware`: teal on a near-black blue.
 
