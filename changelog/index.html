@@ -144,6 +144,13 @@
 <li>2026-10-19: install: the kdeconnect fix travels with the install</li>
 </ul></div>
 <h2><a href="https://github.com/Maidware-Project/Maid-AU">Maid AU</a></h2>
+<div class="rule"><h3>suite tests hermetic <small style="font-weight:normal;">2026-11-06</small></h3>
+<p>- the maid-suite tests built their fixture commits from whatever the
+  machine&#x27;s global git config says. on a machine that signs commits the
+  fixture repo went empty and <code>HEAD~1</code> turned ambiguous. the fixture
+  now detaches from the global config entirely, so the suite runs the
+  same on any distro and any git setup (36/36).</p>
+</div>
 <div class="rule"><h3>maid au gui: updates in a window <small style="font-weight:normal;">2026-10-20</small></h3>
 <p>- new native Qt GUI (Maidware theme) wrapping the same script: dry-run<br>  check first, real update after, streaming output, summary panel and a<br>  shareable report. ships as the &quot;Maid AU&quot; launcher (<code>maid-au-gui</code>); the<br>  terminal flow is unchanged.<br>- the window honors the same screenshot-friendly flags and never<br>  reboots for you.</p>
 </div>
