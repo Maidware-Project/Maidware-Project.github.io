@@ -201,6 +201,11 @@ maid-suite</pre>
                 backups and <code>--check</code>/<code>--dry-run</code> behavior.
               </p>
             </div>
+            <h4>NixOS (flakes &amp; home-manager)</h4>
+            <pre class="code-block">inputs.maid-suite.url = "github:Maidware-Project/Maid-Suite"; <span class="c"># tracks main</span>
+imports = [ inputs.maid-suite.homeManagerModules.default ];
+programs.maid-suite.enable = true;</pre>
+            <p>auto-update on every rebuild/switch: <code>nix flake update maid-suite &amp;&amp; sudo nixos-rebuild switch --flake .#&lt;host&gt; --refresh</code> (or <code>home-manager switch --flake .#&lt;user&gt; --refresh</code>). on NixOS, install Maidware tools declaratively; Suite guides you instead of unmanaged <code>curl|bash</code> installs.</p>
             <p><a href="https://github.com/Maidware-Project/Maid-Suite">full readme →</a></p>
           </article>
 
@@ -229,6 +234,11 @@ maidshare --receive          <span class="c"># phone → pc: qr + browser upload
               <li data-i18n="t.share.li4">optional: <code>kdialog</code> or <code>zenity</code> for popups, <code>qrencode</code> for qr codes</li>
               <li data-i18n="t.share.li5">there's a window as well: <code>maidshare-gui</code> wraps this same cli - drag files in to send, or start the receive and scan the qr it draws</li>
             </ul>
+            <h4>NixOS (flakes &amp; home-manager)</h4>
+            <pre class="code-block">inputs.maidshare.url = "github:Maidware-Project/Maidshare"; <span class="c"># tracks main</span>
+imports = [ inputs.maidshare.homeManagerModules.default ];
+programs.maidshare.enable = true;</pre>
+            <p>auto-update on every rebuild/switch: <code>nix flake update maidshare &amp;&amp; sudo nixos-rebuild switch --flake .#&lt;host&gt; --refresh</code>. quick try: <code>nix run github:Maidware-Project/Maidshare</code>.</p>
             <p><a href="https://github.com/Maidware-Project/Maidshare" data-i18n="common.readme">full readme →</a></p>
           </article>
 
@@ -282,6 +292,11 @@ maid-runner --toggle   <span class="c"># one key: open if hidden, close if open<
             </p>
             <pre class="code-block">maid-scroll list        <span class="c"># every palette, star on the current one</span>
 maid-scroll set mallow  <span class="c"># jump straight to one</span></pre>
+            <h4>NixOS (flakes &amp; home-manager)</h4>
+            <pre class="code-block">inputs.maid-runner.url = "github:Maidware-Project/Maid-Runner"; <span class="c"># tracks main</span>
+imports = [ inputs.maid-runner.homeManagerModules.default ];
+programs.maid-runner.enable = true;</pre>
+            <p>auto-update on every rebuild/switch: <code>nix flake update maid-runner &amp;&amp; sudo nixos-rebuild switch --flake .#&lt;host&gt; --refresh</code>. bind <code>maid-runner --toggle</code> in your compositor/desktop.</p>
             <p><a href="https://github.com/Maidware-Project/Maid-Runner" data-i18n="common.readme">full readme →</a></p>
           </article>
 
@@ -385,6 +400,13 @@ health check            →  /health            →  returns ok</pre>
                 for per-brand steps.
               </p>
             </div>
+            <h4>NixOS (flakes &amp; home-manager)</h4>
+            <pre class="code-block">inputs.maid-bt.url = "github:Maidware-Project/Maid-BT"; <span class="c"># tracks main</span>
+imports = [ inputs.maid-bt.homeManagerModules.default ];
+programs.maid-bt.enable = true;
+services.maid-bt.watcher.enable = true;    <span class="c"># optional</span>
+services.maid-bt.maidWatcher.enable = true; <span class="c"># optional</span></pre>
+            <p>auto-update on every rebuild/switch: <code>nix flake update maid-bt &amp;&amp; sudo nixos-rebuild switch --flake .#&lt;host&gt; --refresh</code>. quick try: <code>nix run github:Maidware-Project/Maid-BT -- status</code>.</p>
             <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a>
             · <a href="https://github.com/Maidware-Project/Maid-BT/blob/main/phone/README-macrodroid-tasker.md" target="_blank" rel="noopener">MacroDroid/Tasker setup guide (source) →</a></p>
           </article>
