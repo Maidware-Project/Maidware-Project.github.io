@@ -104,6 +104,7 @@
         <h2 data-i18n="toc.heading">on this page</h2>
         <ul>
           <li><a href="#quick-start" data-i18n="toc.quick">getting started</a></li>
+          <li><a href="#guide-maid-suite" class="sub">Maid Suite</a></li>
           <li><a href="#guide-maidshare" class="sub" data-i18n="toc.share">MaidShare</a></li>
           <li><a href="#guide-maid-runner" class="sub" data-i18n="toc.runner">Maid Runner</a></li>
           <li><a href="#guide-maid-au" class="sub" data-i18n="toc.au">Maid AU</a></li>
@@ -150,9 +151,10 @@
           </p>
 
           <p data-i18n="qs.independent">
-            the installers don't know about each other. there's no suite-wide installer, and
-            removing one tool leaves the rest alone. everything goes under your home
-            directory - <code>~/.local/bin</code> and friends - never into <code>/usr</code>.
+            each tool has its own installer and can be used on its own. <strong>Maid Suite</strong>
+            is an optional unified front end that can install/update and check the whole set in one place
+            (it runs each tool’s official installer). removing one tool leaves the rest alone. everything
+            goes under your home directory - <code>~/.local/bin</code> and friends - never into <code>/usr</code>.
           </p>
 
           <h3 data-i18n="qs.keybind.title">bind a key to the runner</h3>
@@ -173,6 +175,41 @@ maidshare --check       <span class="c"># which send backends are available</spa
           <div class="divider"></div>
           <span class="kicker">tool by tool</span>
           <h2 data-i18n="suite.title">tool by tool</h2>
+
+          <article class="tool-block project" id="guide-maid-suite">
+            <div class="project-top">
+              <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+              <h3>Maid Suite</h3>
+              <span class="tag cat">suite</span>
+              <span class="tag">tui · shell</span>
+            </div>
+            <p>
+              A lightweight TUI to install, update, and check the whole Maidware set from one place — a
+              clearer unified front end (combining Helper + AU-style workflows with suite install/update).
+              It’s an <strong>orchestrator</strong>: it fetches and runs each tool’s official installer over
+              HTTPS, shows the URL, and prints the result.
+            </p>
+            <pre class="code-block"><span class="c"># install (one-liner, no clone needed)</span>
+bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-Suite/main/install.sh)
+
+<span class="c"># launch the TUI</span>
+maid-suite</pre>
+            <ul>
+              <li>install/update <strong>all</strong> tools or <strong>selected</strong> ones (AU, Helper, Runner, Maidshare, Maid BT)</li>
+              <li><strong>doctor/status</strong> (what’s detected) + entry points to Maid Helper checks/fixes and the Maid AU updater when installed</li>
+              <li><strong>easy navigation</strong>: type a number and press Enter · <code>q</code> cancels/back</li>
+              <li><strong>KDE Plasma / desktops</strong>: installs an app-menu entry (<code>maid-suite.desktop</code>)</li>
+              <li><strong>safe by default in non-interactive runs</strong>: passes <code>--no-packages</code> to child installers (no surprise <code>sudo</code>); add <code>--packages</code> per tool when you want distro deps</li>
+            </ul>
+            <div class="callout">
+              <p>
+                <strong>Transparent.</strong> Suite downloads official installers to a temp file and runs them.
+                Review any script first if you prefer (open the raw URL or clone the repo). Tools keep their own
+                backups and <code>--check</code>/<code>--dry-run</code> behavior.
+              </p>
+            </div>
+            <p><a href="https://github.com/Maidware-Project/Maid-Suite">full readme →</a></p>
+          </article>
 
           <article class="tool-block project" id="guide-maidshare">
           <div class="project-top">
@@ -320,8 +357,8 @@ bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></
               strength and a 10-band eq write into the buds' own memory (it survives
               undocking), and the sliders show what is actually on the buds. the wire
               protocol was reverse engineered by the open source openscq30 project;
-              Maid BT ships its own clean-room python implementation so this repo
-              stays mit and openscq30 keeps the protocol credit. stereo quality
+              Maid BT ships its own clean-room python implementation (GPL-3.0-or-later, forkable/open source)
+              and keeps OpenSCQ30 protocol credit. stereo quality
               defaults to aac/sbc-xq now - ldac is opt-in again from the helper,
               because several realtek adapters stall its packets. the paired phone
               also gets three kde connect run commands ("earbuds: audio on pc",
