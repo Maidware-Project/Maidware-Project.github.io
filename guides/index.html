@@ -122,30 +122,31 @@
           <h1 data-i18n="qs.title">guides</h1>
           <p class="lead" data-i18n="qs.lead">
             every tool ships an <code>install.sh</code> that copies files into your home
-            directory, adds a launcher, and prints which optional backends it found. it
-            downloads nothing from outside your distro's repos, and it backs up anything it
-            replaces.
+            directory, adds a launcher, and prints which optional backends it found. the
+            only server it talks to is github - packages come from your distro's repos -
+            and it backs up anything it replaces.
           </p>
           <div class="divider"></div>
 
           <h2 data-i18n="qs.install.title">install what you want</h2>
-          <p data-i18n="qs.install.intro">clone, dry run, run. the same three steps for all of them.</p>
+          <p data-i18n="qs.install.intro">one line, or a clone. a dry run in between if you want it.</p>
 
           <ol class="steps">
             <li>
-              <strong data-i18n="qs.step1.title">get it</strong>
-              <pre class="code-block"><span class="p">$</span> git clone --depth 1 https://github.com/Maidware-Project/Maid-AU
-<span class="p">$</span> cd Maid-AU</pre>
+              <strong data-i18n="qs.step1.title">install</strong>
+              <pre class="code-block"><span class="p">$</span> bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-AU/main/install.sh)</pre>
             </li>
             <li>
-              <strong data-i18n="qs.step2.title">see what it would do</strong>
-              <pre class="code-block"><span class="p">$</span> bash install.sh --check</pre>
-            </li>
-            <li>
-              <strong data-i18n="qs.step3.title">do it</strong>
-              <pre class="code-block"><span class="p">$</span> bash install.sh</pre>
+              <strong data-i18n="qs.step2.title">or see what it would do first</strong>
+              <pre class="code-block"><span class="p">$</span> bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-AU/main/install.sh) --check</pre>
             </li>
           </ol>
+
+          <p data-i18n="qs.clonepath">
+            prefer a clone? <code>git clone --depth 1 https://github.com/Maidware-Project/Maid-AU &amp;&amp; cd Maid-AU</code>, then the same
+            <code>bash install.sh</code>. Maid BT also takes <code>--tui</code>: a menu version with install
+            config, doctor and uninstall.
+          </p>
 
           <p data-i18n="qs.independent">
             the installers don't know about each other. there's no suite-wide installer, and
