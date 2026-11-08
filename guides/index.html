@@ -109,7 +109,6 @@
           <li><a href="#guide-maid-runner" class="sub" data-i18n="toc.runner">Maid Runner</a></li>
           <li><a href="#guide-maid-au" class="sub" data-i18n="toc.au">Maid AU</a></li>
           <li><a href="#guide-maid-bt" class="sub" data-i18n="toc.bt">Maid BT</a></li>
-          <li><a href="#guide-phone-remote" class="sub">phone remote</a></li>
           <li><a href="#guide-maid-helper" class="sub" data-i18n="toc.helper">Maid Helper</a></li>
           <li><a href="#distros" data-i18n="toc.distros">what each tool needs</a></li>
           <li><a href="#safety" data-i18n="toc.safety">backups and dry runs</a></li>
@@ -370,22 +369,13 @@ bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></
               (<code>phone/</code>, macrodroid or tasker), pausing ldac when the battery is
               low, and a wireplumber fix for a start that lags a second behind.
             </p>
-            <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a></p>
-          </article>
-
-          <article class="tool-block" id="guide-phone-remote">
-            <div class="project-top">
-              <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
-              <h3>phone remote (Maid BT)</h3>
-              <span class="tag">optional</span>
-              <span class="tag">lan</span>
-            </div>
+            <h4 id="guide-bt-phone-remote">phone remote (optional, LAN)</h4>
             <p>
               Flip your earbuds between PC and phone without touching the PC. Off by
               default at install; core switching never uses the network. Two ways —
               use either or both.
             </p>
-            <h4>buttons (manual, KDE Connect)</h4>
+            <h5>buttons (manual, KDE Connect)</h5>
             <p>PC side: KDE Connect Settings → <strong>Run commands</strong> (they run on the PC):</p>
             <pre class="code-block"><span class="c"># command names you can add</span>
 PC only       ~/.local/bin/bluetooth-toggle.sh on
@@ -397,7 +387,7 @@ Bluetooth Off ~/.local/bin/bluetooth-toggle.sh off</pre>
               long-press home → Widgets → KDE Connect → Run command → pick device + command.
               The PC can ping the phone on switch so both ends agree.
             </p>
-            <h4>intent push (automatic, MacroDroid / Tasker)</h4>
+            <h5>intent push (automatic, MacroDroid / Tasker)</h5>
             <p>
               Your phone tells the PC what’s playing over your LAN. Needs: the PC on a
               stable address (DHCP reservation), TCP <strong>8899</strong> open on the PC
@@ -434,7 +424,8 @@ health check            →  /health            →  returns ok</pre>
                 for per-brand steps.
               </p>
             </div>
-            <p><a href="https://github.com/Maidware-Project/Maid-BT/blob/main/phone/README-macrodroid-tasker.md">source doc →</a></p>
+            <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a>
+            · <a href="https://github.com/Maidware-Project/Maid-BT/blob/main/phone/README-macrodroid-tasker.md">phone source doc →</a></p>
           </article>
 
           <article class="tool-block project" id="guide-maid-helper">
