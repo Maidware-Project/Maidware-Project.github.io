@@ -331,8 +331,6 @@
               (<code>phone/</code>, macrodroid or tasker), pausing ldac when the battery is
               low, and a wireplumber fix for a start that lags a second behind.
             </p>
-            
-            </p>
             <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a></p>
           </article>
 
@@ -544,8 +542,8 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
             <li data-i18n="safety.manual.li4">proprietary drivers - not offered at all</li>
           </ul>
 
-          <h3 data-i18n="safety.dl.title">no downloads, ever</h3>
-          <p data-i18n="safety.dl.body">the installers fetch nothing. dependencies come from your own package manager. no piping a script from some server into bash.</p>
+          <h3 data-i18n="safety.dl.title">two ways to install</h3>
+          <p data-i18n="safety.dl.body">clone and run install.sh, or one line straight from github: <code>bash &lt;(curl -fsSL .../install.sh)</code>. the piped path fetches the repo tarball once, then installs from it - the only network the installer touches is github, and packages still come from your own package manager.</p>
         </section>
 
         <section id="faq">
