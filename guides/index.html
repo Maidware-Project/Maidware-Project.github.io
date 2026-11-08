@@ -135,11 +135,11 @@
           <ol class="steps">
             <li>
               <strong data-i18n="qs.step1.title">install</strong>
-              <pre class="code-block"><span class="p">$</span> bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-AU/main/install.sh)</pre>
+              <pre class="code-block">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-AU/main/install.sh)</pre>
             </li>
             <li>
               <strong data-i18n="qs.step2.title">or see what it would do first</strong>
-              <pre class="code-block"><span class="p">$</span> bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-AU/main/install.sh) --check</pre>
+              <pre class="code-block">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Maidware-Project/Maid-AU/main/install.sh) --check</pre>
             </li>
           </ol>
 
@@ -164,9 +164,9 @@
           </ol>
 
           <h3 data-i18n="qs.check.title">check that they can see each other</h3>
-          <pre class="code-block"><span class="p">$</span> update-all.sh --check   <span class="c"># what would update, nothing changed</span>
-<span class="p">$</span> maid-runner             <span class="c"># empty query on the maid tab lists every action</span>
-<span class="p">$</span> maidshare --check       <span class="c"># which send backends are available</span></pre>
+          <pre class="code-block">update-all.sh --check   <span class="c"># what would update, nothing changed</span>
+maid-runner             <span class="c"># empty query on the maid tab lists every action</span>
+maidshare --check       <span class="c"># which send backends are available</span></pre>
         </section>
 
         <section id="the-suite">
@@ -188,10 +188,10 @@
               all; the http fallback puts up a temporary wifi page with a qr code. a popup
               says which one it used, so check it before you walk away.
             </p>
-            <pre class="code-block"><span class="p">$</span> bash install.sh              <span class="c"># copy + icon, reports backends</span>
-<span class="p">$</span> maidshare file.pdf           <span class="c"># auto-picks</span>
-<span class="p">$</span> maidshare --via adb file.pdf <span class="c"># force one</span>
-<span class="p">$</span> maidshare --receive          <span class="c"># phone → pc: qr + browser upload</span></pre>
+            <pre class="code-block">bash install.sh              <span class="c"># copy + icon, reports backends</span>
+maidshare file.pdf           <span class="c"># auto-picks</span>
+maidshare --via adb file.pdf <span class="c"># force one</span>
+maidshare --receive          <span class="c"># phone → pc: qr + browser upload</span></pre>
             <ul>
               <li data-i18n="t.share.li1">hand it several files or links at once and it fans them out</li>
               <li data-i18n="t.share.li2">receive side is token + https + expiry by default</li>
@@ -217,9 +217,9 @@
               only search box that knows what's going on with your system: earbuds state,
               pending updates, share targets.
             </p>
-            <pre class="code-block"><span class="p">$</span> bash install.sh   <span class="c"># app + palettes + launcher</span>
-<span class="p">$</span> maid-runner
-<span class="p">$</span> maid-runner --toggle   <span class="c"># one key: open if hidden, close if open</span></pre>
+            <pre class="code-block">bash install.sh   <span class="c"># app + palettes + launcher</span>
+maid-runner
+maid-runner --toggle   <span class="c"># one key: open if hidden, close if open</span></pre>
             <ul>
               <li data-i18n="t.runner.li1"><strong>applications</strong> - read from the same xdg menu data plasma shows. respects NoDisplay/Hidden/TryExec, flatpak exports included</li>
               <li data-i18n="t.runner.li2"><strong>the menu's groups</strong> - internet, games, multimedia, graphics, office, utilities, development, system, help: a tab per group that has apps, in the app manager's order</li>
@@ -250,8 +250,8 @@
               lock cycles them and remembers the pick. the same six ship as drun themes, for
               when the window cannot run.
             </p>
-            <pre class="code-block"><span class="p">$</span> maid-scroll list        <span class="c"># every palette, star on the current one</span>
-<span class="p">$</span> maid-scroll set mallow  <span class="c"># jump straight to one</span></pre>
+            <pre class="code-block">maid-scroll list        <span class="c"># every palette, star on the current one</span>
+maid-scroll set mallow  <span class="c"># jump straight to one</span></pre>
             <p><a href="https://github.com/Maidware-Project/Maid-Runner" data-i18n="common.readme">full readme →</a></p>
           </article>
 
@@ -268,10 +268,10 @@
               <code>/etc/os-release</code>, so it just works on your distro; set
               <code>UPDATE_PM=</code> to force a different one.
             </p>
-            <pre class="code-block"><span class="p">$</span> bash install.sh              <span class="c"># deps (sudo) + copy + launcher</span>
-<span class="p">$</span> update-all.sh --check        <span class="c"># dry run, change nothing</span>
-<span class="p">$</span> update-all.sh                <span class="c"># real run - snapshots first</span>
-<span class="p">$</span> UPDATE_PM=pacman ./bin/update-all.sh --check</pre>
+            <pre class="code-block">bash install.sh              <span class="c"># deps (sudo) + copy + launcher</span>
+update-all.sh --check        <span class="c"># dry run, change nothing</span>
+update-all.sh                <span class="c"># real run - snapshots first</span>
+UPDATE_PM=pacman ./bin/update-all.sh --check</pre>
             <ul>
               <li data-i18n="t.au.li1">a snapshot before <em>and</em> after every real run</li>
               <li data-i18n="t.au.li2">prints <code>PARTIAL</code> when one layer failed but the others didn't</li>
@@ -302,13 +302,13 @@
               handles the earbuds routine: where the sound is right now, and moving it
               around without a fight.
             </p>
-            <pre class="code-block"><span class="p">$</span> bash install.sh                <span class="c"># asks for your mac + fallback sink</span>
-<span class="p">$</span> bluetoothctl pair &lt;MAC&gt;        <span class="c"># then: trust &lt;MAC&gt;</span>
-<span class="p">$</span> bluetooth-toggle.sh on         <span class="c"># sound moves to your earbuds</span>
-<span class="p">$</span> bluetooth-toggle.sh release    <span class="c"># hand buds to phone, back is instant</span>
-<span class="p">$</span> maid-switch phone              <span class="c"># the same handoff, single command</span>
-<span class="p">$</span> maid-soundcore info            <span class="c"># battery + anc + eq, straight from the buds</span>
-<span class="p">$</span> bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></pre>
+            <pre class="code-block">bash install.sh                <span class="c"># asks for your mac + fallback sink</span>
+bluetoothctl pair &lt;MAC&gt;        <span class="c"># then: trust &lt;MAC&gt;</span>
+bluetooth-toggle.sh on         <span class="c"># sound moves to your earbuds</span>
+bluetooth-toggle.sh release    <span class="c"># hand buds to phone, back is instant</span>
+maid-switch phone              <span class="c"># the same handoff, single command</span>
+maid-soundcore info            <span class="c"># battery + anc + eq, straight from the buds</span>
+bluetooth-toggle.sh off        <span class="c"># disconnect + radio off</span></pre>
             <ul>
               <li data-i18n="t.bt.li1"><code>release</code> is the everyday one - the buds stay half-connected so coming back is instant. set <code>MULTIPOINT=1</code> once if yours connect to two devices</li>
               <li data-i18n="t.bt.li2">the watcher connects the buds when they show up and parks the sound on your speakers when they disappear</li>
@@ -382,7 +382,10 @@ health check            →  /health            →  returns ok</pre>
               Set battery to Unrestricted so Android doesn’t kill it in the background.
               <strong>Tasker</strong> (paid): same idea via State <em>BT Connected</em> + Event
               <em>UI → Notification</em> for media, and <em>Phone → Call</em> / <em>Phone Idle</em>
-              for calls; needs notification access + unrestricted battery.
+              for calls; needs notification access + unrestricted battery. For richer automations
+              that need extra Android permissions, Tasker’s
+              <a href="https://github.com/joaomgcd/Tasker-Permissions" target="_blank" rel="noopener">Tasker Permissions</a>
+              helper can grant them over ADB (use official sources and follow its guidance).
             </p>
             <div class="callout">
               <p>
@@ -410,8 +413,8 @@ health check            →  /health            →  returns ok</pre>
               <code>fix</code> repairs what it safely can and verifies afterwards. exit 0
               means healthy or fixed, exit 2 means it still needs a look.
             </p>
-            <pre class="code-block"><span class="p">$</span> ./bin/mod-flatpak.sh check
-<span class="p">$</span> ./bin/mod-flatpak.sh fix
+            <pre class="code-block">./bin/mod-flatpak.sh check
+./bin/mod-flatpak.sh fix
 
 <span class="c"># the four modules</span>
 mod-firmware.sh  <span class="c"># fwupd present? firmware updates possible?</span>
@@ -584,8 +587,8 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <h3 data-i18n="safety.dry.title">dry run first</h3>
           <p data-i18n="safety.dry.body">almost everything takes <code>--check</code>. it prints what it would do and exits without touching a file.</p>
-          <pre class="code-block"><span class="p">$</span> bash install.sh --check
-<span class="p">$</span> update-all.sh --check</pre>
+          <pre class="code-block">bash install.sh --check
+update-all.sh --check</pre>
 
           <h3 data-i18n="safety.backup.title">timestamped backups</h3>
           <p data-i18n="safety.backup.body">
@@ -631,7 +634,7 @@ mod-gpu.sh       <span class="c"># nvidia on the open stack, unblacklisted</span
 
           <h3 data-i18n="faq.test.title">how do i test a change safely?</h3>
           <p data-i18n="faq.test.body">each repo carries a suite, run from the repo root:</p>
-          <pre class="code-block"><span class="p">$</span> bash tests/run.sh</pre>
+          <pre class="code-block">bash tests/run.sh</pre>
           <p data-i18n="faq.test.after">
             they use stub farms and overridable test seams, so nothing on your real system
             is touched unless you say so. ci runs the same suites.
