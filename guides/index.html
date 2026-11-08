@@ -6,11 +6,11 @@
 <meta name="referrer" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="doc.title.guides">Guides - Maidware Project</title>
-<meta name="description" content="install and setup notes for MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
+<meta name="description" content="install and setup notes for Maid Suite, MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
 <link rel="canonical" href="https://maidware-project.github.io/guides/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Guides - Maidware Project" data-i18n-attr="content:doc.title.guides">
-<meta property="og:description" content="install and setup notes for MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
+<meta property="og:description" content="install and setup notes for Maid Suite, MaidShare, Maid Runner, Maid AU, Maid BT and Maid Helper: per-distro packages, dry runs and backups, and the usual fixes." data-i18n-attr="content:doc.description.guides">
 <meta property="og:url" content="https://maidware-project.github.io/guides/">
 <meta name="color-scheme" content="light dark">
 <link rel="stylesheet" href="../css/style.css">
@@ -299,6 +299,7 @@ maid-scroll set mallow  <span class="c"># jump straight to one</span></pre>
             <span class="tag">shell</span>
               <span class="tag">zypper · dnf · pacman · apt</span>
           </div>
+            <div class="callout"><p><strong>Integrated in <a href="#guide-maid-suite">Maid Suite</a></strong> (canonical, embedded updater core). The standalone Maid AU repo is archived — use Maid Suite for the unified Helper + AU workflow.</p></div>
             <p data-i18n="t.au.body">
               system packages, flatpak and firmware in one run. the backend comes from
               <code>/etc/os-release</code>, so it just works on your distro; set
@@ -425,7 +426,7 @@ health check            →  /health            →  returns ok</pre>
               </p>
             </div>
             <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a>
-            · <a href="https://github.com/Maidware-Project/Maid-BT/blob/main/phone/README-macrodroid-tasker.md">phone source doc →</a></p>
+            · <a href="https://github.com/Maidware-Project/Maid-BT/blob/main/phone/README-macrodroid-tasker.md" target="_blank" rel="noopener">MacroDroid/Tasker setup guide (source) →</a></p>
           </article>
 
           <article class="tool-block project" id="guide-maid-helper">
@@ -436,6 +437,7 @@ health check            →  /health            →  returns ok</pre>
             <span class="tag">shell</span>
               <span class="tag">check · fix</span>
           </div>
+            <div class="callout"><p><strong>Integrated in <a href="#guide-maid-suite">Maid Suite</a></strong> (canonical, embedded core). The standalone Maid Helper repo is archived — use Maid Suite for checks/fixes alongside the unified updater.</p></div>
             <p data-i18n="t.helper.body">
               each module has two modes. <code>check</code> tells you whether it's healthy;
               <code>fix</code> repairs what it safely can and verifies afterwards. exit 0
