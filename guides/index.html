@@ -108,6 +108,7 @@
           <li><a href="#guide-maid-runner" class="sub" data-i18n="toc.runner">Maid Runner</a></li>
           <li><a href="#guide-maid-au" class="sub" data-i18n="toc.au">Maid AU</a></li>
           <li><a href="#guide-maid-bt" class="sub" data-i18n="toc.bt">Maid BT</a></li>
+          <li><a href="#guide-phone-remote" class="sub">phone remote</a></li>
           <li><a href="#guide-maid-helper" class="sub" data-i18n="toc.helper">Maid Helper</a></li>
           <li><a href="#distros" data-i18n="toc.distros">what each tool needs</a></li>
           <li><a href="#safety" data-i18n="toc.safety">backups and dry runs</a></li>
@@ -333,6 +334,67 @@
               low, and a wireplumber fix for a start that lags a second behind.
             </p>
             <p><a href="https://github.com/Maidware-Project/Maid-BT" data-i18n="common.readme">full readme →</a></p>
+          </article>
+
+          <article class="tool-block" id="guide-phone-remote">
+            <div class="project-top">
+              <span class="project-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+              <h3>phone remote (Maid BT)</h3>
+              <span class="tag">optional</span>
+              <span class="tag">lan</span>
+            </div>
+            <p>
+              Flip your earbuds between PC and phone without touching the PC. Off by
+              default at install; core switching never uses the network. Two ways —
+              use either or both.
+            </p>
+            <h4>buttons (manual, KDE Connect)</h4>
+            <p>PC side: KDE Connect Settings → <strong>Run commands</strong> (they run on the PC):</p>
+            <pre class="code-block"><span class="c"># command names you can add</span>
+PC only       ~/.local/bin/bluetooth-toggle.sh on
+Phone only    ~/.local/bin/bluetooth-toggle.sh release
+Radio only    ~/.local/bin/bluetooth-toggle.sh radio
+Bluetooth Off ~/.local/bin/bluetooth-toggle.sh off</pre>
+            <p>
+              Phone side: open the device → Run commands. For one-tap home-screen buttons:
+              long-press home → Widgets → KDE Connect → Run command → pick device + command.
+              The PC can ping the phone on switch so both ends agree.
+            </p>
+            <h4>intent push (automatic, MacroDroid / Tasker)</h4>
+            <p>
+              Your phone tells the PC what’s playing over your LAN. Needs: the PC on a
+              stable address (DHCP reservation), TCP <strong>8899</strong> open on the PC
+              firewall, and the token from <code>~/.config/bt-intent.token</code>.
+              Base URL: <code>http://PC_IP:8899</code>. Send the token as an
+              <code>X-Token</code> header (preferred) — <code>?token=</code> also works but
+              puts the token in the URL.
+            </p>
+            <pre class="code-block"><span class="c"># phone event          →  GET endpoint       →  PC action</span>
+music starts (on buds)  →  /phone_playing     →  parks audio, hands off 4h
+music stops             →  /phone_paused      →  hands-off cleared
+call starts             →  /call_start        →  parks audio, hands off 2h
+call ends               →  /call_end          →  hands-off cleared
+health check            →  /health            →  returns ok</pre>
+            <p>
+              <strong>MacroDroid</strong> (4 macros fit free): triggers <em>Music/Sound Playing</em>
+              (Playing/Stopped), <em>Call Active</em> (Any), <em>Call Ended</em>; constrain to
+              Bluetooth connected to your buds; action <em>HTTP Request</em> GET to the URLs.
+              Set battery to Unrestricted so Android doesn’t kill it in the background.
+              <strong>Tasker</strong> (paid): same idea via State <em>BT Connected</em> + Event
+              <em>UI → Notification</em> for media, and <em>Phone → Call</em> / <em>Phone Idle</em>
+              for calls; needs notification access + unrestricted battery.
+            </p>
+            <div class="callout">
+              <p>
+                <strong>LAN only.</strong> The token rides plain HTTP on your own network —
+                fine at home. <strong>Never</strong> expose port 8899 past your router.
+                Aggressive battery killers (Samsung, Xiaomi/MIUI, Huawei, OnePlus/Oppo/Realme,
+                Vivo — menus change often) can stop automations; exempt the app. See
+                <a href="https://dontkillmyapp.com" target="_blank" rel="noopener">dontkillmyapp.com</a>
+                for per-brand steps.
+              </p>
+            </div>
+            <p><a href="https://github.com/Maidware-Project/Maid-BT/blob/main/phone/README-macrodroid-tasker.md">source doc →</a></p>
           </article>
 
           <article class="tool-block project" id="guide-maid-helper">
