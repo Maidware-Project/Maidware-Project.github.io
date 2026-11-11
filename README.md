@@ -6,6 +6,8 @@ the landing page and the guides for the five maid tools. plain html and
 css, no build step - the files in this repo are the site github pages
 serves.
 
+**fallback / mirror:** also available on Codeberg — https://codeberg.org/Maidware_Project/Maidware-Project.github.io (org: https://codeberg.org/Maidware_Project)
+
 category: docs
 
 ## quick start
@@ -78,15 +80,18 @@ push to `main`. github pages rebuilds and serves the repo - nothing to run
 and no artifacts to store. the project site url is
 https://maidware-project.github.io
 
+**Codeberg fallback:** mirror this repo to Codeberg and enable **Codeberg Pages** (Repo → Settings → Pages) to publish a backup site. Docs: https://docs.codeberg.org/codeberg-pages/
+
 ## works with the Maid suite
 
 the site documents all five, one category each:
 
-- [MaidShare](https://github.com/Maidware-Project/Maidshare) - files & sharing
-- [Maid Runner](https://github.com/Maidware-Project/Maid-Runner) - launcher
-- [Maid AU](https://github.com/Maidware-Project/Maid-AU) - system updates
-- [Maid BT](https://github.com/Maidware-Project/Maid-BT) - audio
-- [Maid Helper](https://github.com/Maidware-Project/Maid-Helper) - repair
+- [MaidShare](https://github.com/Maidware-Project/Maidshare) ([Codeberg](https://codeberg.org/Maidware_Project/Maidshare)) - files & sharing
+- [Maid Runner](https://github.com/Maidware-Project/Maid-Runner) ([Codeberg](https://codeberg.org/Maidware_Project/Maid-Runner)) - launcher
+- [Maid AU](https://github.com/Maidware-Project/Maid-AU) (archived, GitHub) - system updates
+- [Maid BT](https://github.com/Maidware-Project/Maid-BT) ([Codeberg](https://codeberg.org/Maidware_Project/Maid-BT)) - audio
+- [Maid Helper](https://github.com/Maidware-Project/Maid-Helper) (archived, GitHub) - repair
+- [Maid Suite](https://github.com/Maidware-Project/Maid-Suite) ([Codeberg](https://codeberg.org/Maidware_Project/Maid-Suite)) - front end / installer helper
 
 ## License
 
