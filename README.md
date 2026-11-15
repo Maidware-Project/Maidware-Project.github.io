@@ -1,98 +1,67 @@
-# Maidware-Project.github.io - the website for the maidware project
+# Maidware Project Website
 
-serving you small forkable linux tools that help. on-demand, cli helpers - shows what they do, can preview with `--check`.
+Source for the [Maidware Project](https://maidware-project.github.io/) website (GitHub Pages). This repository contains the landing page, guides, FAQ, performance/contribution/conduct pages, and shared assets for Maidware tools.
 
-the landing page and the guides for the five maid tools. plain html and
-css, no build step - the files in this repo are the site github pages
-serves.
+- **No build step:** plain HTML/CSS/JS served as-is
+- **Static site:** edit files, refresh locally, push to deploy
+- **Fallback mirror:** https://codeberg.org/Maidware_Project/Maidware-Project.github.io
 
-**fallback / mirror:** also available on Codeberg — https://codeberg.org/Maidware_Project/Maidware-Project.github.io (org: https://codeberg.org/Maidware_Project)
-
-category: docs
-
-## quick start
-
-nothing to compile. to look at it locally:
-
+## Local preview
 ```sh
-python3 -m http.server 8000     # from the repo root
-# then open http://localhost:8000
+python3 -m http.server 8000
+# open http://localhost:8000
 ```
 
-edit a file, refresh the page. that's the whole workflow.
-
-## layout
-
-```
-index.html              home: the rules, the five tools, the guide links
-guides/index.html       per-tool setup, requirements per distro, troubleshooting
-performance/index.html  what each tool costs to run - memory, cpu, startup
-faq/index.html          short answers to the common questions
-contributions/index.html  patches over donations: stats, recent, how to help
-conduct/index.html      how the project is run (mirrors CODE_OF_CONDUCT.md)
-css/style.css       the layout and every theme, as css variables
-js/main.js          theme menu, mobile nav, copy buttons, toc
-js/theme-boot.js    stored theme and settings, applied before first paint
-js/i18n.js          english-only scaffolding for adding a translation
-tests/check.py      tag, asset and anchor checker
-SECURITY.md         what the site does not do, and how to report issues
+## Repository structure
+```text
+index.html                Home page
+guides/                   Per-tool guides and troubleshooting
+faq/                      Frequently asked questions
+performance/              Resource/performance notes
+contributions/            Contribution info/stats
+conduct/                  Code of conduct page
+changelog/                Changelog page
+css/style.css             Layout and theme variables
+js/                       Theme boot, UI behavior, i18n scaffolding
+docs/                     Repo/site documentation notes (including wiki pages)
+tests/check.py            Basic tag/asset/anchor checks
 ```
 
-the old one-file addresses (`guides.html` and the rest) still work - each
-is a one-line redirect to its folder, so links written before the move
-keep working.
+Legacy single-file URLs (e.g. `guides.html`, `faq.html`) are kept as redirects for compatibility.
 
-## themes
+## Content editing
 
-every theme is one block of variables in `css/style.css`. to add one,
-copy a block, change the colours, and add a matching button to the theme
-menu on each page - the two swatch dots are that theme's background and
-accent. `maidware` is the default and the one actually run day to day.
+### Guides
+- Main guide content lives in `guides/index.html`
+- Each section uses an `id` and is linked from the table of contents
+- Code samples use `<pre class="code-block">` with prompt/comment styling conventions used by the site
 
-`blackout` is pure black for oled screens. the menu lists it under its own
-`pure dark` heading, after the dark themes, never among them.
+### Themes
+- Themes are defined as CSS variable blocks in `css/style.css`
+- Theme names/options are also referenced in `js/main.js` and `js/theme-boot.js`
+- Default theme: `maidware`
 
-`apron` is the base and sits on `:root` instead of in a block of its own,
-so a name we no longer ship still lands on a readable page. the names also
-live in `js/main.js` and in `js/theme-boot.js`, which every page loads
-in its head and which checks the list before it applies a stored theme.
+### Translations
+- English-only today by design
+- `js/i18n.js` contains scaffolding for adding hand-written translations (`js/lang/<code>.js`)
+- Translation contributions should be human-written (see site messaging)
 
-## adding a guide
+## Deployment
+- Push to `main` to deploy via GitHub Pages: https://maidware-project.github.io
+- Codeberg Pages can be used as a mirror/backup (enable Pages in Codeberg repo settings)
 
-a guide is a plain section in `guides/index.html` with an `id`. add a link to it
-in the toc list at the top and the scroll highlight in `js/main.js` picks
-it up on its own. command samples use `<pre class="code-block">`, with
-`<span class="p">` for the prompt and `<span class="c">` for a comment.
+## Documentation
+- Maintainer/site docs (in-repo wiki): [`docs/wiki/`](docs/wiki/Home.md)
+- Existing review/design notes: [`DESIGN.md`](DESIGN.md), [`docs/REVIEW.md`](docs/REVIEW.md)
 
-## translations
+## Related Maidware projects
+- [Maid BT](https://github.com/Maidware-Project/Maid-BT)
+- [Maid Runner](https://github.com/Maidware-Project/Maid-Runner)
+- [Maidshare](https://github.com/Maidware-Project/Maidshare)
+- [Maid Suite](https://github.com/Maidware-Project/Maid-Suite)
 
-**help us do translations.** we at maidware project need help with
-translations, and we want translators to help us. english is the only
-language right now, on purpose - `js/i18n.js` holds the recipe: drop a
-`js/lang/<code>.js` beside it and add the language to the list. the
-switcher stays hidden until there is a second language. the repo would
-rather ship none than machine-made strings, so what we want is a
-hand-written set - write to maidwareproject@proton.me.
-
-## deploying
-
-push to `main`. github pages rebuilds and serves the repo - nothing to run
-and no artifacts to store. the project site url is
-https://maidware-project.github.io
-
-**Codeberg fallback:** mirror this repo to Codeberg and enable **Codeberg Pages** (Repo → Settings → Pages) to publish a backup site. Docs: https://docs.codeberg.org/codeberg-pages/
-
-## works with the Maid suite
-
-the site documents all five, one category each:
-
-- [MaidShare](https://github.com/Maidware-Project/Maidshare) ([Codeberg](https://codeberg.org/Maidware_Project/Maidshare)) - files & sharing
-- [Maid Runner](https://github.com/Maidware-Project/Maid-Runner) ([Codeberg](https://codeberg.org/Maidware_Project/Maid-Runner)) - launcher
-- [Maid AU](https://github.com/Maidware-Project/Maid-AU) (archived, GitHub) - system updates
-- [Maid BT](https://github.com/Maidware-Project/Maid-BT) ([Codeberg](https://codeberg.org/Maidware_Project/Maid-BT)) - audio
-- [Maid Helper](https://github.com/Maidware-Project/Maid-Helper) (archived, GitHub) - repair
-- [Maid Suite](https://github.com/Maidware-Project/Maid-Suite) ([Codeberg](https://codeberg.org/Maidware_Project/Maid-Suite)) - front end / installer helper
+## Contributing
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## License
-
-GPL-3.0-or-later — forkable and open source. See `LICENSE`. Part of the Maidware Project.
+GPL-3.0-or-later. See [`LICENSE`](LICENSE) and [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
