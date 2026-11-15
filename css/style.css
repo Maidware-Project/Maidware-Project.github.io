@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Maidware Project
-   Plain page, plain words. Colour is the only thing that changes.
-   ========================================================================== */
+/* maidware project website */
 
 /* apron - the base palette, kept on :root instead of in a block of its own.
    anything we do not recognise - an old name, a typo in storage - lands
@@ -290,7 +287,7 @@
 [data-theme="mop"],
 [data-theme="blackout"] { color-scheme: dark; }
 
-/* --------------------------------------------------------------------- */
+/* maidware project website */
 
 * { box-sizing: border-box; }
 
@@ -991,9 +988,7 @@ pre.code-block .p { color: var(--prompt); }
 .tool-block .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
 .tool-block ul { margin-bottom: 14px; }
 
-/* ==========================================================================
-   responsive - one fluid column that grows into a layout, never the reverse
-   ========================================================================== */
+/* responsive - one fluid column that grows into a layout, never the reverse */
 
 /* tablets and small laptops: drop the sidebar to chips */
 
@@ -1128,9 +1123,7 @@ pre.code-block .p { color: var(--prompt); }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
-/* ==========================================================================
-   right to left - for hebrew
-   ========================================================================== */
+/* right to left - for hebrew */
 
 [dir="rtl"] .theme-menu { right: auto; left: 0; }
 [dir="rtl"] .theme-option { text-align: right; }
