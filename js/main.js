@@ -4,6 +4,15 @@
 
   var root = document.documentElement;
 
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+
+  function save(key, value) {
+    try {
+      if (value) localStorage.setItem(key, value);
+      else localStorage.removeItem(key);
+    } catch (e) { /* private mode */ }
+  }
+
   /* a screen reader can't see a tick move. say what changed, in the page's
      own words - the menu headings and row labels on screen are the words. */
   var status = document.getElementById("sr-status");
@@ -12,179 +21,87 @@
     status.textContent = "";
     setTimeout(function () { status.textContent = message; }, 60);
   }
-  var STORAGE_KEY = "maidware-theme";
-  var VALID = [
-    "maidware",
-    "nightshift", "lampblack", "rinse", "scrub",
-    "lavender", "starch", "mop",
-    "blackout",
-    "spotless", "apron", "lace", "suds", "linen", "pail", "sachet"
-  ];
 
-  /* theme */
+  /* ------------------------------------------------------------------ menus
+     one controller for the theme and accessibility menus. the language menu
+     belongs to i18n.js and is left alone on purpose. */
 
-  function applyTheme(theme) {
-    if (VALID.indexOf(theme) === -1) return;
-    root.setAttribute("data-theme", theme);
-    var options = document.querySelectorAll(".theme-option");
-    Array.prototype.forEach.call(options, function (btn) {
-      btn.setAttribute("aria-checked", btn.getAttribute("data-theme") === theme ? "true" : "false");
-    });
-    try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) { /* private mode */ }
-  }
+  var menus = [];
 
-  var saved = null;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* private mode */ }
-  /* a name we no longer ship is not a choice - drop it and fall back to
-     the page's own default, so a row is still ticked in the menu. */
-  if (saved && VALID.indexOf(saved) === -1) saved = null;
-
-  applyTheme(saved || root.getAttribute("data-theme") || "maidware");
-
-  var themeBtn = document.getElementById("theme-btn");
-  var themeMenu = document.getElementById("theme-menu");
-
-  function closeThemeMenu() {
-    if (!themeMenu || !themeBtn) return;
-    themeMenu.hidden = true;
-    themeBtn.setAttribute("aria-expanded", "false");
-  }
-
-  if (themeBtn && themeMenu) {
-    themeBtn.addEventListener("click", function (event) {
-      event.stopPropagation();
-      closeAccessMenu();
-      var open = themeMenu.hidden;
-      themeMenu.hidden = !open;
-      themeBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-
-    themeMenu.addEventListener("click", function (event) {
-      var option = event.target.closest ? event.target.closest(".theme-option") : null;
-      if (!option) return;
-      applyTheme(option.getAttribute("data-theme"));
-      say(themeBtn.textContent.trim() + ": " + option.textContent.trim());
-      closeThemeMenu();
-      themeBtn.focus();
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!themeMenu.hidden && !themeMenu.contains(event.target) && event.target !== themeBtn) {
-        closeThemeMenu();
+  /* role="menu" may only own items and groups, so each heading <p> gets the
+     rows under it wrapped in a labelled group. done here so no page's markup
+     has to change. */
+  function labelGroups(menu) {
+    var group = null;
+    var n = 0;
+    each(Array.prototype.slice.call(menu.children), function (el) {
+      if (el.tagName === "P") {
+        n += 1;
+        if (!el.id) el.id = menu.id + "-heading-" + n;
+        el.setAttribute("role", "presentation");
+        group = document.createElement("div");
+        group.setAttribute("role", "group");
+        group.setAttribute("aria-labelledby", el.id);
+        menu.insertBefore(group, el.nextSibling);
+      } else if (group) {
+        group.appendChild(el);
       }
     });
   }
 
-  /* mobile nav */
-
-  var accessBtn = document.getElementById("access-btn");
-  var accessMenu = document.getElementById("access-menu");
-
-  function closeAccessMenu() {
-    if (!accessMenu || !accessBtn) return;
-    accessMenu.hidden = true;
-    accessBtn.setAttribute("aria-expanded", "false");
+  function rowsOf(m) {
+    return Array.prototype.slice.call(m.menu.querySelectorAll(".theme-option"));
   }
 
-  if (accessBtn && accessMenu) {
-    accessBtn.addEventListener("click", function (event) {
-      event.stopPropagation();
-      if (themeMenu) { themeMenu.hidden = true; if (themeBtn) themeBtn.setAttribute("aria-expanded", "false"); }
-      var open = accessMenu.hidden;
-      accessMenu.hidden = !open;
-      accessBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    accessMenu.addEventListener("click", function (event) {
-      var option = event.target.closest ? event.target.closest(".access-option") : null;
-      if (!option) return;
-      var type = option.getAttribute("data-access");
-      var value = option.getAttribute("data-value");
-      if (type === "text") {
-        document.documentElement.setAttribute("data-a11y-text", value === "normal" ? "" : value);
-        try { localStorage.setItem("maidware-text", value === "normal" ? "" : value); } catch (e) {}
-        Array.prototype.forEach.call(accessMenu.querySelectorAll('.access-option[data-access="text"]'), function (btn) {
-          btn.setAttribute("aria-checked", btn.getAttribute("data-value") === value ? "true" : "false");
-        });
-      } else if (type === "font") {
-        var on = document.documentElement.getAttribute("data-a11y-font") === "plain";
-        if (on) {
-          document.documentElement.removeAttribute("data-a11y-font");
-          try { localStorage.setItem("maidware-font", ""); } catch (e) {}
-          option.setAttribute("aria-checked", "false");
-        } else {
-          document.documentElement.setAttribute("data-a11y-font", "plain");
-          try { localStorage.setItem("maidware-font", "plain"); } catch (e) {}
-          option.setAttribute("aria-checked", "true");
-        }
-      } else if (type === "space") {
-        var son = document.documentElement.getAttribute("data-a11y-space") === "more";
-        if (son) {
-          document.documentElement.removeAttribute("data-a11y-space");
-          try { localStorage.setItem("maidware-space", ""); } catch (e) {}
-          option.setAttribute("aria-checked", "false");
-        } else {
-          document.documentElement.setAttribute("data-a11y-space", "more");
-          try { localStorage.setItem("maidware-space", "more"); } catch (e) {}
-          option.setAttribute("aria-checked", "true");
-        }
-      } else if (type === "links") {
-        var lon = document.documentElement.getAttribute("data-a11y-links") === "underline";
-        if (lon) {
-          document.documentElement.removeAttribute("data-a11y-links");
-          try { localStorage.setItem("maidware-links", ""); } catch (e) {}
-          option.setAttribute("aria-checked", "false");
-        } else {
-          document.documentElement.setAttribute("data-a11y-links", "underline");
-          try { localStorage.setItem("maidware-links", "underline"); } catch (e) {}
-          option.setAttribute("aria-checked", "true");
-        }
-      }
-      var label = option.textContent.trim();
-      if (type === "text") {
-        var heading = option.previousElementSibling;
-        while (heading && heading.tagName !== "P") heading = heading.previousElementSibling;
-        say((heading ? heading.textContent.trim() + ": " : "") + label);
-      } else {
-        say(label + ": " + (option.getAttribute("aria-checked") === "true" ? "on" : "off"));
-      }
-      closeAccessMenu();
-      accessBtn.focus();
-    });
-    document.addEventListener("click", function (event) {
-      if (!accessMenu.hidden && !accessMenu.contains(event.target) && event.target !== accessBtn) {
-        closeAccessMenu();
-      }
-    });
+  function closeMenu(m, refocus) {
+    if (m.menu.hidden) return;
+    m.menu.hidden = true;
+    m.btn.setAttribute("aria-expanded", "false");
+    if (refocus) m.btn.focus();
   }
 
-  /* the head script applied the saved settings to <html> before the first
-     paint. copy them onto the rows once, here, so the ticks tell the truth
-     the first time the menu is opened and not only after it has been used. */
-  if (accessMenu) {
-    ["text", "font", "space", "links"].forEach(function (kind) {
-      var on = document.documentElement.getAttribute("data-a11y-" + kind);
-      if (kind === "text" && !on) on = "normal";
-      Array.prototype.forEach.call(
-        accessMenu.querySelectorAll('.access-option[data-access="' + kind + '"]'),
-        function (row) {
-          row.setAttribute("aria-checked", row.getAttribute("data-value") === on ? "true" : "false");
-        }
-      );
-    });
+  function closeAll(except) {
+    menus.forEach(function (m) { if (m !== except) closeMenu(m); });
   }
 
-  /* keyboard in the menus: arrows walk the rows, home and end jump to the
-     ends, enter or space press the row that has focus. tab and escape are
-     left alone - they already do the right thing. */
+  function openMenu(m, focusRow) {
+    closeAll(m);
+    m.menu.hidden = false;
+    m.btn.setAttribute("aria-expanded", "true");
+    if (focusRow) {
+      var start = m.menu.querySelector('.theme-option[aria-checked="true"]') || rowsOf(m)[0];
+      if (start) start.focus();
+    }
+  }
 
-  function wireMenuKeys(menu) {
-    var scope = menu && menu.parentNode;
-    if (!scope) return;
-    scope.addEventListener("keydown", function (event) {
-      if (menu.hidden) return;
-      var rows = Array.prototype.slice.call(menu.querySelectorAll(".theme-option"));
-      if (!rows.length) return;
+  function addMenu(btnId, menuId) {
+    var btn = document.getElementById(btnId);
+    var menu = document.getElementById(menuId);
+    if (!btn || !menu) return null;
+    var m = { btn: btn, menu: menu, wrap: btn.parentNode };
+    labelGroups(menu);
+    menus.push(m);
+
+    /* a keyboard click (detail 0) lands on a row; a mouse click doesn't, so
+       no focus ring flashes up for pointer users. */
+    btn.addEventListener("click", function (event) {
+      if (m.menu.hidden) openMenu(m, event.detail === 0);
+      else closeMenu(m);
+    });
+
+    /* arrows walk the rows, home and end jump to the ends. escape is handled
+       once for the whole page below; tab closes the menu (focusout). */
+    m.wrap.addEventListener("keydown", function (event) {
       var key = event.key;
+      if (m.menu.hidden) {
+        if (key === "ArrowDown" && event.target === m.btn) {
+          event.preventDefault();
+          openMenu(m, true);
+        }
+        return;
+      }
+      var rows = rowsOf(m);
+      if (!rows.length) return;
       var here = rows.indexOf(document.activeElement);
       var to;
       if (key === "ArrowDown") to = here + 1;
@@ -197,24 +114,148 @@
       if (to < 0) to = rows.length - 1;
       rows[to].focus();
     });
+
+    /* tabbing out of an open menu closes it instead of leaving it hanging */
+    m.wrap.addEventListener("focusout", function (event) {
+      var next = event.relatedTarget;
+      if (m.wrap.contains(next)) return;
+      setTimeout(function () {
+        if (!m.wrap.contains(document.activeElement)) closeMenu(m);
+      }, 0);
+    });
+
+    return m;
   }
 
-  wireMenuKeys(themeMenu);
-  wireMenuKeys(accessMenu);
+  /* outside click: no stopPropagation anywhere, so other menus (the language
+     one in i18n.js) still see the click and can close themselves. */
+  document.addEventListener("click", function (event) {
+    menus.forEach(function (m) {
+      if (!m.menu.hidden && !m.wrap.contains(event.target)) closeMenu(m);
+    });
+  });
+
+  /* ------------------------------------------------------------------ theme */
+
+  var THEME_KEY = "maidware-theme";
+  var themeM = addMenu("theme-btn", "theme-menu");
+
+  /* the menu is the list of themes, so there is no second list to keep in
+     sync here. (theme-boot.js still needs its own: it runs before the DOM.) */
+  var THEMES = themeM ? rowsOf(themeM).map(function (row) {
+    return row.getAttribute("data-theme");
+  }) : [];
+
+  function applyTheme(theme, persist) {
+    if (THEMES.indexOf(theme) === -1) return;
+    root.setAttribute("data-theme", theme);
+    if (themeM) {
+      rowsOf(themeM).forEach(function (row) {
+        row.setAttribute("aria-checked", row.getAttribute("data-theme") === theme ? "true" : "false");
+      });
+    }
+    /* only a real choice is stored, so a first visit doesn't pin the default
+       and a later change of default still reaches people who never picked. */
+    if (persist) save(THEME_KEY, theme);
+  }
+
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) { /* private mode */ }
+  /* a name we no longer ship is not a choice - fall back to the page's own */
+  if (savedTheme && THEMES.indexOf(savedTheme) === -1) savedTheme = null;
+  applyTheme(savedTheme || root.getAttribute("data-theme") || "maidware", false);
+
+  if (themeM) {
+    themeM.menu.addEventListener("click", function (event) {
+      var option = event.target.closest ? event.target.closest(".theme-option") : null;
+      if (!option) return;
+      applyTheme(option.getAttribute("data-theme"), true);
+      say(themeM.btn.textContent.trim() + ": " + option.textContent.trim());
+      closeMenu(themeM, true);
+    });
+  }
+
+  /* ---------------------------------------------------------- accessibility
+     four settings, one table. theme-boot.js reads the same storage keys
+     before first paint, so keep the keys and attributes in step with it. */
+
+  var ACCESS = {
+    text:  { attr: "data-a11y-text",  key: "maidware-text",  radio: true },
+    font:  { attr: "data-a11y-font",  key: "maidware-font" },
+    space: { attr: "data-a11y-space", key: "maidware-space" },
+    links: { attr: "data-a11y-links", key: "maidware-links" }
+  };
+
+  function accessValue(type) {
+    return root.getAttribute(ACCESS[type].attr) || (ACCESS[type].radio ? "normal" : "");
+  }
+
+  /* the head script applied the saved settings to <html> before first paint;
+     copy them onto the rows so the ticks are true the first time the menu
+     opens, not only after it has been used. */
+  function syncAccess(m) {
+    each(m.menu.querySelectorAll(".access-option"), function (row) {
+      var type = row.getAttribute("data-access");
+      if (!ACCESS[type]) return;
+      row.setAttribute("aria-checked", row.getAttribute("data-value") === accessValue(type) ? "true" : "false");
+    });
+  }
+
+  var accessM = addMenu("access-btn", "access-menu");
+
+  if (accessM) {
+    syncAccess(accessM);
+
+    accessM.menu.addEventListener("click", function (event) {
+      var option = event.target.closest ? event.target.closest(".access-option") : null;
+      if (!option) return;
+      var def = ACCESS[option.getAttribute("data-access")];
+      if (!def) return;
+
+      var value = option.getAttribute("data-value");
+      var next;
+      if (def.radio) next = value === "normal" ? "" : value;
+      else next = root.getAttribute(def.attr) === value ? "" : value;
+
+      if (next) root.setAttribute(def.attr, next);
+      else root.removeAttribute(def.attr);
+      save(def.key, next);
+      syncAccess(accessM);
+
+      var group = option.closest('[role="group"]');
+      var heading = group ? document.getElementById(group.getAttribute("aria-labelledby")) : null;
+      var prefix = heading ? heading.textContent.trim() + ": " : "";
+      var label = option.textContent.trim();
+      say(def.radio
+        ? prefix + label
+        : label + ": " + (option.getAttribute("aria-checked") === "true" ? "on" : "off"));
+
+      closeMenu(accessM, true);
+    });
+  }
+
+  /* ------------------------------------------------------------- mobile nav */
 
   var navToggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("site-nav");
 
+  function navOpen() { return !!(nav && nav.classList.contains("open")); }
+
+  function closeNav(refocus) {
+    if (!nav || !navToggle) return;
+    nav.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+    if (refocus) navToggle.focus();
+  }
+
   if (navToggle && nav) {
     navToggle.addEventListener("click", function () {
+      closeAll();
       var open = nav.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
     nav.addEventListener("click", function (event) {
-      if (event.target.tagName === "A") {
-        nav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
+      if (event.target.tagName === "A") closeNav(false);
     });
   }
 
@@ -229,9 +270,7 @@
     header.addEventListener("focusin", revealHeader);
     window.addEventListener("scroll", function () {
       var y = window.scrollY;
-      var menuOpen = (themeMenu && !themeMenu.hidden) ||
-                     (accessMenu && !accessMenu.hidden) ||
-                     (nav && nav.classList.contains("open"));
+      var menuOpen = navOpen() || menus.some(function (m) { return !m.menu.hidden; });
       if (y < lastY || y < 90 || menuOpen) revealHeader();
       else if (y > lastY && y > 140) header.classList.add("tucked");
       lastY = y;
@@ -240,19 +279,33 @@
 
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
-    if (accessMenu && !accessMenu.hidden) { closeAccessMenu(); if (accessBtn) accessBtn.focus(); }
-    if (themeMenu && !themeMenu.hidden) { closeThemeMenu(); themeBtn.focus(); }
-    if (nav && nav.classList.contains("open")) {
-      nav.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.focus();
-    }
+    menus.forEach(function (m) { closeMenu(m, true); });
+    if (navOpen()) closeNav(true);
   });
 
-  /* copy buttons */
+  /* ------------------------------------------------------------ copy buttons
+     the homepage has its own .code boxes with a button already in the markup.
+     every plain code block (all of the install commands on the guides page)
+     gets the same button here, so no page has to carry it by hand. */
 
   var COPY_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
   var CHECK_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+
+  function addCopyButtons() {
+    each(document.querySelectorAll("pre.code-block"), function (pre) {
+      if (pre.parentNode.classList.contains("code-wrap")) return;
+      var wrap = document.createElement("div");
+      wrap.className = "code-wrap";
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "copy-btn";
+      button.setAttribute("aria-label", "Copy code");
+      button.innerHTML = COPY_ICON;
+      wrap.appendChild(button);
+    });
+  }
 
   function flashCopied(button) {
     button.classList.add("copied");
@@ -287,26 +340,30 @@
     }
   }
 
-  Array.prototype.forEach.call(document.querySelectorAll(".copy-btn"), function (button) {
+  addCopyButtons();
+
+  each(document.querySelectorAll(".copy-btn"), function (button) {
     button.addEventListener("click", function () {
-      var holder = button.parentNode.querySelector(".code-text");
-      if (!holder) return;
-      copyText(holder.textContent.replace(/^\$\s*/, "").trim(), button);
+      var scope = button.parentNode;
+      var source = scope.querySelector(".code-text") || scope.querySelector("pre");
+      if (!source) return;
+      copyText(source.textContent.replace(/^\$\s*/, "").trim(), button);
     });
   });
 
-  /* mark the current toc entry while scrolling the guides page */
+  /* ------------------------------------------------------------------- toc
+     mark the current entry while scrolling the guides page */
 
   var tocLinks = document.querySelectorAll(".toc a[href^='#']");
 
   if (tocLinks.length && "IntersectionObserver" in window) {
     var linkFor = {};
-    Array.prototype.forEach.call(tocLinks, function (link) {
+    each(tocLinks, function (link) {
       linkFor[link.getAttribute("href").slice(1)] = link;
     });
 
     var clearHere = function () {
-      Array.prototype.forEach.call(tocLinks, function (l) { l.classList.remove("here"); });
+      each(tocLinks, function (l) { l.classList.remove("here"); });
     };
 
     var observer = new IntersectionObserver(
