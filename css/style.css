@@ -741,6 +741,9 @@ p { margin: 0 0 16px; }
 .copy-btn:hover { opacity: 1; background: rgba(255, 255, 255, 0.08); }
 .copy-btn.copied { color: var(--prompt); border-color: var(--prompt); }
 
+.code-wrap { position: relative; margin: 0 0 18px; }
+.code-wrap pre.code-block { margin: 0; }
+
 pre.code-block {
   background: var(--code-bg);
   color: var(--code-text);

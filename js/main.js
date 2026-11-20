@@ -118,7 +118,10 @@
     /* tabbing out of an open menu closes it instead of leaving it hanging */
     m.wrap.addEventListener("focusout", function (event) {
       var next = event.relatedTarget;
-      if (next && !m.wrap.contains(next)) closeMenu(m);
+      if (m.wrap.contains(next)) return;
+      setTimeout(function () {
+        if (!m.wrap.contains(document.activeElement)) closeMenu(m);
+      }, 0);
     });
 
     return m;
@@ -298,7 +301,7 @@
       var button = document.createElement("button");
       button.type = "button";
       button.className = "copy-btn";
-      button.setAttribute("aria-label", "copy");
+      button.setAttribute("aria-label", "Copy code");
       button.innerHTML = COPY_ICON;
       wrap.appendChild(button);
     });
